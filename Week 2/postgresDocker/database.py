@@ -20,6 +20,7 @@ try:
     print("DB engine created successfully")
 except:
     print("Failed to create DB engine")
+    raise
 
 
 
