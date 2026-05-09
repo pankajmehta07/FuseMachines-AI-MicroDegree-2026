@@ -2,7 +2,8 @@ from fastapi import FastAPI, Depends
 from database import get_db
 from sqlalchemy.orm import Session
 from database import Base, engine
-from router import router
+import router
+import counts_router
 from logger import get_logger
 
 logger = get_logger(__name__)
@@ -17,7 +18,8 @@ app = FastAPI(title="Classicmodels API",
 
 logger.info("FastAPI application started")
 
-app.include_router(router)
+app.include_router(counts_router.router)
+app.include_router(router.router)
 
 @app.get("/")
 def home(db: Session = Depends(get_db)):

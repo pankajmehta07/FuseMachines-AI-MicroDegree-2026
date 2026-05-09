@@ -88,4 +88,14 @@ class customerUpdate(BaseModel):
     salesRepEmployeeNumber: Optional[int] = None
     creditLimit: Optional[Decimal] = None
 
+class overallCountOut(BaseModel):
+    customers: int
+    orders: int
+    products: int
+    employees: int
+    offices: int
+    payments: int
+    orderdetails: int
+    productlines: int
+
 logger.info("Schemas Loaded successfully")

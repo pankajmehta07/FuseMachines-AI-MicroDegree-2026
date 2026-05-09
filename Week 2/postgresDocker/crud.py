@@ -81,3 +81,51 @@ def get_customer_payments(db:Session, customer_id: int):
 
     logger.info(f"Found {len(payments)} payments for customer ID {customer_id}")
     return payments
+
+def get_customers_count(db: Session):
+    logger.info(f"Counting customers")
+    count = db.query(models.Customer).count()
+    logger.info(f"Customers Count = {count}")
+    return count
+
+def get_orders_count(db: Session):
+    logger.info(f"Counting orders")
+    count = db.query(models.Order).count()
+    logger.info(f"Orders Count = {count}")
+    return count
+
+def get_products_count(db: Session):
+    logger.info(f"Counting products")
+    count = db.query(models.Product).count()
+    logger.info(f"Products Count = {count}")
+    return count
+
+def get_employees_count(db: Session):
+    logger.info(f"Counting employees")
+    count = db.query(models.Employee).count()
+    logger.info(f"Employees Count = {count}")
+    return count
+
+def get_offices_count(db: Session):
+    logger.info(f"Counting offices")
+    count = db.query(models.Office).count()
+    logger.info(f"Offices Count = {count}")
+    return count
+
+def get_payments_count(db: Session):
+    logger.info(f"Counting payments")
+    count = db.query(models.Payment).count()
+    logger.info(f"Payments Count = {count}")
+    return count
+
+def get_orderdetails_count(db: Session):
+    logger.info(f"Counting order details")
+    count = db.query(models.OrderDetail).count()
+    logger.info(f"Order Details Count = {count}")
+    return count
+
+def get_productlines_count(db: Session):
+    logger.info(f"Counting product lines")
+    count = db.query(models.ProductLine).count()
+    logger.info(f"Product Line Count = {count}")
+    return count
