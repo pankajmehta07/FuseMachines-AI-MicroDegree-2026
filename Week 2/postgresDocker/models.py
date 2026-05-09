@@ -1,6 +1,9 @@
 from sqlalchemy import Integer, Column, Date, String, Text, ForeignKey, SmallInteger, LargeBinary, Numeric
 from sqlalchemy.orm import relationship
 from database import Base
+from logger import get_logger
+
+logger = get_logger(__name__)
 
 
 class ProductLine(Base):
@@ -13,7 +16,7 @@ class ProductLine(Base):
 
     products = relationship("Product", back_populates="product_line")
 
-print("ProductLine model loaded")
+logger.info("ProductLine model loaded")
 
 
 class Product(Base):
@@ -32,7 +35,7 @@ class Product(Base):
     product_line = relationship("ProductLine", back_populates="products")  # fixed class name
     order_details = relationship("OrderDetail", back_populates="product")  # fixed class name
 
-print("Product model loaded")
+logger.info("Product model loaded")
 
 
 class Office(Base):
@@ -50,7 +53,7 @@ class Office(Base):
 
     employees = relationship("Employee", back_populates="office")
 
-print("Office model loaded")
+logger.info("Office model loaded")
 
 
 class Employee(Base):
@@ -67,7 +70,7 @@ class Employee(Base):
 
     office = relationship("Office", back_populates="employees")
 
-print("Employee model loaded")
+logger.info("Employee model loaded")
 
 
 class Customer(Base):
@@ -90,7 +93,7 @@ class Customer(Base):
     orders = relationship("Order", back_populates="customer")
     payments = relationship("Payment", back_populates="customer")
 
-print("Customer model loaded")
+logger.info("Customer model loaded")
 
 
 class Payment(Base):
@@ -103,7 +106,7 @@ class Payment(Base):
 
     customer = relationship("Customer", back_populates="payments")
 
-print("Payment model loaded")
+logger.info("Payment model loaded")
 
 
 class Order(Base):
@@ -120,7 +123,7 @@ class Order(Base):
     customer = relationship("Customer", back_populates="orders")  # fixed class name
     order_details = relationship("OrderDetail", back_populates="order")  # fixed class name
 
-print("Order model loaded")
+logger.info("Order model loaded")
 
 
 class OrderDetail(Base):
@@ -135,4 +138,4 @@ class OrderDetail(Base):
     order = relationship("Order", back_populates="order_details")      # fixed class name
     product = relationship("Product", back_populates="order_details")  # fixed class name
 
-print("OrderDetail model loaded")
+logger.info("OrderDetail model loaded")

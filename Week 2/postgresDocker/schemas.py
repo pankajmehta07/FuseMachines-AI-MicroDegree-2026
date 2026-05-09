@@ -2,6 +2,9 @@ from pydantic import BaseModel
 from typing import Optional, List
 from datetime import date
 from decimal import Decimal
+from logger import get_logger
+
+logger = get_logger(__name__)
 
 class orderDetails(BaseModel):
     orderNumber: int
@@ -85,4 +88,4 @@ class customerUpdate(BaseModel):
     salesRepEmployeeNumber: Optional[int] = None
     creditLimit: Optional[Decimal] = None
 
-print("Schemas Loaded successfully")
+logger.info("Schemas Loaded successfully")
