@@ -64,8 +64,8 @@ class customerOut(BaseModel):
     country: str
     salesRepEmployeeNumber: Optional[int] = None
     creditLimit: Optional[Decimal] = None
-    # orders: List(orderOut) = []
-    # payments: List(paymentOut) = []
+    orders: List[orderOut] = []
+    payments: List[paymentOut] = []
 
 
     class Config:
