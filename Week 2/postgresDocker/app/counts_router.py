@@ -2,9 +2,9 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from logger import get_logger
 from database import get_db
-import crud
+import crud as crud
 import asyncio
-import schemas
+import schemas as schemas
 import time
 
 logger = get_logger(__name__)

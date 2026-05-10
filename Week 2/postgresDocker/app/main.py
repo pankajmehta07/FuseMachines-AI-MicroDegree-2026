@@ -2,8 +2,8 @@ from fastapi import FastAPI, Depends
 from database import get_db
 from sqlalchemy.orm import Session
 from database import Base, engine
-import router
-import counts_router
+import router as router
+import counts_router as counts_router
 from logger import get_logger
 
 logger = get_logger(__name__)

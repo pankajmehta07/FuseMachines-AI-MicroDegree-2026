@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-import models
-import schemas
+import models as models
+import schemas as schemas
 from logger import get_logger
 
 logger = get_logger(__name__)

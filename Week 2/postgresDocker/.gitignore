@@ -1,4 +1,9 @@
-__pycache__/*
+**/__pycache__/
+__pycache__/
 
+# Ignore all .pyc compiled files
+**/*.pyc
+*.pyc
 
+# Ignore logs
 *.log
