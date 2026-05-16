@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:latest
-    container_name: postgres_db
+    container_name: postgresdb
     env_file:
       - .env
     environment:
@@ -21,7 +21,7 @@ services:
 
   api:
     build: .
-    container_name: fastapi_app
+    container_name: fastapiApp
     env_file:
       - .env
     ports:
