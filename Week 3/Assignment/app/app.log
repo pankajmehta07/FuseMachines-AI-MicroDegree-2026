@@ -1,0 +1,6 @@
+2026-05-16 17:07:13,793 - sql_executor - INFO - Attempt 1 | SQL : SELECT distinct city from customers
+2026-05-16 17:07:13,811 - sql_executor - INFO - Success | Rows: 96 | Time: 0.02 s
+2026-05-16 17:07:44,842 - sql_executor - INFO - Attempt 1 | SQL : SELECT count(*) from customers
+2026-05-16 17:07:44,878 - sql_executor - INFO - Success | Rows: 1 | Time: 0.04 s
+2026-05-16 17:08:03,832 - sql_executor - INFO - Attempt 1 | SQL : SELECT count(*) from customers
+2026-05-16 17:08:03,844 - sql_executor - INFO - Success | Rows: 1 | Time: 0.01 s
