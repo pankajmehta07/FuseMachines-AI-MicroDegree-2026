@@ -4,3 +4,4 @@ venv/
 
 # Files
 *.env
+app.log
