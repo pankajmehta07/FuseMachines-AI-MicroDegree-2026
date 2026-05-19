@@ -14,6 +14,7 @@ client = OpenAI(
     base_url="https://api.groq.com/openai/v1"
 )
 
+model = "llama-3.1-8b-instant"
 
 def clean_sql(sql):
     sql = sql.strip()
@@ -32,9 +33,7 @@ def decompose_question(question):
     logger.info(f"Decomposing question: '{question}'")
 
     prompt = f"""
-    You are a PostgreSQL SQL expert.
-    IMPORTANT: All mixed-case column names must use double quotes.
-    Example: "customerNumber", "orderDate", "productName"
+    You are a SQL expert working with the classicmodels PostgreSQL database.
     
     Database schema:
     {SCHEMA}
@@ -70,12 +69,9 @@ def generateSQL(question, decomposition):
     logger.info(f"Generating SQL for question: '{question}'")
 
     prompt = f"""
-    You are a PostgreSQL SQL expert.
+    You are a SQL expert working with the classicmodels PostgreSQL database.
     IMPORTANT: All mixed-case column names must use double quotes.
     Example: "customerNumber", "orderDate", "productName"
-    
-    Database schema:
-    {SCHEMA}
     
     Question: "{question}"
     
@@ -92,7 +88,7 @@ def generateSQL(question, decomposition):
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0
         )
@@ -113,13 +109,10 @@ def fix_sql(bad_sql, error_msg, question):
     logger.warning(f"Error received: {error_msg}")
 
     prompt = f"""
-    You are a PostgreSQL SQL expert.
+    You are a SQL expert working with the classicmodels PostgreSQL database.
     IMPORTANT: All mixed-case column names must use double quotes.
     Example: "customerNumber", "orderDate", "productName"
-    
-    Database schema:
-    {SCHEMA}
-    
+        
     This SQL query failed with an error. Fix it.
     
     Original question: "{question}"
@@ -135,7 +128,7 @@ def fix_sql(bad_sql, error_msg, question):
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0
         )
@@ -148,3 +141,69 @@ def fix_sql(bad_sql, error_msg, question):
     except Exception as e:
         logger.error(f"SQL fix failed: {str(e)}")
         raise
+
+def generate_summary(question, sql, result, columns):
+    logger.info(f"Generating natural language summary for question: '{question}'")
+
+    # format result nicely for the LLM to read
+    if not result:
+        result_text = "No rows returned"
+    else:
+        # build a readable table string
+        header = " | ".join(columns)
+        rows = "\n".join([" | ".join(str(v) for v in row) for row in result[:10]])
+        result_text = f"{header}\n{rows}"
+
+    prompt = f"""
+        You are a helpful data analyst.
+
+        The user asked:
+        "{question}"
+
+        The SQL query used:
+        {sql}
+
+        The query returned this result:
+        {result_text}
+
+        Your task:
+        Write a clear, natural language response that directly answers the user's question based on the result.
+
+        Guidelines:
+        - Be specific and concise
+        - Do not mention SQL
+        - Do not say phrases like:
+        - "based on the query"
+        - "the result shows"
+        - "the query returned"
+        - Answer the question naturally, as if speaking to a business user
+        - If the result contains useful trends, comparisons, anomalies, percentages, or patterns, include brief insights
+        - If the query failed or no result was produced after multiple attempts:
+        - Clearly explain that the data could not be retrieved
+        - Mention possible reasons such as missing data, invalid filters, schema mismatch, or execution issues
+        - Suggest what the user can check or try next
+        - Still provide any partial observations or contextual insights if available
+        - Avoid sounding robotic or repetitive
+        - Keep the tone professional and informative
+
+        Examples:
+        - "Sales increased by 18% in March, with the highest growth coming from the electronics category."
+        - "No matching records were found for the selected date range. You may want to verify the filters or check whether data exists for that period."
+        - "The request could not be completed after multiple attempts due to inconsistent table mappings. Checking column names or simplifying the filters may help."
+
+        Now generate the response.
+    """
+
+    try:
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0
+        )
+        summary = response.choices[0].message.content.strip()
+        logger.info(f"Summary generated: {summary}")
+        return summary
+
+    except Exception as e:
+        logger.error(f"Summary generation failed: {str(e)}")
+        return "Could not generate summary."

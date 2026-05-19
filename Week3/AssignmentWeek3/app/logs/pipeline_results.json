@@ -1,0 +1,1804 @@
+[
+  {
+    "question": "List all products",
+    "sql": "SELECT \"productCode\", \"productName\", \"productLine\", \"productScale\", \"productVendor\", \"productDescription\", \"quantityInStock\", \"buyPrice\", \"MSRP\" \nFROM \"products\";",
+    "columns": [
+      "productCode",
+      "productName",
+      "productLine",
+      "productScale",
+      "productVendor",
+      "productDescription",
+      "quantityInStock",
+      "buyPrice",
+      "MSRP"
+    ],
+    "result": [
+      [
+        "S10_1678",
+        "1969 Harley Davidson Ultimate Chopper",
+        "Motorcycles",
+        "1:10",
+        "Min Lin Diecast",
+        "This replica features working kickstand, front suspension, gear-shift lever, footbrake lever, drive chain, wheels and steering. All parts are particularly delicate due to their precise scale and require special care and attention.",
+        7933,
+        "48.81",
+        "95.70"
+      ],
+      [
+        "S10_1949",
+        "1952 Alpine Renault 1300",
+        "Classic Cars",
+        "1:10",
+        "Classic Metal Creations",
+        "Turnable front wheels; steering function; detailed interior; detailed engine; opening hood; opening trunk; opening doors; and detailed chassis.",
+        7305,
+        "98.58",
+        "214.30"
+      ],
+      [
+        "S10_2016",
+        "1996 Moto Guzzi 1100i",
+        "Motorcycles",
+        "1:10",
+        "Highway 66 Mini Classics",
+        "Official Moto Guzzi logos and insignias, saddle bags located on side of motorcycle, detailed engine, working steering, working suspension, two leather seats, luggage rack, dual exhaust pipes, small saddle bag located on handle bars, two-tone paint with chrome accents, superior die-cast detail , rotating wheels , working kick stand, diecast metal with plastic parts and baked enamel finish.",
+        6625,
+        "68.99",
+        "118.94"
+      ],
+      [
+        "S10_4698",
+        "2003 Harley-Davidson Eagle Drag Bike",
+        "Motorcycles",
+        "1:10",
+        "Red Start Diecast",
+        "Model features, official Harley Davidson logos and insignias, detachable rear wheelie bar, heavy diecast metal with resin parts, authentic multi-color tampo-printed graphics, separate engine drive belts, free-turning front fork, rotating tires and rear racing slick, certificate of authenticity, detailed engine, display stand , precision diecast replica, baked enamel finish, 1:10 scale model, removable fender, seat and tank cover piece for displaying the superior detail of the v-twin engine",
+        5582,
+        "91.02",
+        "193.66"
+      ],
+      [
+        "S10_4757",
+        "1972 Alfa Romeo GTA",
+        "Classic Cars",
+        "1:10",
+        "Motor City Art Classics",
+        "Features include: Turnable front wheels; steering function; detailed interior; detailed engine; opening hood; opening trunk; opening doors; and detailed chassis.",
+        3252,
+        "85.68",
+        "136.00"
+      ]
+    ],
+    "total_rows": 110,
+    "latency_seconds": 0.05,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get all customers",
+    "sql": "SELECT c.\"customerNumber\", c.\"customerName\", c.\"contactLastName\", c.\"contactFirstName\", c.phone, c.\"addressLine1\", c.\"addressLine2\", c.city, c.state, c.\"postalCode\", c.country, c.\"salesRepEmployeeNumber\", c.\"creditLimit\" \nFROM customers c;",
+    "columns": [
+      "customerNumber",
+      "customerName",
+      "contactLastName",
+      "contactFirstName",
+      "phone",
+      "addressLine1",
+      "addressLine2",
+      "city",
+      "state",
+      "postalCode",
+      "country",
+      "salesRepEmployeeNumber",
+      "creditLimit"
+    ],
+    "result": [
+      [
+        103,
+        "Atelier graphique",
+        "Schmitt",
+        "Carine ",
+        "40.32.2555",
+        "54, rue Royale",
+        null,
+        "Nantes",
+        null,
+        "44000",
+        "France",
+        1370,
+        "21000.00"
+      ],
+      [
+        112,
+        "Signal Gift Stores",
+        "King",
+        "Jean",
+        "7025551838",
+        "8489 Strong St.",
+        null,
+        "Las Vegas",
+        "NV",
+        "83030",
+        "USA",
+        1166,
+        "71800.00"
+      ],
+      [
+        114,
+        "Australian Collectors, Co.",
+        "Ferguson",
+        "Peter",
+        "03 9520 4555",
+        "636 St Kilda Road",
+        "Level 3",
+        "Melbourne",
+        "Victoria",
+        "3004",
+        "Australia",
+        1611,
+        "117300.00"
+      ],
+      [
+        119,
+        "La Rochelle Gifts",
+        "Labrune",
+        "Janine ",
+        "40.67.8555",
+        "67, rue des Cinquante Otages",
+        null,
+        "Nantes",
+        null,
+        "44000",
+        "France",
+        1370,
+        "118200.00"
+      ],
+      [
+        121,
+        "Baane Mini Imports",
+        "Bergulfsen",
+        "Jonas ",
+        "07-98 9555",
+        "Erling Skakkes gate 78",
+        null,
+        "Stavern",
+        null,
+        "4110",
+        "Norway",
+        1504,
+        "81700.00"
+      ]
+    ],
+    "total_rows": 122,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Show all orders",
+    "sql": "SELECT *\nFROM \"orders\" AS o;",
+    "columns": [
+      "orderNumber",
+      "orderDate",
+      "requiredDate",
+      "shippedDate",
+      "status",
+      "comments",
+      "customerNumber"
+    ],
+    "result": [
+      [
+        10100,
+        "2003-01-06",
+        "2003-01-13",
+        "2003-01-10",
+        "Shipped",
+        null,
+        363
+      ],
+      [
+        10101,
+        "2003-01-09",
+        "2003-01-18",
+        "2003-01-11",
+        "Shipped",
+        "Check on availability.",
+        128
+      ],
+      [
+        10102,
+        "2003-01-10",
+        "2003-01-18",
+        "2003-01-14",
+        "Shipped",
+        null,
+        181
+      ],
+      [
+        10103,
+        "2003-01-29",
+        "2003-02-07",
+        "2003-02-02",
+        "Shipped",
+        null,
+        121
+      ],
+      [
+        10104,
+        "2003-01-31",
+        "2003-02-09",
+        "2003-02-01",
+        "Shipped",
+        null,
+        141
+      ]
+    ],
+    "total_rows": 326,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "List all employees",
+    "sql": "SELECT e.\"employeeNumber\", e.\"lastName\", e.\"firstName\", e.extension, e.email, e.\"officeCode\", e.\"reportsTo\", e.\"jobTitle\" \nFROM employees e;",
+    "columns": [
+      "employeeNumber",
+      "lastName",
+      "firstName",
+      "extension",
+      "email",
+      "officeCode",
+      "reportsTo",
+      "jobTitle"
+    ],
+    "result": [
+      [
+        1002,
+        "Murphy",
+        "Diane",
+        "x5800",
+        "dmurphy@classicmodelcars.com",
+        "1",
+        null,
+        "President"
+      ],
+      [
+        1056,
+        "Patterson",
+        "Mary",
+        "x4611",
+        "mpatterso@classicmodelcars.com",
+        "1",
+        1002,
+        "VP Sales"
+      ],
+      [
+        1076,
+        "Firrelli",
+        "Jeff",
+        "x9273",
+        "jfirrelli@classicmodelcars.com",
+        "1",
+        1002,
+        "VP Marketing"
+      ],
+      [
+        1088,
+        "Patterson",
+        "William",
+        "x4871",
+        "wpatterson@classicmodelcars.com",
+        "6",
+        1056,
+        "Sales Manager (APAC)"
+      ],
+      [
+        1102,
+        "Bondur",
+        "Gerard",
+        "x5408",
+        "gbondur@classicmodelcars.com",
+        "4",
+        1056,
+        "Sale Manager (EMEA)"
+      ]
+    ],
+    "total_rows": 23,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get all offices",
+    "sql": "SELECT *\nFROM \"offices\"",
+    "columns": [
+      "officeCode",
+      "city",
+      "phone",
+      "addressLine1",
+      "addressLine2",
+      "state",
+      "country",
+      "postalCode",
+      "territory"
+    ],
+    "result": [
+      [
+        "1",
+        "San Francisco",
+        "+1 650 219 4782",
+        "100 Market Street",
+        "Suite 300",
+        "CA",
+        "USA",
+        "94080",
+        "NA"
+      ],
+      [
+        "2",
+        "Boston",
+        "+1 215 837 0825",
+        "1550 Court Place",
+        "Suite 102",
+        "MA",
+        "USA",
+        "02107",
+        "NA"
+      ],
+      [
+        "3",
+        "NYC",
+        "+1 212 555 3000",
+        "523 East 53rd Street",
+        "apt. 5A",
+        "NY",
+        "USA",
+        "10022",
+        "NA"
+      ],
+      [
+        "4",
+        "Paris",
+        "+33 14 723 4404",
+        "43 Rue Jouffroy Dabbans",
+        null,
+        null,
+        "France",
+        "75017",
+        "EMEA"
+      ],
+      [
+        "5",
+        "Tokyo",
+        "+81 33 224 5000",
+        "4-1 Kioicho",
+        null,
+        "Chiyoda-Ku",
+        "Japan",
+        "102-8578",
+        "Japan"
+      ]
+    ],
+    "total_rows": 7,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Show all product lines",
+    "sql": "SELECT \"productLine\" FROM \"productlines\";",
+    "columns": [
+      "productLine"
+    ],
+    "result": [
+      [
+        "Classic Cars"
+      ],
+      [
+        "Motorcycles"
+      ],
+      [
+        "Planes"
+      ],
+      [
+        "Ships"
+      ],
+      [
+        "Trains"
+      ]
+    ],
+    "total_rows": 7,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "List all payments",
+    "sql": "SELECT \"customerNumber\", \"checkNumber\", \"paymentDate\", amount \nFROM \"payments\";",
+    "columns": [
+      "customerNumber",
+      "checkNumber",
+      "paymentDate",
+      "amount"
+    ],
+    "result": [
+      [
+        103,
+        "HQ336336",
+        "2004-10-19",
+        "6066.78"
+      ],
+      [
+        103,
+        "JM555205",
+        "2003-06-05",
+        "14571.44"
+      ],
+      [
+        103,
+        "OM314933",
+        "2004-12-18",
+        "1676.14"
+      ],
+      [
+        112,
+        "BO864823",
+        "2004-12-17",
+        "14191.12"
+      ],
+      [
+        112,
+        "HQ55022",
+        "2003-06-06",
+        "32641.98"
+      ]
+    ],
+    "total_rows": 273,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get product names and prices",
+    "sql": "SELECT \"productName\", \"MSRP\" FROM \"products\";",
+    "columns": [
+      "productName",
+      "MSRP"
+    ],
+    "result": [
+      [
+        "1969 Harley Davidson Ultimate Chopper",
+        "95.70"
+      ],
+      [
+        "1952 Alpine Renault 1300",
+        "214.30"
+      ],
+      [
+        "1996 Moto Guzzi 1100i",
+        "118.94"
+      ],
+      [
+        "2003 Harley-Davidson Eagle Drag Bike",
+        "193.66"
+      ],
+      [
+        "1972 Alfa Romeo GTA",
+        "136.00"
+      ]
+    ],
+    "total_rows": 110,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get customer names and cities",
+    "sql": "SELECT \"customerName\", city FROM customers",
+    "columns": [
+      "customerName",
+      "city"
+    ],
+    "result": [
+      [
+        "Atelier graphique",
+        "Nantes"
+      ],
+      [
+        "Signal Gift Stores",
+        "Las Vegas"
+      ],
+      [
+        "Australian Collectors, Co.",
+        "Melbourne"
+      ],
+      [
+        "La Rochelle Gifts",
+        "Nantes"
+      ],
+      [
+        "Baane Mini Imports",
+        "Stavern"
+      ]
+    ],
+    "total_rows": 122,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "List employee first and last names",
+    "sql": "SELECT e.\"firstName\", e.\"lastName\" FROM employees e",
+    "columns": [
+      "firstName",
+      "lastName"
+    ],
+    "result": [
+      [
+        "Diane",
+        "Murphy"
+      ],
+      [
+        "Mary",
+        "Patterson"
+      ],
+      [
+        "Jeff",
+        "Firrelli"
+      ],
+      [
+        "William",
+        "Patterson"
+      ],
+      [
+        "Gerard",
+        "Bondur"
+      ]
+    ],
+    "total_rows": 23,
+    "latency_seconds": 0.01,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get all order dates",
+    "sql": "SELECT \"orderDate\" FROM \"orders\";",
+    "columns": [
+      "orderDate"
+    ],
+    "result": [
+      [
+        "2003-01-06"
+      ],
+      [
+        "2003-01-09"
+      ],
+      [
+        "2003-01-10"
+      ],
+      [
+        "2003-01-29"
+      ],
+      [
+        "2003-01-31"
+      ]
+    ],
+    "total_rows": 326,
+    "latency_seconds": 0.01,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Show product vendor list",
+    "sql": "SELECT \"productVendor\" FROM \"products\";",
+    "columns": [
+      "productVendor"
+    ],
+    "result": [
+      [
+        "Min Lin Diecast"
+      ],
+      [
+        "Classic Metal Creations"
+      ],
+      [
+        "Highway 66 Mini Classics"
+      ],
+      [
+        "Red Start Diecast"
+      ],
+      [
+        "Motor City Art Classics"
+      ]
+    ],
+    "total_rows": 110,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get all product codes",
+    "sql": "SELECT DISTINCT \"productCode\" FROM \"products\";",
+    "columns": [
+      "productCode"
+    ],
+    "result": [
+      [
+        "S700_2466"
+      ],
+      [
+        "S32_2206"
+      ],
+      [
+        "S700_3505"
+      ],
+      [
+        "S700_2824"
+      ],
+      [
+        "S18_2949"
+      ]
+    ],
+    "total_rows": 110,
+    "latency_seconds": 0.04,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "List all countries from offices",
+    "sql": "SELECT \"country\" FROM \"offices\"",
+    "columns": [
+      "country"
+    ],
+    "result": [
+      [
+        "USA"
+      ],
+      [
+        "USA"
+      ],
+      [
+        "USA"
+      ],
+      [
+        "France"
+      ],
+      [
+        "Japan"
+      ]
+    ],
+    "total_rows": 7,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Show all order statuses",
+    "sql": "SELECT DISTINCT \"status\" FROM \"orders\";",
+    "columns": [
+      "status"
+    ],
+    "result": [
+      [
+        "Shipped"
+      ],
+      [
+        "In Process"
+      ],
+      [
+        "Disputed"
+      ],
+      [
+        "Cancelled"
+      ],
+      [
+        "Resolved"
+      ]
+    ],
+    "total_rows": 6,
+    "latency_seconds": 0.01,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get all payment amounts",
+    "sql": "SELECT \"amount\" FROM \"payments\";",
+    "columns": [
+      "amount"
+    ],
+    "result": [
+      [
+        "6066.78"
+      ],
+      [
+        "14571.44"
+      ],
+      [
+        "1676.14"
+      ],
+      [
+        "14191.12"
+      ],
+      [
+        "32641.98"
+      ]
+    ],
+    "total_rows": 273,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "List all job titles",
+    "sql": "SELECT DISTINCT \"jobTitle\" FROM \"employees\" AS e;",
+    "columns": [
+      "jobTitle"
+    ],
+    "result": [
+      [
+        "VP Sales"
+      ],
+      [
+        "Sales Manager (APAC)"
+      ],
+      [
+        "Sale Manager (EMEA)"
+      ],
+      [
+        "VP Marketing"
+      ],
+      [
+        "Sales Rep"
+      ]
+    ],
+    "total_rows": 7,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get customer phone numbers",
+    "sql": "SELECT \"phone\" FROM \"customers\";",
+    "columns": [
+      "phone"
+    ],
+    "result": [
+      [
+        "40.32.2555"
+      ],
+      [
+        "7025551838"
+      ],
+      [
+        "03 9520 4555"
+      ],
+      [
+        "40.67.8555"
+      ],
+      [
+        "07-98 9555"
+      ]
+    ],
+    "total_rows": 122,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Show product MSRP values",
+    "sql": "SELECT \"MSRP\" FROM \"products\";",
+    "columns": [
+      "MSRP"
+    ],
+    "result": [
+      [
+        "95.70"
+      ],
+      [
+        "214.30"
+      ],
+      [
+        "118.94"
+      ],
+      [
+        "193.66"
+      ],
+      [
+        "136.00"
+      ]
+    ],
+    "total_rows": 110,
+    "latency_seconds": 0.01,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "List order numbers",
+    "sql": "SELECT \"orderNumber\" FROM \"orders\";",
+    "columns": [
+      "orderNumber"
+    ],
+    "result": [
+      [
+        10100
+      ],
+      [
+        10101
+      ],
+      [
+        10102
+      ],
+      [
+        10103
+      ],
+      [
+        10104
+      ]
+    ],
+    "total_rows": 326,
+    "latency_seconds": 0.01,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get orders with customer names",
+    "sql": "SELECT \n    o.\"orderNumber\", \n    o.\"orderDate\", \n    c.\"customerName\"\nFROM \n    \"orders\" o\nJOIN \n    \"customers\" c ON o.\"customerNumber\" = c.\"customerNumber\";",
+    "columns": [
+      "orderNumber",
+      "orderDate",
+      "customerName"
+    ],
+    "result": [
+      [
+        10100,
+        "2003-01-06",
+        "Online Diecast Creations Co."
+      ],
+      [
+        10101,
+        "2003-01-09",
+        "Blauer See Auto, Co."
+      ],
+      [
+        10102,
+        "2003-01-10",
+        "Vitachrome Inc."
+      ],
+      [
+        10103,
+        "2003-01-29",
+        "Baane Mini Imports"
+      ],
+      [
+        10104,
+        "2003-01-31",
+        "Euro+ Shopping Channel"
+      ]
+    ],
+    "total_rows": 326,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get employees with office city",
+    "sql": "SELECT \n    e.\"firstName\", \n    e.\"lastName\", \n    o.city\nFROM \n    employees e\nJOIN \n    offices o ON e.\"officeCode\" = o.\"officeCode\";",
+    "columns": [
+      "firstName",
+      "lastName",
+      "city"
+    ],
+    "result": [
+      [
+        "Diane",
+        "Murphy",
+        "San Francisco"
+      ],
+      [
+        "Mary",
+        "Patterson",
+        "San Francisco"
+      ],
+      [
+        "Jeff",
+        "Firrelli",
+        "San Francisco"
+      ],
+      [
+        "William",
+        "Patterson",
+        "Sydney"
+      ],
+      [
+        "Gerard",
+        "Bondur",
+        "Paris"
+      ]
+    ],
+    "total_rows": 23,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get payments with customer names",
+    "sql": "SELECT \n    p.\"customerNumber\", \n    p.\"checkNumber\", \n    p.\"paymentDate\", \n    p.amount, \n    c.\"customerName\"\nFROM \n    payments p\nJOIN \n    customers c ON p.\"customerNumber\" = c.\"customerNumber\";",
+    "columns": [
+      "customerNumber",
+      "checkNumber",
+      "paymentDate",
+      "amount",
+      "customerName"
+    ],
+    "result": [
+      [
+        103,
+        "HQ336336",
+        "2004-10-19",
+        "6066.78",
+        "Atelier graphique"
+      ],
+      [
+        103,
+        "JM555205",
+        "2003-06-05",
+        "14571.44",
+        "Atelier graphique"
+      ],
+      [
+        103,
+        "OM314933",
+        "2004-12-18",
+        "1676.14",
+        "Atelier graphique"
+      ],
+      [
+        112,
+        "BO864823",
+        "2004-12-17",
+        "14191.12",
+        "Signal Gift Stores"
+      ],
+      [
+        112,
+        "HQ55022",
+        "2003-06-06",
+        "32641.98",
+        "Signal Gift Stores"
+      ]
+    ],
+    "total_rows": 273,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get order details with product names",
+    "sql": "SELECT \n    od.\"orderNumber\", \n    od.\"productCode\", \n    od.\"quantityOrdered\", \n    od.\"priceEach\", \n    p.\"productName\"\nFROM \n    orderdetails od\nJOIN \n    orders o ON od.\"orderNumber\" = o.\"orderNumber\"\nJOIN \n    products p ON od.\"productCode\" = p.\"productCode\";",
+    "columns": [
+      "orderNumber",
+      "productCode",
+      "quantityOrdered",
+      "priceEach",
+      "productName"
+    ],
+    "result": [
+      [
+        10100,
+        "S18_1749",
+        30,
+        "136.00",
+        "1917 Grand Touring Sedan"
+      ],
+      [
+        10100,
+        "S18_2248",
+        50,
+        "55.09",
+        "1911 Ford Town Car"
+      ],
+      [
+        10100,
+        "S18_4409",
+        22,
+        "75.46",
+        "1932 Alfa Romeo 8C2300 Spider Sport"
+      ],
+      [
+        10100,
+        "S24_3969",
+        49,
+        "35.29",
+        "1936 Mercedes Benz 500k Roadster"
+      ],
+      [
+        10101,
+        "S18_2325",
+        25,
+        "108.06",
+        "1932 Model A Ford J-Coupe"
+      ]
+    ],
+    "total_rows": 2996,
+    "latency_seconds": 0.03,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get products with product line description",
+    "sql": "SELECT \n    p.\"productCode\", \n    p.\"productName\", \n    pl.\"textDescription\"\nFROM \n    products p\nJOIN \n    productlines pl ON p.\"productLine\" = pl.\"productLine\";",
+    "columns": [
+      "productCode",
+      "productName",
+      "textDescription"
+    ],
+    "result": [
+      [
+        "S10_1678",
+        "1969 Harley Davidson Ultimate Chopper",
+        "Our motorcycles are state of the art replicas of classic as well as contemporary motorcycle legends such as Harley Davidson, Ducati and Vespa. Models contain stunning details such as official logos, rotating wheels, working kickstand, front suspension, gear-shift lever, footbrake lever, and drive chain. Materials used include diecast and plastic. The models range in size from 1:10 to 1:50 scale and include numerous limited edition and several out-of-production vehicles. All models come fully assembled and ready for display in the home or office. Most include a certificate of authenticity."
+      ],
+      [
+        "S10_1949",
+        "1952 Alpine Renault 1300",
+        "Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office."
+      ],
+      [
+        "S10_2016",
+        "1996 Moto Guzzi 1100i",
+        "Our motorcycles are state of the art replicas of classic as well as contemporary motorcycle legends such as Harley Davidson, Ducati and Vespa. Models contain stunning details such as official logos, rotating wheels, working kickstand, front suspension, gear-shift lever, footbrake lever, and drive chain. Materials used include diecast and plastic. The models range in size from 1:10 to 1:50 scale and include numerous limited edition and several out-of-production vehicles. All models come fully assembled and ready for display in the home or office. Most include a certificate of authenticity."
+      ],
+      [
+        "S10_4698",
+        "2003 Harley-Davidson Eagle Drag Bike",
+        "Our motorcycles are state of the art replicas of classic as well as contemporary motorcycle legends such as Harley Davidson, Ducati and Vespa. Models contain stunning details such as official logos, rotating wheels, working kickstand, front suspension, gear-shift lever, footbrake lever, and drive chain. Materials used include diecast and plastic. The models range in size from 1:10 to 1:50 scale and include numerous limited edition and several out-of-production vehicles. All models come fully assembled and ready for display in the home or office. Most include a certificate of authenticity."
+      ],
+      [
+        "S10_4757",
+        "1972 Alfa Romeo GTA",
+        "Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office."
+      ]
+    ],
+    "total_rows": 110,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get customers with sales rep names",
+    "sql": "SELECT \n    c.\"customerName\",\n    e.\"firstName\" || ' ' || e.\"lastName\" AS \"salesRepName\"\nFROM \n    customers c\nJOIN \n    employees e ON c.\"salesRepEmployeeNumber\" = e.\"employeeNumber\";",
+    "columns": [
+      "customerName",
+      "salesRepName"
+    ],
+    "result": [
+      [
+        "Atelier graphique",
+        "Gerard Hernandez"
+      ],
+      [
+        "Signal Gift Stores",
+        "Leslie Thompson"
+      ],
+      [
+        "Australian Collectors, Co.",
+        "Andy Fixter"
+      ],
+      [
+        "La Rochelle Gifts",
+        "Gerard Hernandez"
+      ],
+      [
+        "Baane Mini Imports",
+        "Barry Jones"
+      ]
+    ],
+    "total_rows": 100,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get orders with customer city",
+    "sql": "SELECT \n    o.\"orderNumber\", \n    c.city\nFROM \n    orders o\nJOIN \n    customers c ON o.\"customerNumber\" = c.\"customerNumber\";",
+    "columns": [
+      "orderNumber",
+      "city"
+    ],
+    "result": [
+      [
+        10100,
+        "Nashua"
+      ],
+      [
+        10101,
+        "Frankfurt"
+      ],
+      [
+        10102,
+        "NYC"
+      ],
+      [
+        10103,
+        "Stavern"
+      ],
+      [
+        10104,
+        "Madrid"
+      ]
+    ],
+    "total_rows": 326,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get employees and their manager",
+    "sql": "SELECT \n    e1.\"employeeNumber\", \n    e1.\"lastName\", \n    e1.\"firstName\", \n    e2.\"lastName\" AS \"managerLastName\", \n    e2.\"firstName\" AS \"managerFirstName\"\nFROM \n    employees e1\nJOIN \n    employees e2 ON e1.\"reportsTo\" = e2.\"employeeNumber\";",
+    "columns": [
+      "employeeNumber",
+      "lastName",
+      "firstName",
+      "managerLastName",
+      "managerFirstName"
+    ],
+    "result": [
+      [
+        1056,
+        "Patterson",
+        "Mary",
+        "Murphy",
+        "Diane"
+      ],
+      [
+        1076,
+        "Firrelli",
+        "Jeff",
+        "Murphy",
+        "Diane"
+      ],
+      [
+        1088,
+        "Patterson",
+        "William",
+        "Patterson",
+        "Mary"
+      ],
+      [
+        1102,
+        "Bondur",
+        "Gerard",
+        "Patterson",
+        "Mary"
+      ],
+      [
+        1143,
+        "Bow",
+        "Anthony",
+        "Patterson",
+        "Mary"
+      ]
+    ],
+    "total_rows": 22,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get orderdetails with product vendor",
+    "sql": "SELECT od.\"orderNumber\", od.\"productCode\", od.\"quantityOrdered\", od.\"priceEach\", p.\"productVendor\"\nFROM orderdetails od\nJOIN products p ON od.\"productCode\" = p.\"productCode\";",
+    "columns": [
+      "orderNumber",
+      "productCode",
+      "quantityOrdered",
+      "priceEach",
+      "productVendor"
+    ],
+    "result": [
+      [
+        10100,
+        "S18_1749",
+        30,
+        "136.00",
+        "Welly Diecast Productions"
+      ],
+      [
+        10100,
+        "S18_2248",
+        50,
+        "55.09",
+        "Motor City Art Classics"
+      ],
+      [
+        10100,
+        "S18_4409",
+        22,
+        "75.46",
+        "Exoto Designs"
+      ],
+      [
+        10100,
+        "S24_3969",
+        49,
+        "35.29",
+        "Red Start Diecast"
+      ],
+      [
+        10101,
+        "S18_2325",
+        25,
+        "108.06",
+        "Autoart Studio Design"
+      ]
+    ],
+    "total_rows": 2996,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Get payments with customer country",
+    "sql": "SELECT \n    p.\"customerNumber\", \n    p.\"checkNumber\", \n    p.\"paymentDate\", \n    p.amount, \n    c.country\nFROM \n    payments p\nJOIN \n    customers c ON p.\"customerNumber\" = c.\"customerNumber\";",
+    "columns": [
+      "customerNumber",
+      "checkNumber",
+      "paymentDate",
+      "amount",
+      "country"
+    ],
+    "result": [
+      [
+        103,
+        "HQ336336",
+        "2004-10-19",
+        "6066.78",
+        "France"
+      ],
+      [
+        103,
+        "JM555205",
+        "2003-06-05",
+        "14571.44",
+        "France"
+      ],
+      [
+        103,
+        "OM314933",
+        "2004-12-18",
+        "1676.14",
+        "France"
+      ],
+      [
+        112,
+        "BO864823",
+        "2004-12-17",
+        "14191.12",
+        "USA"
+      ],
+      [
+        112,
+        "HQ55022",
+        "2003-06-06",
+        "32641.98",
+        "USA"
+      ]
+    ],
+    "total_rows": 273,
+    "latency_seconds": 0.01,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Count customers per country",
+    "sql": "SELECT c.\"country\", COUNT(c.\"customerNumber\") FROM \"customers\" c GROUP BY c.\"country\";",
+    "columns": [
+      "country",
+      "count"
+    ],
+    "result": [
+      [
+        "Switzerland",
+        3
+      ],
+      [
+        "New Zealand",
+        4
+      ],
+      [
+        "Italy",
+        4
+      ],
+      [
+        "Russia",
+        1
+      ],
+      [
+        "Sweden",
+        2
+      ]
+    ],
+    "total_rows": 28,
+    "latency_seconds": 0.04,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Total payments per customer",
+    "sql": "SELECT \n    c.\"customerName\", \n    SUM(p.amount) as \"totalPayments\"\nFROM \n    customers c\nJOIN \n    payments p ON c.\"customerNumber\" = p.\"customerNumber\"\nGROUP BY \n    c.\"customerName\";",
+    "columns": [
+      "customerName",
+      "totalPayments"
+    ],
+    "result": [
+      [
+        "Muscle Machine Inc",
+        "177913.95"
+      ],
+      [
+        "Super Scale Inc.",
+        "70378.65"
+      ],
+      [
+        "Microscale Inc.",
+        "29230.43"
+      ],
+      [
+        "Bavarian Collectables Imports, Co.",
+        "31310.09"
+      ],
+      [
+        "Oulu Toy Supplies, Inc.",
+        "95706.15"
+      ]
+    ],
+    "total_rows": 98,
+    "latency_seconds": 0.04,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Number of orders per status",
+    "sql": "SELECT \"orderNumber\", COUNT(*) \nFROM \"orders\" AS o \nGROUP BY \"orderNumber\";",
+    "columns": [
+      "orderNumber",
+      "count"
+    ],
+    "result": [
+      [
+        10343,
+        1
+      ],
+      [
+        10253,
+        1
+      ],
+      [
+        10425,
+        1
+      ],
+      [
+        10218,
+        1
+      ],
+      [
+        10276,
+        1
+      ]
+    ],
+    "total_rows": 326,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Products per product line",
+    "sql": "SELECT \n    pl.\"productLine\", \n    COUNT(p.\"productCode\") AS \"products_per_product_line\"\nFROM \n    products p\nJOIN \n    productlines pl ON p.\"productLine\" = pl.\"productLine\"\nGROUP BY \n    pl.\"productLine\";",
+    "columns": [
+      "productLine",
+      "products_per_product_line"
+    ],
+    "result": [
+      [
+        "Classic Cars",
+        38
+      ],
+      [
+        "Trains",
+        3
+      ],
+      [
+        "Motorcycles",
+        13
+      ],
+      [
+        "Ships",
+        9
+      ],
+      [
+        "Trucks and Buses",
+        11
+      ]
+    ],
+    "total_rows": 7,
+    "latency_seconds": 0.01,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Employees per office",
+    "sql": "SELECT \n    o.\"officeCode\", \n    o.city, \n    o.country, \n    COUNT(e.\"employeeNumber\") AS \"employees_per_office\"\nFROM \n    offices o\nJOIN \n    employees e ON o.\"officeCode\" = e.\"officeCode\"\nGROUP BY \n    o.\"officeCode\", \n    o.city, \n    o.country;",
+    "columns": [
+      "officeCode",
+      "city",
+      "country",
+      "employees_per_office"
+    ],
+    "result": [
+      [
+        "6",
+        "Sydney",
+        "Australia",
+        4
+      ],
+      [
+        "2",
+        "Boston",
+        "USA",
+        2
+      ],
+      [
+        "4",
+        "Paris",
+        "France",
+        5
+      ],
+      [
+        "7",
+        "London",
+        "UK",
+        2
+      ],
+      [
+        "5",
+        "Tokyo",
+        "Japan",
+        2
+      ]
+    ],
+    "total_rows": 7,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Total stock per product vendor",
+    "sql": "SELECT \"productVendor\", SUM(\"quantityInStock\") AS \"totalStock\"\nFROM \"products\"\nGROUP BY \"productVendor\";",
+    "columns": [
+      "productVendor",
+      "totalStock"
+    ],
+    "result": [
+      [
+        "Welly Diecast Productions",
+        45095
+      ],
+      [
+        "Motor City Art Classics",
+        43105
+      ],
+      [
+        "Classic Metal Creations",
+        45408
+      ],
+      [
+        "Studio M Art Models",
+        42253
+      ],
+      [
+        "Exoto Designs",
+        44166
+      ]
+    ],
+    "total_rows": 13,
+    "latency_seconds": 0.02,
+    "retries": 1,
+    "status": "success"
+  },
+  {
+    "question": "Average buy price per product line",
+    "sql": "SELECT \n    pl.\"productLine\", \n    AVG(p.\"buyPrice\") AS \"average_buy_price\"\nFROM \n    products p\nJOIN \n    productlines pl ON p.\"productLine\" = pl.\"productLine\"\nGROUP BY \n    pl.\"productLine\";",
+    "columns": [
+      "productLine",
+      "average_buy_price"
+    ],
+    "result": [
+      [
+        "Classic Cars",
+        "64.4463157894736842"
+      ],
+      [
+        "Trains",
+        "43.9233333333333333"
+      ],
+      [
+        "Motorcycles",
+        "50.6853846153846154"
+      ],
+      [
+        "Ships",
+        "47.0077777777777778"
+      ],
+      [
+        "Trucks and Buses",
+        "56.3290909090909091"
+      ]
+    ],
+    "total_rows": 7,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Orders per customer",
+    "sql": "SELECT c.\"customerName\", COUNT(o.\"orderNumber\") \nFROM customers c \nJOIN orders o ON c.\"customerNumber\" = o.\"customerNumber\" \nGROUP BY c.\"customerName\";",
+    "columns": [
+      "customerName",
+      "count"
+    ],
+    "result": [
+      [
+        "Muscle Machine Inc",
+        4
+      ],
+      [
+        "Super Scale Inc.",
+        2
+      ],
+      [
+        "Microscale Inc.",
+        2
+      ],
+      [
+        "Bavarian Collectables Imports, Co.",
+        1
+      ],
+      [
+        "Oulu Toy Supplies, Inc.",
+        3
+      ]
+    ],
+    "total_rows": 98,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Max MSRP per product line",
+    "sql": "SELECT \n    pl.\"productLine\", \n    MAX(p.\"MSRP\") AS \"Max MSRP\"\nFROM \n    products p\nJOIN \n    productlines pl ON p.\"productLine\" = pl.\"productLine\"\nGROUP BY \n    pl.\"productLine\";",
+    "columns": [
+      "productLine",
+      "Max MSRP"
+    ],
+    "result": [
+      [
+        "Classic Cars",
+        "214.30"
+      ],
+      [
+        "Trains",
+        "100.84"
+      ],
+      [
+        "Motorcycles",
+        "193.66"
+      ],
+      [
+        "Ships",
+        "122.89"
+      ],
+      [
+        "Trucks and Buses",
+        "136.67"
+      ]
+    ],
+    "total_rows": 7,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Min buy price per vendor",
+    "sql": "SELECT \"productVendor\", MIN(\"buyPrice\") \n    FROM \"products\" \n    GROUP BY \"productVendor\"",
+    "columns": [
+      "productVendor",
+      "min"
+    ],
+    "result": [
+      [
+        "Welly Diecast Productions",
+        "24.23"
+      ],
+      [
+        "Motor City Art Classics",
+        "22.57"
+      ],
+      [
+        "Classic Metal Creations",
+        "20.61"
+      ],
+      [
+        "Studio M Art Models",
+        "23.14"
+      ],
+      [
+        "Exoto Designs",
+        "43.26"
+      ]
+    ],
+    "total_rows": 13,
+    "latency_seconds": 0.01,
+    "retries": 1,
+    "status": "success"
+  },
+  {
+    "question": "Total number of customers",
+    "sql": "SELECT COUNT(*) FROM \"customers\";",
+    "columns": [
+      "count"
+    ],
+    "result": [
+      [
+        122
+      ]
+    ],
+    "total_rows": 1,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Total number of products",
+    "sql": "SELECT COUNT(*) FROM \"products\";",
+    "columns": [
+      "count"
+    ],
+    "result": [
+      [
+        110
+      ]
+    ],
+    "total_rows": 1,
+    "latency_seconds": 0.01,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Total revenue from payments",
+    "sql": "SELECT SUM(\"amount\") AS \"total_revenue\" FROM \"payments\";",
+    "columns": [
+      "total_revenue"
+    ],
+    "result": [
+      [
+        "8853839.23"
+      ]
+    ],
+    "total_rows": 1,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Average product price",
+    "sql": "SELECT AVG(\"MSRP\") AS \"Average Product Price\" FROM \"products\";",
+    "columns": [
+      "Average Product Price"
+    ],
+    "result": [
+      [
+        "100.4387272727272727"
+      ]
+    ],
+    "total_rows": 1,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Max payment amount",
+    "sql": "SELECT MAX(\"amount\") FROM \"payments\";",
+    "columns": [
+      "max"
+    ],
+    "result": [
+      [
+        "120166.58"
+      ]
+    ],
+    "total_rows": 1,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Min payment amount",
+    "sql": "SELECT MIN(\"amount\") FROM \"payments\";",
+    "columns": [
+      "min"
+    ],
+    "result": [
+      [
+        "615.45"
+      ]
+    ],
+    "total_rows": 1,
+    "latency_seconds": 0.01,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Count total orders",
+    "sql": "SELECT COUNT(*) AS \"totalOrders\" FROM \"orders\";",
+    "columns": [
+      "totalOrders"
+    ],
+    "result": [
+      [
+        326
+      ]
+    ],
+    "total_rows": 1,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Total quantity in stock",
+    "sql": "SELECT SUM(\"quantityInStock\") AS \"totalQuantityInStock\" FROM \"products\";",
+    "columns": [
+      "totalQuantityInStock"
+    ],
+    "result": [
+      [
+        555131
+      ]
+    ],
+    "total_rows": 1,
+    "latency_seconds": 0.01,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Average MSRP",
+    "sql": "SELECT AVG(\"MSRP\") AS \"Average MSRP\" FROM \"products\";",
+    "columns": [
+      "Average MSRP"
+    ],
+    "result": [
+      [
+        "100.4387272727272727"
+      ]
+    ],
+    "total_rows": 1,
+    "latency_seconds": 0.02,
+    "retries": 0,
+    "status": "success"
+  },
+  {
+    "question": "Number of employees",
+    "sql": "SELECT COUNT(\"employeeNumber\") AS \"Number of employees\" FROM \"employees\";",
+    "columns": [
+      "Number of employees"
+    ],
+    "result": [
+      [
+        23
+      ]
+    ],
+    "total_rows": 1,
+    "latency_seconds": 0.01,
+    "retries": 0,
+    "status": "success"
+  }
+]

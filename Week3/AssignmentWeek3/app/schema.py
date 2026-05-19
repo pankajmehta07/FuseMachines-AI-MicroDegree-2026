@@ -88,10 +88,4 @@ RELATIONSHIPS:
   - employees."officeCode"             → offices."officeCode"
   - employees."reportsTo"              → employees."employeeNumber"
   - payments."customerNumber"          → customers."customerNumber"
-
-EXAMPLE of correct query style:
-SELECT o."orderNumber", o."orderDate", c."customerName"
-FROM orders o
-JOIN customers c ON o."customerNumber" = c."customerNumber"
-WHERE c.country = 'Germany';
 """
