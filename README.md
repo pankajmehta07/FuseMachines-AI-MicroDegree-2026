@@ -218,22 +218,15 @@ Create a `.env` file inside `Week3/AssignmentWeek3/` with the following:
     cd Week3/AssignmentWeek3
     docker-compose up --build
 
+API → `http://localhost:8000`
+Swagger Docs → `http://localhost:8000/docs`
+
 **Step 2** — To run all 50 SQL questions sequentially from the CSV:
 
     cd Week3/AssignmentWeek3/app
     python main.py
 
 This reads every question from `sql/sql_questions_only.csv` line by line, sends each one through the full pipeline (generate → validate → execute), and saves all results to `logs/pipeline_results.json`.
-
-
-**Step 3** — To run fastapi endpoint for text2SQL agent:
-
-    python agent.py
-
-This reads every question from `http://localhost:8000/agent/sql`, sends it through the full pipeline (generate → validate → execute), and shows the result and summary. It also saves all logs to `logs/app.log`.
-
-API → `http://localhost:8000`
-Swagger Docs → `http://localhost:8000/docs`
 
 ---
 
