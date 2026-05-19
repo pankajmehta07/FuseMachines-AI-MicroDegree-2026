@@ -18,10 +18,10 @@ class QuestionRequest(BaseModel):
     question: str
 
 class AgentResponse(BaseModel):
-    # sql: str
-    # result: object
+    sql: str
+    result: object
     summary: str
-    # status: str
+    status: str
 
 
 @app.get("/")
@@ -117,10 +117,10 @@ def agent_sql(request: QuestionRequest):
     logger.info("=" * 60)
 
     return AgentResponse(
-        # sql=result["sql"],
-        # result=formatted_result,
-        # status="success",
-        summary=summary
+        sql=result["sql"],
+        result=formatted_result,
+        summary=summary,
+        status="success"
     )
 
 
