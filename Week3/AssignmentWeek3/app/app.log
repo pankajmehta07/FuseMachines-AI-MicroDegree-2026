@@ -1,0 +1,2643 @@
+2026-05-19 13:40:52,665 - __main__ - INFO - Loaded 50 questions from CSV
+2026-05-19 13:40:52,666 - __main__ - INFO - ============================================================
+2026-05-19 13:40:52,666 - __main__ - INFO - PIPELINE START | Question: 'List all products'
+2026-05-19 13:40:52,666 - __main__ - INFO - ============================================================
+2026-05-19 13:40:52,666 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:40:52,666 - sql_generator - INFO - Decomposing question: 'List all products'
+2026-05-19 13:40:55,290 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:40:55,303 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve a list of all products
+Tables: products
+Columns: "productCode", "productName", "productLine", "productScale", "productVendor", "productDescription", "quantityInStock", "buyPrice", "MSRP"
+Filters: None
+Joins: None
+2026-05-19 13:40:55,303 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:40:55,303 - sql_generator - INFO - Generating SQL for question: 'List all products'
+2026-05-19 13:40:55,614 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:40:55,615 - sql_generator - INFO - SQL cleaned | Result: SELECT "productCode", "productName", "productLine", "productScale", "productVendor", "productDescription", "quantityInStock", "buyPrice", "MSRP" 
+FROM "products";
+2026-05-19 13:40:55,615 - sql_generator - INFO - SQL generated successfully:
+SELECT "productCode", "productName", "productLine", "productScale", "productVendor", "productDescription", "quantityInStock", "buyPrice", "MSRP" 
+FROM "products";
+2026-05-19 13:40:55,616 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:40:55,616 - sql_validator - INFO - Validating SQL:
+SELECT "productCode", "productName", "productLine", "productScale", "productVendor", "productDescription", "quantityInStock", "buyPrice", "MSRP" 
+FROM "products";
+2026-05-19 13:40:55,616 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:40:55,616 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:40:55,616 - sql_executor - INFO - Starting execution | max_retries=1 | question='List all products'
+2026-05-19 13:40:55,616 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "productCode", "productName", "productLine", "productScale", "productVendor", "productDescription", "quantityInStock", "buyPrice", "MSRP" 
+FROM "products";
+2026-05-19 13:40:55,616 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:40:55,650 - database - INFO - Database connection established successfully
+2026-05-19 13:40:55,665 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 110 | Time: 0.05s
+2026-05-19 13:40:55,665 - sql_executor - INFO - Columns: ['productCode', 'productName', 'productLine', 'productScale', 'productVendor', 'productDescription', 'quantityInStock', 'buyPrice', 'MSRP']
+2026-05-19 13:40:55,666 - sql_executor - INFO - First row preview: ('S10_1678', '1969 Harley Davidson Ultimate Chopper', 'Motorcycles', '1:10', 'Min Lin Diecast', 'This replica features working kickstand, front suspension, gear-shift lever, footbrake lever, drive chain, wheels and steering. All parts are particularly delicate due to their precise scale and require special care and attention.', 7933, Decimal('48.81'), Decimal('95.70'))
+2026-05-19 13:40:55,666 - sql_executor - INFO - Database connection closed
+2026-05-19 13:40:55,666 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:40:55,666 - __main__ - INFO - PIPELINE SUCCESS | rows=110 | retries=0 | latency=0.05s
+2026-05-19 13:40:55,666 - __main__ - INFO - ============================================================
+2026-05-19 13:40:55,666 - __main__ - INFO - PIPELINE END
+2026-05-19 13:40:55,666 - __main__ - INFO - ============================================================
+2026-05-19 13:40:55,667 - __main__ - INFO - ============================================================
+2026-05-19 13:40:55,667 - __main__ - INFO - PIPELINE START | Question: 'Get all customers'
+2026-05-19 13:40:55,667 - __main__ - INFO - ============================================================
+2026-05-19 13:40:55,667 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:40:55,667 - sql_generator - INFO - Decomposing question: 'Get all customers'
+2026-05-19 13:40:56,856 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:40:56,857 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve all customer records
+Tables: customers
+Columns: c."customerNumber", c."customerName", c."contactLastName", c."contactFirstName", c.phone, c."addressLine1", c."addressLine2", c.city, c.state, c."postalCode", c.country, c."salesRepEmployeeNumber", c."creditLimit"
+Filters: None
+Joins: None
+2026-05-19 13:40:56,858 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:40:56,858 - sql_generator - INFO - Generating SQL for question: 'Get all customers'
+2026-05-19 13:40:57,722 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:40:57,724 - sql_generator - INFO - SQL cleaned | Result: SELECT c."customerNumber", c."customerName", c."contactLastName", c."contactFirstName", c.phone, c."addressLine1", c."addressLine2", c.city, c.state, c."postalCode", c.country, c."salesRepEmployeeNumber", c."creditLimit" 
+FROM customers c;
+2026-05-19 13:40:57,724 - sql_generator - INFO - SQL generated successfully:
+SELECT c."customerNumber", c."customerName", c."contactLastName", c."contactFirstName", c.phone, c."addressLine1", c."addressLine2", c.city, c.state, c."postalCode", c.country, c."salesRepEmployeeNumber", c."creditLimit" 
+FROM customers c;
+2026-05-19 13:40:57,724 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:40:57,724 - sql_validator - INFO - Validating SQL:
+SELECT c."customerNumber", c."customerName", c."contactLastName", c."contactFirstName", c.phone, c."addressLine1", c."addressLine2", c.city, c.state, c."postalCode", c.country, c."salesRepEmployeeNumber", c."creditLimit" 
+FROM customers c;
+2026-05-19 13:40:57,724 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:40:57,725 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:40:57,725 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get all customers'
+2026-05-19 13:40:57,725 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT c."customerNumber", c."customerName", c."contactLastName", c."contactFirstName", c.phone, c."addressLine1", c."addressLine2", c.city, c.state, c."postalCode", c.country, c."salesRepEmployeeNumber", c."creditLimit" 
+FROM customers c;
+2026-05-19 13:40:57,725 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:40:57,744 - database - INFO - Database connection established successfully
+2026-05-19 13:40:57,749 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 122 | Time: 0.02s
+2026-05-19 13:40:57,749 - sql_executor - INFO - Columns: ['customerNumber', 'customerName', 'contactLastName', 'contactFirstName', 'phone', 'addressLine1', 'addressLine2', 'city', 'state', 'postalCode', 'country', 'salesRepEmployeeNumber', 'creditLimit']
+2026-05-19 13:40:57,749 - sql_executor - INFO - First row preview: (103, 'Atelier graphique', 'Schmitt', 'Carine ', '40.32.2555', '54, rue Royale', None, 'Nantes', None, '44000', 'France', 1370, Decimal('21000.00'))
+2026-05-19 13:40:57,749 - sql_executor - INFO - Database connection closed
+2026-05-19 13:40:57,749 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:40:57,749 - __main__ - INFO - PIPELINE SUCCESS | rows=122 | retries=0 | latency=0.02s
+2026-05-19 13:40:57,749 - __main__ - INFO - ============================================================
+2026-05-19 13:40:57,750 - __main__ - INFO - PIPELINE END
+2026-05-19 13:40:57,750 - __main__ - INFO - ============================================================
+2026-05-19 13:40:57,750 - __main__ - INFO - ============================================================
+2026-05-19 13:40:57,750 - __main__ - INFO - PIPELINE START | Question: 'Show all orders'
+2026-05-19 13:40:57,750 - __main__ - INFO - ============================================================
+2026-05-19 13:40:57,750 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:40:57,751 - sql_generator - INFO - Decomposing question: 'Show all orders'
+2026-05-19 13:40:59,036 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:40:59,038 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve all orders from the database
+Tables: orders
+Columns: "orderNumber", "orderDate", "requiredDate", "shippedDate", status, comments, "customerNumber"
+Filters: None
+Joins: None
+2026-05-19 13:40:59,038 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:40:59,038 - sql_generator - INFO - Generating SQL for question: 'Show all orders'
+2026-05-19 13:40:59,395 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:40:59,396 - sql_generator - INFO - SQL cleaned | Result: SELECT *
+FROM "orders" AS o;
+2026-05-19 13:40:59,397 - sql_generator - INFO - SQL generated successfully:
+SELECT *
+FROM "orders" AS o;
+2026-05-19 13:40:59,397 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:40:59,397 - sql_validator - INFO - Validating SQL:
+SELECT *
+FROM "orders" AS o;
+2026-05-19 13:40:59,397 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:40:59,397 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:40:59,397 - sql_executor - INFO - Starting execution | max_retries=1 | question='Show all orders'
+2026-05-19 13:40:59,397 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT *
+FROM "orders" AS o;
+2026-05-19 13:40:59,397 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:40:59,410 - database - INFO - Database connection established successfully
+2026-05-19 13:40:59,415 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 326 | Time: 0.02s
+2026-05-19 13:40:59,415 - sql_executor - INFO - Columns: ['orderNumber', 'orderDate', 'requiredDate', 'shippedDate', 'status', 'comments', 'customerNumber']
+2026-05-19 13:40:59,415 - sql_executor - INFO - First row preview: (10100, datetime.date(2003, 1, 6), datetime.date(2003, 1, 13), datetime.date(2003, 1, 10), 'Shipped', None, 363)
+2026-05-19 13:40:59,416 - sql_executor - INFO - Database connection closed
+2026-05-19 13:40:59,416 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:40:59,416 - __main__ - INFO - PIPELINE SUCCESS | rows=326 | retries=0 | latency=0.02s
+2026-05-19 13:40:59,416 - __main__ - INFO - ============================================================
+2026-05-19 13:40:59,416 - __main__ - INFO - PIPELINE END
+2026-05-19 13:40:59,416 - __main__ - INFO - ============================================================
+2026-05-19 13:40:59,417 - __main__ - INFO - ============================================================
+2026-05-19 13:40:59,417 - __main__ - INFO - PIPELINE START | Question: 'List all employees'
+2026-05-19 13:40:59,417 - __main__ - INFO - ============================================================
+2026-05-19 13:40:59,417 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:40:59,417 - sql_generator - INFO - Decomposing question: 'List all employees'
+2026-05-19 13:41:00,583 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:00,584 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve a list of all employees in the database.
+Tables: employees
+Columns: "employeeNumber", "lastName", "firstName", extension, email, "officeCode", "reportsTo", "jobTitle"
+Filters: None
+Joins: None
+2026-05-19 13:41:00,584 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:00,585 - sql_generator - INFO - Generating SQL for question: 'List all employees'
+2026-05-19 13:41:00,844 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:00,846 - sql_generator - INFO - SQL cleaned | Result: SELECT e."employeeNumber", e."lastName", e."firstName", e.extension, e.email, e."officeCode", e."reportsTo", e."jobTitle" 
+FROM employees e;
+2026-05-19 13:41:00,846 - sql_generator - INFO - SQL generated successfully:
+SELECT e."employeeNumber", e."lastName", e."firstName", e.extension, e.email, e."officeCode", e."reportsTo", e."jobTitle" 
+FROM employees e;
+2026-05-19 13:41:00,846 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:00,846 - sql_validator - INFO - Validating SQL:
+SELECT e."employeeNumber", e."lastName", e."firstName", e.extension, e.email, e."officeCode", e."reportsTo", e."jobTitle" 
+FROM employees e;
+2026-05-19 13:41:00,846 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:00,846 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:00,846 - sql_executor - INFO - Starting execution | max_retries=1 | question='List all employees'
+2026-05-19 13:41:00,846 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT e."employeeNumber", e."lastName", e."firstName", e.extension, e.email, e."officeCode", e."reportsTo", e."jobTitle" 
+FROM employees e;
+2026-05-19 13:41:00,846 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:00,862 - database - INFO - Database connection established successfully
+2026-05-19 13:41:00,866 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 23 | Time: 0.02s
+2026-05-19 13:41:00,866 - sql_executor - INFO - Columns: ['employeeNumber', 'lastName', 'firstName', 'extension', 'email', 'officeCode', 'reportsTo', 'jobTitle']
+2026-05-19 13:41:00,867 - sql_executor - INFO - First row preview: (1002, 'Murphy', 'Diane', 'x5800', 'dmurphy@classicmodelcars.com', '1', None, 'President')
+2026-05-19 13:41:00,867 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:00,867 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:00,867 - __main__ - INFO - PIPELINE SUCCESS | rows=23 | retries=0 | latency=0.02s
+2026-05-19 13:41:00,867 - __main__ - INFO - ============================================================
+2026-05-19 13:41:00,867 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:00,867 - __main__ - INFO - ============================================================
+2026-05-19 13:41:00,867 - __main__ - INFO - ============================================================
+2026-05-19 13:41:00,867 - __main__ - INFO - PIPELINE START | Question: 'Get all offices'
+2026-05-19 13:41:00,868 - __main__ - INFO - ============================================================
+2026-05-19 13:41:00,868 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:00,868 - sql_generator - INFO - Decomposing question: 'Get all offices'
+2026-05-19 13:41:01,610 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:01,612 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve all office records
+Tables: offices
+Columns: "officeCode", city, phone, "addressLine1", "addressLine2", state, country, "postalCode", territory
+Filters: None
+Joins: None
+2026-05-19 13:41:01,612 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:01,612 - sql_generator - INFO - Generating SQL for question: 'Get all offices'
+2026-05-19 13:41:01,845 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:01,846 - sql_generator - INFO - SQL cleaned | Result: SELECT *
+FROM "offices"
+2026-05-19 13:41:01,846 - sql_generator - INFO - SQL generated successfully:
+SELECT *
+FROM "offices"
+2026-05-19 13:41:01,846 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:01,846 - sql_validator - INFO - Validating SQL:
+SELECT *
+FROM "offices"
+2026-05-19 13:41:01,846 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:01,846 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:01,846 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get all offices'
+2026-05-19 13:41:01,846 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT *
+FROM "offices"
+2026-05-19 13:41:01,846 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:01,858 - database - INFO - Database connection established successfully
+2026-05-19 13:41:01,861 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 7 | Time: 0.02s
+2026-05-19 13:41:01,862 - sql_executor - INFO - Columns: ['officeCode', 'city', 'phone', 'addressLine1', 'addressLine2', 'state', 'country', 'postalCode', 'territory']
+2026-05-19 13:41:01,862 - sql_executor - INFO - First row preview: ('1', 'San Francisco', '+1 650 219 4782', '100 Market Street', 'Suite 300', 'CA', 'USA', '94080', 'NA')
+2026-05-19 13:41:01,862 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:01,862 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:01,862 - __main__ - INFO - PIPELINE SUCCESS | rows=7 | retries=0 | latency=0.02s
+2026-05-19 13:41:01,862 - __main__ - INFO - ============================================================
+2026-05-19 13:41:01,862 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:01,862 - __main__ - INFO - ============================================================
+2026-05-19 13:41:01,862 - __main__ - INFO - ============================================================
+2026-05-19 13:41:01,862 - __main__ - INFO - PIPELINE START | Question: 'Show all product lines'
+2026-05-19 13:41:01,862 - __main__ - INFO - ============================================================
+2026-05-19 13:41:01,863 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:01,863 - sql_generator - INFO - Decomposing question: 'Show all product lines'
+2026-05-19 13:41:02,310 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:02,311 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve all product lines from the database.
+Tables: productlines
+Columns: "productLine"
+Filters: None
+Joins: None
+2026-05-19 13:41:02,311 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:02,311 - sql_generator - INFO - Generating SQL for question: 'Show all product lines'
+2026-05-19 13:41:02,663 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:02,664 - sql_generator - INFO - SQL cleaned | Result: SELECT "productLine" FROM "productlines";
+2026-05-19 13:41:02,665 - sql_generator - INFO - SQL generated successfully:
+SELECT "productLine" FROM "productlines";
+2026-05-19 13:41:02,665 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:02,665 - sql_validator - INFO - Validating SQL:
+SELECT "productLine" FROM "productlines";
+2026-05-19 13:41:02,665 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:02,665 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:02,665 - sql_executor - INFO - Starting execution | max_retries=1 | question='Show all product lines'
+2026-05-19 13:41:02,665 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "productLine" FROM "productlines";
+2026-05-19 13:41:02,665 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:02,680 - database - INFO - Database connection established successfully
+2026-05-19 13:41:02,685 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 7 | Time: 0.02s
+2026-05-19 13:41:02,685 - sql_executor - INFO - Columns: ['productLine']
+2026-05-19 13:41:02,685 - sql_executor - INFO - First row preview: ('Classic Cars',)
+2026-05-19 13:41:02,686 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:02,686 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:02,686 - __main__ - INFO - PIPELINE SUCCESS | rows=7 | retries=0 | latency=0.02s
+2026-05-19 13:41:02,686 - __main__ - INFO - ============================================================
+2026-05-19 13:41:02,686 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:02,686 - __main__ - INFO - ============================================================
+2026-05-19 13:41:02,686 - __main__ - INFO - ============================================================
+2026-05-19 13:41:02,687 - __main__ - INFO - PIPELINE START | Question: 'List all payments'
+2026-05-19 13:41:02,687 - __main__ - INFO - ============================================================
+2026-05-19 13:41:02,687 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:02,687 - sql_generator - INFO - Decomposing question: 'List all payments'
+2026-05-19 13:41:03,525 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:03,526 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve all payment records
+Tables: payments
+Columns: "customerNumber", "checkNumber", "paymentDate", amount
+Filters: None
+Joins: None
+2026-05-19 13:41:03,526 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:03,526 - sql_generator - INFO - Generating SQL for question: 'List all payments'
+2026-05-19 13:41:03,737 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:03,739 - sql_generator - INFO - SQL cleaned | Result: SELECT "customerNumber", "checkNumber", "paymentDate", amount 
+FROM "payments";
+2026-05-19 13:41:03,739 - sql_generator - INFO - SQL generated successfully:
+SELECT "customerNumber", "checkNumber", "paymentDate", amount 
+FROM "payments";
+2026-05-19 13:41:03,739 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:03,739 - sql_validator - INFO - Validating SQL:
+SELECT "customerNumber", "checkNumber", "paymentDate", amount 
+FROM "payments";
+2026-05-19 13:41:03,739 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:03,739 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:03,739 - sql_executor - INFO - Starting execution | max_retries=1 | question='List all payments'
+2026-05-19 13:41:03,739 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "customerNumber", "checkNumber", "paymentDate", amount 
+FROM "payments";
+2026-05-19 13:41:03,739 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:03,752 - database - INFO - Database connection established successfully
+2026-05-19 13:41:03,757 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 273 | Time: 0.02s
+2026-05-19 13:41:03,757 - sql_executor - INFO - Columns: ['customerNumber', 'checkNumber', 'paymentDate', 'amount']
+2026-05-19 13:41:03,758 - sql_executor - INFO - First row preview: (103, 'HQ336336', datetime.date(2004, 10, 19), Decimal('6066.78'))
+2026-05-19 13:41:03,758 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:03,758 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:03,758 - __main__ - INFO - PIPELINE SUCCESS | rows=273 | retries=0 | latency=0.02s
+2026-05-19 13:41:03,758 - __main__ - INFO - ============================================================
+2026-05-19 13:41:03,758 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:03,758 - __main__ - INFO - ============================================================
+2026-05-19 13:41:03,759 - __main__ - INFO - ============================================================
+2026-05-19 13:41:03,759 - __main__ - INFO - PIPELINE START | Question: 'Get product names and prices'
+2026-05-19 13:41:03,759 - __main__ - INFO - ============================================================
+2026-05-19 13:41:03,759 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:03,759 - sql_generator - INFO - Decomposing question: 'Get product names and prices'
+2026-05-19 13:41:04,182 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:04,184 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve the names and prices of products
+Tables: products
+Columns: "productName", "MSRP" 
+Filters: None
+Joins: None
+2026-05-19 13:41:04,184 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:04,184 - sql_generator - INFO - Generating SQL for question: 'Get product names and prices'
+2026-05-19 13:41:04,760 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:04,761 - sql_generator - INFO - SQL cleaned | Result: SELECT "productName", "MSRP" FROM "products";
+2026-05-19 13:41:04,762 - sql_generator - INFO - SQL generated successfully:
+SELECT "productName", "MSRP" FROM "products";
+2026-05-19 13:41:04,762 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:04,762 - sql_validator - INFO - Validating SQL:
+SELECT "productName", "MSRP" FROM "products";
+2026-05-19 13:41:04,762 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:04,762 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:04,762 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get product names and prices'
+2026-05-19 13:41:04,762 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "productName", "MSRP" FROM "products";
+2026-05-19 13:41:04,762 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:04,775 - database - INFO - Database connection established successfully
+2026-05-19 13:41:04,778 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 110 | Time: 0.02s
+2026-05-19 13:41:04,778 - sql_executor - INFO - Columns: ['productName', 'MSRP']
+2026-05-19 13:41:04,778 - sql_executor - INFO - First row preview: ('1969 Harley Davidson Ultimate Chopper', Decimal('95.70'))
+2026-05-19 13:41:04,778 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:04,778 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:04,779 - __main__ - INFO - PIPELINE SUCCESS | rows=110 | retries=0 | latency=0.02s
+2026-05-19 13:41:04,779 - __main__ - INFO - ============================================================
+2026-05-19 13:41:04,779 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:04,779 - __main__ - INFO - ============================================================
+2026-05-19 13:41:04,779 - __main__ - INFO - ============================================================
+2026-05-19 13:41:04,779 - __main__ - INFO - PIPELINE START | Question: 'Get customer names and cities'
+2026-05-19 13:41:04,780 - __main__ - INFO - ============================================================
+2026-05-19 13:41:04,780 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:04,780 - sql_generator - INFO - Decomposing question: 'Get customer names and cities'
+2026-05-19 13:41:05,810 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:05,812 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve customer names and their corresponding cities
+Tables: customers
+Columns: "customerName", city
+Filters: None
+Joins: None
+2026-05-19 13:41:05,812 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:05,813 - sql_generator - INFO - Generating SQL for question: 'Get customer names and cities'
+2026-05-19 13:41:06,066 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:06,068 - sql_generator - INFO - SQL cleaned | Result: SELECT "customerName", city FROM customers
+2026-05-19 13:41:06,068 - sql_generator - INFO - SQL generated successfully:
+SELECT "customerName", city FROM customers
+2026-05-19 13:41:06,068 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:06,068 - sql_validator - INFO - Validating SQL:
+SELECT "customerName", city FROM customers
+2026-05-19 13:41:06,069 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:06,069 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:06,069 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get customer names and cities'
+2026-05-19 13:41:06,069 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "customerName", city FROM customers
+2026-05-19 13:41:06,069 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:06,082 - database - INFO - Database connection established successfully
+2026-05-19 13:41:06,085 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 122 | Time: 0.02s
+2026-05-19 13:41:06,085 - sql_executor - INFO - Columns: ['customerName', 'city']
+2026-05-19 13:41:06,085 - sql_executor - INFO - First row preview: ('Atelier graphique', 'Nantes')
+2026-05-19 13:41:06,085 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:06,085 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:06,085 - __main__ - INFO - PIPELINE SUCCESS | rows=122 | retries=0 | latency=0.02s
+2026-05-19 13:41:06,085 - __main__ - INFO - ============================================================
+2026-05-19 13:41:06,085 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:06,086 - __main__ - INFO - ============================================================
+2026-05-19 13:41:06,086 - __main__ - INFO - ============================================================
+2026-05-19 13:41:06,086 - __main__ - INFO - PIPELINE START | Question: 'List employee first and last names'
+2026-05-19 13:41:06,086 - __main__ - INFO - ============================================================
+2026-05-19 13:41:06,086 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:06,086 - sql_generator - INFO - Decomposing question: 'List employee first and last names'
+2026-05-19 13:41:08,710 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:08,711 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve the first and last names of employees
+Tables: employees
+Columns: "firstName", "lastName"
+Filters: None
+Joins: None
+2026-05-19 13:41:08,711 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:08,711 - sql_generator - INFO - Generating SQL for question: 'List employee first and last names'
+2026-05-19 13:41:09,059 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:09,061 - sql_generator - INFO - SQL cleaned | Result: SELECT e."firstName", e."lastName" FROM employees e
+2026-05-19 13:41:09,061 - sql_generator - INFO - SQL generated successfully:
+SELECT e."firstName", e."lastName" FROM employees e
+2026-05-19 13:41:09,061 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:09,061 - sql_validator - INFO - Validating SQL:
+SELECT e."firstName", e."lastName" FROM employees e
+2026-05-19 13:41:09,061 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:09,061 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:09,061 - sql_executor - INFO - Starting execution | max_retries=1 | question='List employee first and last names'
+2026-05-19 13:41:09,061 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT e."firstName", e."lastName" FROM employees e
+2026-05-19 13:41:09,061 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:09,075 - database - INFO - Database connection established successfully
+2026-05-19 13:41:09,076 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 23 | Time: 0.01s
+2026-05-19 13:41:09,076 - sql_executor - INFO - Columns: ['firstName', 'lastName']
+2026-05-19 13:41:09,076 - sql_executor - INFO - First row preview: ('Diane', 'Murphy')
+2026-05-19 13:41:09,076 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:09,077 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:09,077 - __main__ - INFO - PIPELINE SUCCESS | rows=23 | retries=0 | latency=0.01s
+2026-05-19 13:41:09,077 - __main__ - INFO - ============================================================
+2026-05-19 13:41:09,077 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:09,077 - __main__ - INFO - ============================================================
+2026-05-19 13:41:09,077 - __main__ - INFO - ============================================================
+2026-05-19 13:41:09,077 - __main__ - INFO - PIPELINE START | Question: 'Get all order dates'
+2026-05-19 13:41:09,078 - __main__ - INFO - ============================================================
+2026-05-19 13:41:09,078 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:09,078 - sql_generator - INFO - Decomposing question: 'Get all order dates'
+2026-05-19 13:41:09,498 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:09,500 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve all order dates from the database
+Tables: orders
+Columns: "orderDate"
+Filters: None
+Joins: None
+2026-05-19 13:41:09,500 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:09,500 - sql_generator - INFO - Generating SQL for question: 'Get all order dates'
+2026-05-19 13:41:09,760 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:09,761 - sql_generator - INFO - SQL cleaned | Result: SELECT "orderDate" FROM "orders";
+2026-05-19 13:41:09,761 - sql_generator - INFO - SQL generated successfully:
+SELECT "orderDate" FROM "orders";
+2026-05-19 13:41:09,761 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:09,761 - sql_validator - INFO - Validating SQL:
+SELECT "orderDate" FROM "orders";
+2026-05-19 13:41:09,761 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:09,762 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:09,762 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get all order dates'
+2026-05-19 13:41:09,762 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "orderDate" FROM "orders";
+2026-05-19 13:41:09,762 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:09,772 - database - INFO - Database connection established successfully
+2026-05-19 13:41:09,774 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 326 | Time: 0.01s
+2026-05-19 13:41:09,774 - sql_executor - INFO - Columns: ['orderDate']
+2026-05-19 13:41:09,774 - sql_executor - INFO - First row preview: (datetime.date(2003, 1, 6),)
+2026-05-19 13:41:09,774 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:09,774 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:09,774 - __main__ - INFO - PIPELINE SUCCESS | rows=326 | retries=0 | latency=0.01s
+2026-05-19 13:41:09,774 - __main__ - INFO - ============================================================
+2026-05-19 13:41:09,774 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:09,774 - __main__ - INFO - ============================================================
+2026-05-19 13:41:09,774 - __main__ - INFO - ============================================================
+2026-05-19 13:41:09,774 - __main__ - INFO - PIPELINE START | Question: 'Show product vendor list'
+2026-05-19 13:41:09,774 - __main__ - INFO - ============================================================
+2026-05-19 13:41:09,775 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:09,775 - sql_generator - INFO - Decomposing question: 'Show product vendor list'
+2026-05-19 13:41:10,507 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:10,508 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve a list of product vendors
+Tables: products
+Columns: "productVendor"
+Filters: None
+Joins: None
+2026-05-19 13:41:10,508 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:10,508 - sql_generator - INFO - Generating SQL for question: 'Show product vendor list'
+2026-05-19 13:41:10,752 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:10,754 - sql_generator - INFO - SQL cleaned | Result: SELECT "productVendor" FROM "products";
+2026-05-19 13:41:10,754 - sql_generator - INFO - SQL generated successfully:
+SELECT "productVendor" FROM "products";
+2026-05-19 13:41:10,754 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:10,754 - sql_validator - INFO - Validating SQL:
+SELECT "productVendor" FROM "products";
+2026-05-19 13:41:10,754 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:10,754 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:10,754 - sql_executor - INFO - Starting execution | max_retries=1 | question='Show product vendor list'
+2026-05-19 13:41:10,754 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "productVendor" FROM "products";
+2026-05-19 13:41:10,755 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:10,771 - database - INFO - Database connection established successfully
+2026-05-19 13:41:10,773 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 110 | Time: 0.02s
+2026-05-19 13:41:10,773 - sql_executor - INFO - Columns: ['productVendor']
+2026-05-19 13:41:10,773 - sql_executor - INFO - First row preview: ('Min Lin Diecast',)
+2026-05-19 13:41:10,773 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:10,773 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:10,774 - __main__ - INFO - PIPELINE SUCCESS | rows=110 | retries=0 | latency=0.02s
+2026-05-19 13:41:10,774 - __main__ - INFO - ============================================================
+2026-05-19 13:41:10,774 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:10,774 - __main__ - INFO - ============================================================
+2026-05-19 13:41:10,774 - __main__ - INFO - ============================================================
+2026-05-19 13:41:10,774 - __main__ - INFO - PIPELINE START | Question: 'Get all product codes'
+2026-05-19 13:41:10,774 - __main__ - INFO - ============================================================
+2026-05-19 13:41:10,775 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:10,775 - sql_generator - INFO - Decomposing question: 'Get all product codes'
+2026-05-19 13:41:11,721 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:11,723 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve all unique product codes from the database.
+Tables: products
+Columns: "productCode"
+Filters: None
+Joins: None
+2026-05-19 13:41:11,723 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:11,723 - sql_generator - INFO - Generating SQL for question: 'Get all product codes'
+2026-05-19 13:41:12,153 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:12,154 - sql_generator - INFO - SQL cleaned | Result: SELECT DISTINCT "productCode" FROM "products";
+2026-05-19 13:41:12,154 - sql_generator - INFO - SQL generated successfully:
+SELECT DISTINCT "productCode" FROM "products";
+2026-05-19 13:41:12,154 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:12,154 - sql_validator - INFO - Validating SQL:
+SELECT DISTINCT "productCode" FROM "products";
+2026-05-19 13:41:12,154 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:12,154 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:12,154 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get all product codes'
+2026-05-19 13:41:12,154 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT DISTINCT "productCode" FROM "products";
+2026-05-19 13:41:12,154 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:12,165 - database - INFO - Database connection established successfully
+2026-05-19 13:41:12,197 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 110 | Time: 0.04s
+2026-05-19 13:41:12,197 - sql_executor - INFO - Columns: ['productCode']
+2026-05-19 13:41:12,197 - sql_executor - INFO - First row preview: ('S700_2466',)
+2026-05-19 13:41:12,197 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:12,197 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:12,197 - __main__ - INFO - PIPELINE SUCCESS | rows=110 | retries=0 | latency=0.04s
+2026-05-19 13:41:12,197 - __main__ - INFO - ============================================================
+2026-05-19 13:41:12,198 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:12,198 - __main__ - INFO - ============================================================
+2026-05-19 13:41:12,198 - __main__ - INFO - ============================================================
+2026-05-19 13:41:12,198 - __main__ - INFO - PIPELINE START | Question: 'List all countries from offices'
+2026-05-19 13:41:12,198 - __main__ - INFO - ============================================================
+2026-05-19 13:41:12,198 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:12,199 - sql_generator - INFO - Decomposing question: 'List all countries from offices'
+2026-05-19 13:41:12,953 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:12,954 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve a list of all countries from the offices table
+Tables: offices
+Columns: country
+Filters: None
+Joins: None
+2026-05-19 13:41:12,954 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:12,954 - sql_generator - INFO - Generating SQL for question: 'List all countries from offices'
+2026-05-19 13:41:13,380 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:13,381 - sql_generator - INFO - SQL cleaned | Result: SELECT "country" FROM "offices"
+2026-05-19 13:41:13,382 - sql_generator - INFO - SQL generated successfully:
+SELECT "country" FROM "offices"
+2026-05-19 13:41:13,382 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:13,382 - sql_validator - INFO - Validating SQL:
+SELECT "country" FROM "offices"
+2026-05-19 13:41:13,382 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:13,382 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:13,382 - sql_executor - INFO - Starting execution | max_retries=1 | question='List all countries from offices'
+2026-05-19 13:41:13,382 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "country" FROM "offices"
+2026-05-19 13:41:13,382 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:13,396 - database - INFO - Database connection established successfully
+2026-05-19 13:41:13,398 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 7 | Time: 0.02s
+2026-05-19 13:41:13,398 - sql_executor - INFO - Columns: ['country']
+2026-05-19 13:41:13,398 - sql_executor - INFO - First row preview: ('USA',)
+2026-05-19 13:41:13,398 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:13,398 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:13,399 - __main__ - INFO - PIPELINE SUCCESS | rows=7 | retries=0 | latency=0.02s
+2026-05-19 13:41:13,399 - __main__ - INFO - ============================================================
+2026-05-19 13:41:13,399 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:13,399 - __main__ - INFO - ============================================================
+2026-05-19 13:41:13,399 - __main__ - INFO - ============================================================
+2026-05-19 13:41:13,399 - __main__ - INFO - PIPELINE START | Question: 'Show all order statuses'
+2026-05-19 13:41:13,399 - __main__ - INFO - ============================================================
+2026-05-19 13:41:13,399 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:13,399 - sql_generator - INFO - Decomposing question: 'Show all order statuses'
+2026-05-19 13:41:14,096 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:14,097 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve all unique order statuses from the database.
+Tables: orders
+Columns: status
+Filters: None
+Joins: None
+2026-05-19 13:41:14,097 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:14,097 - sql_generator - INFO - Generating SQL for question: 'Show all order statuses'
+2026-05-19 13:41:14,471 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:14,472 - sql_generator - INFO - SQL cleaned | Result: SELECT DISTINCT "status" FROM "orders";
+2026-05-19 13:41:14,472 - sql_generator - INFO - SQL generated successfully:
+SELECT DISTINCT "status" FROM "orders";
+2026-05-19 13:41:14,472 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:14,472 - sql_validator - INFO - Validating SQL:
+SELECT DISTINCT "status" FROM "orders";
+2026-05-19 13:41:14,472 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:14,473 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:14,473 - sql_executor - INFO - Starting execution | max_retries=1 | question='Show all order statuses'
+2026-05-19 13:41:14,473 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT DISTINCT "status" FROM "orders";
+2026-05-19 13:41:14,473 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:14,482 - database - INFO - Database connection established successfully
+2026-05-19 13:41:14,484 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 6 | Time: 0.01s
+2026-05-19 13:41:14,484 - sql_executor - INFO - Columns: ['status']
+2026-05-19 13:41:14,484 - sql_executor - INFO - First row preview: ('Shipped',)
+2026-05-19 13:41:14,484 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:14,484 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:14,485 - __main__ - INFO - PIPELINE SUCCESS | rows=6 | retries=0 | latency=0.01s
+2026-05-19 13:41:14,485 - __main__ - INFO - ============================================================
+2026-05-19 13:41:14,485 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:14,485 - __main__ - INFO - ============================================================
+2026-05-19 13:41:14,485 - __main__ - INFO - ============================================================
+2026-05-19 13:41:14,485 - __main__ - INFO - PIPELINE START | Question: 'Get all payment amounts'
+2026-05-19 13:41:14,485 - __main__ - INFO - ============================================================
+2026-05-19 13:41:14,485 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:14,485 - sql_generator - INFO - Decomposing question: 'Get all payment amounts'
+2026-05-19 13:41:15,110 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:15,112 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve all payment amounts from the database.
+Tables: payments
+Columns: amount
+Filters: None
+Joins: None
+2026-05-19 13:41:15,112 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:15,112 - sql_generator - INFO - Generating SQL for question: 'Get all payment amounts'
+2026-05-19 13:41:15,416 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:15,418 - sql_generator - INFO - SQL cleaned | Result: SELECT "amount" FROM "payments";
+2026-05-19 13:41:15,418 - sql_generator - INFO - SQL generated successfully:
+SELECT "amount" FROM "payments";
+2026-05-19 13:41:15,418 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:15,418 - sql_validator - INFO - Validating SQL:
+SELECT "amount" FROM "payments";
+2026-05-19 13:41:15,418 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:15,418 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:15,419 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get all payment amounts'
+2026-05-19 13:41:15,419 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "amount" FROM "payments";
+2026-05-19 13:41:15,419 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:15,432 - database - INFO - Database connection established successfully
+2026-05-19 13:41:15,434 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 273 | Time: 0.02s
+2026-05-19 13:41:15,435 - sql_executor - INFO - Columns: ['amount']
+2026-05-19 13:41:15,435 - sql_executor - INFO - First row preview: (Decimal('6066.78'),)
+2026-05-19 13:41:15,435 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:15,435 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:15,435 - __main__ - INFO - PIPELINE SUCCESS | rows=273 | retries=0 | latency=0.02s
+2026-05-19 13:41:15,435 - __main__ - INFO - ============================================================
+2026-05-19 13:41:15,435 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:15,435 - __main__ - INFO - ============================================================
+2026-05-19 13:41:15,435 - __main__ - INFO - ============================================================
+2026-05-19 13:41:15,436 - __main__ - INFO - PIPELINE START | Question: 'List all job titles'
+2026-05-19 13:41:15,436 - __main__ - INFO - ============================================================
+2026-05-19 13:41:15,436 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:15,436 - sql_generator - INFO - Decomposing question: 'List all job titles'
+2026-05-19 13:41:15,881 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:15,883 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve a list of all unique job titles in the database.
+Tables: employees
+Columns: "jobTitle"
+Filters: None
+Joins: None
+2026-05-19 13:41:15,883 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:15,883 - sql_generator - INFO - Generating SQL for question: 'List all job titles'
+2026-05-19 13:41:16,137 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:16,138 - sql_generator - INFO - SQL cleaned | Result: SELECT DISTINCT "jobTitle" FROM "employees" AS e;
+2026-05-19 13:41:16,139 - sql_generator - INFO - SQL generated successfully:
+SELECT DISTINCT "jobTitle" FROM "employees" AS e;
+2026-05-19 13:41:16,139 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:16,139 - sql_validator - INFO - Validating SQL:
+SELECT DISTINCT "jobTitle" FROM "employees" AS e;
+2026-05-19 13:41:16,139 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:16,139 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:16,139 - sql_executor - INFO - Starting execution | max_retries=1 | question='List all job titles'
+2026-05-19 13:41:16,139 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT DISTINCT "jobTitle" FROM "employees" AS e;
+2026-05-19 13:41:16,139 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:16,154 - database - INFO - Database connection established successfully
+2026-05-19 13:41:16,156 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 7 | Time: 0.02s
+2026-05-19 13:41:16,156 - sql_executor - INFO - Columns: ['jobTitle']
+2026-05-19 13:41:16,156 - sql_executor - INFO - First row preview: ('VP Sales',)
+2026-05-19 13:41:16,157 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:16,157 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:16,157 - __main__ - INFO - PIPELINE SUCCESS | rows=7 | retries=0 | latency=0.02s
+2026-05-19 13:41:16,157 - __main__ - INFO - ============================================================
+2026-05-19 13:41:16,157 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:16,157 - __main__ - INFO - ============================================================
+2026-05-19 13:41:16,157 - __main__ - INFO - ============================================================
+2026-05-19 13:41:16,157 - __main__ - INFO - PIPELINE START | Question: 'Get customer phone numbers'
+2026-05-19 13:41:16,158 - __main__ - INFO - ============================================================
+2026-05-19 13:41:16,158 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:16,158 - sql_generator - INFO - Decomposing question: 'Get customer phone numbers'
+2026-05-19 13:41:16,287 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:41:16,288 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:41:20,368 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:20,370 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve the phone numbers of customers
+Tables: customers
+Columns: phone
+Filters: None
+Joins: None
+2026-05-19 13:41:20,370 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:20,370 - sql_generator - INFO - Generating SQL for question: 'Get customer phone numbers'
+2026-05-19 13:41:20,675 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:20,677 - sql_generator - INFO - SQL cleaned | Result: SELECT "phone" FROM "customers";
+2026-05-19 13:41:20,677 - sql_generator - INFO - SQL generated successfully:
+SELECT "phone" FROM "customers";
+2026-05-19 13:41:20,677 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:20,677 - sql_validator - INFO - Validating SQL:
+SELECT "phone" FROM "customers";
+2026-05-19 13:41:20,677 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:20,677 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:20,678 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get customer phone numbers'
+2026-05-19 13:41:20,678 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "phone" FROM "customers";
+2026-05-19 13:41:20,678 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:20,692 - database - INFO - Database connection established successfully
+2026-05-19 13:41:20,694 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 122 | Time: 0.02s
+2026-05-19 13:41:20,694 - sql_executor - INFO - Columns: ['phone']
+2026-05-19 13:41:20,695 - sql_executor - INFO - First row preview: ('40.32.2555',)
+2026-05-19 13:41:20,695 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:20,695 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:20,695 - __main__ - INFO - PIPELINE SUCCESS | rows=122 | retries=0 | latency=0.02s
+2026-05-19 13:41:20,695 - __main__ - INFO - ============================================================
+2026-05-19 13:41:20,695 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:20,695 - __main__ - INFO - ============================================================
+2026-05-19 13:41:20,696 - __main__ - INFO - ============================================================
+2026-05-19 13:41:20,696 - __main__ - INFO - PIPELINE START | Question: 'Show product MSRP values'
+2026-05-19 13:41:20,696 - __main__ - INFO - ============================================================
+2026-05-19 13:41:20,696 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:20,696 - sql_generator - INFO - Decomposing question: 'Show product MSRP values'
+2026-05-19 13:41:20,813 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:41:20,814 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:41:24,318 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:24,319 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve the MSRP values of products
+Tables: products
+Columns: "MSRP"
+Filters: None
+Joins: None
+2026-05-19 13:41:24,319 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:24,319 - sql_generator - INFO - Generating SQL for question: 'Show product MSRP values'
+2026-05-19 13:41:24,522 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:24,524 - sql_generator - INFO - SQL cleaned | Result: SELECT "MSRP" FROM "products";
+2026-05-19 13:41:24,524 - sql_generator - INFO - SQL generated successfully:
+SELECT "MSRP" FROM "products";
+2026-05-19 13:41:24,524 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:24,524 - sql_validator - INFO - Validating SQL:
+SELECT "MSRP" FROM "products";
+2026-05-19 13:41:24,524 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:24,524 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:24,524 - sql_executor - INFO - Starting execution | max_retries=1 | question='Show product MSRP values'
+2026-05-19 13:41:24,524 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "MSRP" FROM "products";
+2026-05-19 13:41:24,524 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:24,537 - database - INFO - Database connection established successfully
+2026-05-19 13:41:24,538 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 110 | Time: 0.01s
+2026-05-19 13:41:24,538 - sql_executor - INFO - Columns: ['MSRP']
+2026-05-19 13:41:24,538 - sql_executor - INFO - First row preview: (Decimal('95.70'),)
+2026-05-19 13:41:24,539 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:24,539 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:24,539 - __main__ - INFO - PIPELINE SUCCESS | rows=110 | retries=0 | latency=0.01s
+2026-05-19 13:41:24,539 - __main__ - INFO - ============================================================
+2026-05-19 13:41:24,539 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:24,540 - __main__ - INFO - ============================================================
+2026-05-19 13:41:24,540 - __main__ - INFO - ============================================================
+2026-05-19 13:41:24,540 - __main__ - INFO - PIPELINE START | Question: 'List order numbers'
+2026-05-19 13:41:24,540 - __main__ - INFO - ============================================================
+2026-05-19 13:41:24,541 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:24,541 - sql_generator - INFO - Decomposing question: 'List order numbers'
+2026-05-19 13:41:24,662 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:41:24,662 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:41:29,261 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:29,263 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve a list of order numbers from the database.
+Tables: orders
+Columns: "orderNumber"
+Filters: None
+Joins: None
+2026-05-19 13:41:29,264 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:29,264 - sql_generator - INFO - Generating SQL for question: 'List order numbers'
+2026-05-19 13:41:29,464 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:29,466 - sql_generator - INFO - SQL cleaned | Result: SELECT "orderNumber" FROM "orders";
+2026-05-19 13:41:29,466 - sql_generator - INFO - SQL generated successfully:
+SELECT "orderNumber" FROM "orders";
+2026-05-19 13:41:29,466 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:29,466 - sql_validator - INFO - Validating SQL:
+SELECT "orderNumber" FROM "orders";
+2026-05-19 13:41:29,466 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:29,466 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:29,466 - sql_executor - INFO - Starting execution | max_retries=1 | question='List order numbers'
+2026-05-19 13:41:29,466 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "orderNumber" FROM "orders";
+2026-05-19 13:41:29,466 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:29,479 - database - INFO - Database connection established successfully
+2026-05-19 13:41:29,481 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 326 | Time: 0.01s
+2026-05-19 13:41:29,481 - sql_executor - INFO - Columns: ['orderNumber']
+2026-05-19 13:41:29,481 - sql_executor - INFO - First row preview: (10100,)
+2026-05-19 13:41:29,481 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:29,481 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:29,482 - __main__ - INFO - PIPELINE SUCCESS | rows=326 | retries=0 | latency=0.01s
+2026-05-19 13:41:29,482 - __main__ - INFO - ============================================================
+2026-05-19 13:41:29,482 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:29,482 - __main__ - INFO - ============================================================
+2026-05-19 13:41:29,482 - __main__ - INFO - ============================================================
+2026-05-19 13:41:29,482 - __main__ - INFO - PIPELINE START | Question: 'Get orders with customer names'
+2026-05-19 13:41:29,482 - __main__ - INFO - ============================================================
+2026-05-19 13:41:29,482 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:29,482 - sql_generator - INFO - Decomposing question: 'Get orders with customer names'
+2026-05-19 13:41:29,611 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:41:29,612 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:41:34,426 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:34,427 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve orders along with the corresponding customer names
+Tables: orders, customers
+Columns: orders."orderNumber", orders."orderDate", customers."customerName"
+Filters: None
+Joins: orders."customerNumber" = customers."customerNumber"
+2026-05-19 13:41:34,427 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:34,427 - sql_generator - INFO - Generating SQL for question: 'Get orders with customer names'
+2026-05-19 13:41:34,824 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:34,825 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    o."orderNumber", 
+    o."orderDate", 
+    c."customerName"
+FROM 
+    "orders" o
+JOIN 
+    "customers" c ON o."customerNumber" = c."customerNumber";
+2026-05-19 13:41:34,825 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    o."orderNumber", 
+    o."orderDate", 
+    c."customerName"
+FROM 
+    "orders" o
+JOIN 
+    "customers" c ON o."customerNumber" = c."customerNumber";
+2026-05-19 13:41:34,825 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:34,825 - sql_validator - INFO - Validating SQL:
+SELECT 
+    o."orderNumber", 
+    o."orderDate", 
+    c."customerName"
+FROM 
+    "orders" o
+JOIN 
+    "customers" c ON o."customerNumber" = c."customerNumber";
+2026-05-19 13:41:34,825 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:34,825 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:34,825 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get orders with customer names'
+2026-05-19 13:41:34,825 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    o."orderNumber", 
+    o."orderDate", 
+    c."customerName"
+FROM 
+    "orders" o
+JOIN 
+    "customers" c ON o."customerNumber" = c."customerNumber";
+2026-05-19 13:41:34,826 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:34,839 - database - INFO - Database connection established successfully
+2026-05-19 13:41:34,844 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 326 | Time: 0.02s
+2026-05-19 13:41:34,845 - sql_executor - INFO - Columns: ['orderNumber', 'orderDate', 'customerName']
+2026-05-19 13:41:34,845 - sql_executor - INFO - First row preview: (10100, datetime.date(2003, 1, 6), 'Online Diecast Creations Co.')
+2026-05-19 13:41:34,845 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:34,845 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:34,845 - __main__ - INFO - PIPELINE SUCCESS | rows=326 | retries=0 | latency=0.02s
+2026-05-19 13:41:34,845 - __main__ - INFO - ============================================================
+2026-05-19 13:41:34,845 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:34,845 - __main__ - INFO - ============================================================
+2026-05-19 13:41:34,846 - __main__ - INFO - ============================================================
+2026-05-19 13:41:34,846 - __main__ - INFO - PIPELINE START | Question: 'Get employees with office city'
+2026-05-19 13:41:34,846 - __main__ - INFO - ============================================================
+2026-05-19 13:41:34,846 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:34,846 - sql_generator - INFO - Decomposing question: 'Get employees with office city'
+2026-05-19 13:41:34,959 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:41:34,960 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:41:38,695 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:38,696 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve a list of employees along with their office city.
+Tables: employees, offices
+Columns: employees."firstName", employees."lastName", offices.city
+Filters: None
+Joins: employees."officeCode" = offices."officeCode"
+2026-05-19 13:41:38,697 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:38,697 - sql_generator - INFO - Generating SQL for question: 'Get employees with office city'
+2026-05-19 13:41:38,938 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:38,940 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    e."firstName", 
+    e."lastName", 
+    o.city
+FROM 
+    employees e
+JOIN 
+    offices o ON e."officeCode" = o."officeCode";
+2026-05-19 13:41:38,940 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    e."firstName", 
+    e."lastName", 
+    o.city
+FROM 
+    employees e
+JOIN 
+    offices o ON e."officeCode" = o."officeCode";
+2026-05-19 13:41:38,940 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:38,940 - sql_validator - INFO - Validating SQL:
+SELECT 
+    e."firstName", 
+    e."lastName", 
+    o.city
+FROM 
+    employees e
+JOIN 
+    offices o ON e."officeCode" = o."officeCode";
+2026-05-19 13:41:38,941 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:38,941 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:38,941 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get employees with office city'
+2026-05-19 13:41:38,941 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    e."firstName", 
+    e."lastName", 
+    o.city
+FROM 
+    employees e
+JOIN 
+    offices o ON e."officeCode" = o."officeCode";
+2026-05-19 13:41:38,941 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:38,958 - database - INFO - Database connection established successfully
+2026-05-19 13:41:38,964 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 23 | Time: 0.02s
+2026-05-19 13:41:38,964 - sql_executor - INFO - Columns: ['firstName', 'lastName', 'city']
+2026-05-19 13:41:38,965 - sql_executor - INFO - First row preview: ('Diane', 'Murphy', 'San Francisco')
+2026-05-19 13:41:38,965 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:38,965 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:38,965 - __main__ - INFO - PIPELINE SUCCESS | rows=23 | retries=0 | latency=0.02s
+2026-05-19 13:41:38,965 - __main__ - INFO - ============================================================
+2026-05-19 13:41:38,965 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:38,965 - __main__ - INFO - ============================================================
+2026-05-19 13:41:38,965 - __main__ - INFO - ============================================================
+2026-05-19 13:41:38,965 - __main__ - INFO - PIPELINE START | Question: 'Get payments with customer names'
+2026-05-19 13:41:38,965 - __main__ - INFO - ============================================================
+2026-05-19 13:41:38,966 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:38,966 - sql_generator - INFO - Decomposing question: 'Get payments with customer names'
+2026-05-19 13:41:39,096 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:41:39,096 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:41:43,971 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:43,972 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve payment information along with the corresponding customer names.
+Tables: payments, customers
+Columns: payments."customerNumber", payments."checkNumber", payments."paymentDate", payments.amount, customers."customerName"
+Filters: None
+Joins: payments."customerNumber" = customers."customerNumber"
+2026-05-19 13:41:43,997 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:43,997 - sql_generator - INFO - Generating SQL for question: 'Get payments with customer names'
+2026-05-19 13:41:44,226 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:44,227 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    p."customerNumber", 
+    p."checkNumber", 
+    p."paymentDate", 
+    p.amount, 
+    c."customerName"
+FROM 
+    payments p
+JOIN 
+    customers c ON p."customerNumber" = c."customerNumber";
+2026-05-19 13:41:44,227 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    p."customerNumber", 
+    p."checkNumber", 
+    p."paymentDate", 
+    p.amount, 
+    c."customerName"
+FROM 
+    payments p
+JOIN 
+    customers c ON p."customerNumber" = c."customerNumber";
+2026-05-19 13:41:44,227 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:44,227 - sql_validator - INFO - Validating SQL:
+SELECT 
+    p."customerNumber", 
+    p."checkNumber", 
+    p."paymentDate", 
+    p.amount, 
+    c."customerName"
+FROM 
+    payments p
+JOIN 
+    customers c ON p."customerNumber" = c."customerNumber";
+2026-05-19 13:41:44,227 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:44,227 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:44,228 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get payments with customer names'
+2026-05-19 13:41:44,228 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    p."customerNumber", 
+    p."checkNumber", 
+    p."paymentDate", 
+    p.amount, 
+    c."customerName"
+FROM 
+    payments p
+JOIN 
+    customers c ON p."customerNumber" = c."customerNumber";
+2026-05-19 13:41:44,228 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:44,242 - database - INFO - Database connection established successfully
+2026-05-19 13:41:44,246 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 273 | Time: 0.02s
+2026-05-19 13:41:44,246 - sql_executor - INFO - Columns: ['customerNumber', 'checkNumber', 'paymentDate', 'amount', 'customerName']
+2026-05-19 13:41:44,246 - sql_executor - INFO - First row preview: (103, 'HQ336336', datetime.date(2004, 10, 19), Decimal('6066.78'), 'Atelier graphique')
+2026-05-19 13:41:44,246 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:44,247 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:44,247 - __main__ - INFO - PIPELINE SUCCESS | rows=273 | retries=0 | latency=0.02s
+2026-05-19 13:41:44,247 - __main__ - INFO - ============================================================
+2026-05-19 13:41:44,247 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:44,247 - __main__ - INFO - ============================================================
+2026-05-19 13:41:44,247 - __main__ - INFO - ============================================================
+2026-05-19 13:41:44,247 - __main__ - INFO - PIPELINE START | Question: 'Get order details with product names'
+2026-05-19 13:41:44,247 - __main__ - INFO - ============================================================
+2026-05-19 13:41:44,247 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:44,247 - sql_generator - INFO - Decomposing question: 'Get order details with product names'
+2026-05-19 13:41:44,377 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:41:44,378 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:41:48,942 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:48,944 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve order details along with the corresponding product names.
+Tables: orderdetails, orders, products
+Columns: orderdetails."orderNumber", orderdetails."productCode", orderdetails."quantityOrdered", orderdetails."priceEach", products."productName"
+Filters: None
+Joins: orderdetails."orderNumber" = orders."orderNumber", orderdetails."productCode" = products."productCode"
+2026-05-19 13:41:48,944 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:48,944 - sql_generator - INFO - Generating SQL for question: 'Get order details with product names'
+2026-05-19 13:41:49,219 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:49,236 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    od."orderNumber", 
+    od."productCode", 
+    od."quantityOrdered", 
+    od."priceEach", 
+    p."productName"
+FROM 
+    orderdetails od
+JOIN 
+    orders o ON od."orderNumber" = o."orderNumber"
+JOIN 
+    products p ON od."productCode" = p."productCode";
+2026-05-19 13:41:49,237 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    od."orderNumber", 
+    od."productCode", 
+    od."quantityOrdered", 
+    od."priceEach", 
+    p."productName"
+FROM 
+    orderdetails od
+JOIN 
+    orders o ON od."orderNumber" = o."orderNumber"
+JOIN 
+    products p ON od."productCode" = p."productCode";
+2026-05-19 13:41:49,237 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:49,237 - sql_validator - INFO - Validating SQL:
+SELECT 
+    od."orderNumber", 
+    od."productCode", 
+    od."quantityOrdered", 
+    od."priceEach", 
+    p."productName"
+FROM 
+    orderdetails od
+JOIN 
+    orders o ON od."orderNumber" = o."orderNumber"
+JOIN 
+    products p ON od."productCode" = p."productCode";
+2026-05-19 13:41:49,237 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:49,237 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:49,237 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get order details with product names'
+2026-05-19 13:41:49,237 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    od."orderNumber", 
+    od."productCode", 
+    od."quantityOrdered", 
+    od."priceEach", 
+    p."productName"
+FROM 
+    orderdetails od
+JOIN 
+    orders o ON od."orderNumber" = o."orderNumber"
+JOIN 
+    products p ON od."productCode" = p."productCode";
+2026-05-19 13:41:49,237 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:49,251 - database - INFO - Database connection established successfully
+2026-05-19 13:41:49,265 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 2996 | Time: 0.03s
+2026-05-19 13:41:49,266 - sql_executor - INFO - Columns: ['orderNumber', 'productCode', 'quantityOrdered', 'priceEach', 'productName']
+2026-05-19 13:41:49,266 - sql_executor - INFO - First row preview: (10100, 'S18_1749', 30, Decimal('136.00'), '1917 Grand Touring Sedan')
+2026-05-19 13:41:49,266 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:49,266 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:49,266 - __main__ - INFO - PIPELINE SUCCESS | rows=2996 | retries=0 | latency=0.03s
+2026-05-19 13:41:49,266 - __main__ - INFO - ============================================================
+2026-05-19 13:41:49,267 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:49,267 - __main__ - INFO - ============================================================
+2026-05-19 13:41:49,267 - __main__ - INFO - ============================================================
+2026-05-19 13:41:49,268 - __main__ - INFO - PIPELINE START | Question: 'Get products with product line description'
+2026-05-19 13:41:49,268 - __main__ - INFO - ============================================================
+2026-05-19 13:41:49,268 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:49,268 - sql_generator - INFO - Decomposing question: 'Get products with product line description'
+2026-05-19 13:41:49,378 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:41:49,379 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:41:54,306 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:54,307 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve products along with their product line descriptions
+Tables: products, productlines
+Columns: products."productCode", products."productName", productlines."textDescription"
+Filters: None
+Joins: products."productLine" = productlines."productLine"
+2026-05-19 13:41:54,308 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:41:54,308 - sql_generator - INFO - Generating SQL for question: 'Get products with product line description'
+2026-05-19 13:41:54,537 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:41:54,538 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    p."productCode", 
+    p."productName", 
+    pl."textDescription"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine";
+2026-05-19 13:41:54,538 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    p."productCode", 
+    p."productName", 
+    pl."textDescription"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine";
+2026-05-19 13:41:54,539 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:41:54,539 - sql_validator - INFO - Validating SQL:
+SELECT 
+    p."productCode", 
+    p."productName", 
+    pl."textDescription"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine";
+2026-05-19 13:41:54,539 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:41:54,539 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:41:54,539 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get products with product line description'
+2026-05-19 13:41:54,539 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    p."productCode", 
+    p."productName", 
+    pl."textDescription"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine";
+2026-05-19 13:41:54,539 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:41:54,555 - database - INFO - Database connection established successfully
+2026-05-19 13:41:54,560 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 110 | Time: 0.02s
+2026-05-19 13:41:54,560 - sql_executor - INFO - Columns: ['productCode', 'productName', 'textDescription']
+2026-05-19 13:41:54,561 - sql_executor - INFO - First row preview: ('S10_1678', '1969 Harley Davidson Ultimate Chopper', 'Our motorcycles are state of the art replicas of classic as well as contemporary motorcycle legends such as Harley Davidson, Ducati and Vespa. Models contain stunning details such as official logos, rotating wheels, working kickstand, front suspension, gear-shift lever, footbrake lever, and drive chain. Materials used include diecast and plastic. The models range in size from 1:10 to 1:50 scale and include numerous limited edition and several out-of-production vehicles. All models come fully assembled and ready for display in the home or office. Most include a certificate of authenticity.')
+2026-05-19 13:41:54,561 - sql_executor - INFO - Database connection closed
+2026-05-19 13:41:54,561 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:41:54,561 - __main__ - INFO - PIPELINE SUCCESS | rows=110 | retries=0 | latency=0.02s
+2026-05-19 13:41:54,561 - __main__ - INFO - ============================================================
+2026-05-19 13:41:54,561 - __main__ - INFO - PIPELINE END
+2026-05-19 13:41:54,561 - __main__ - INFO - ============================================================
+2026-05-19 13:41:54,562 - __main__ - INFO - ============================================================
+2026-05-19 13:41:54,562 - __main__ - INFO - PIPELINE START | Question: 'Get customers with sales rep names'
+2026-05-19 13:41:54,562 - __main__ - INFO - ============================================================
+2026-05-19 13:41:54,562 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:41:54,562 - sql_generator - INFO - Decomposing question: 'Get customers with sales rep names'
+2026-05-19 13:41:54,690 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:41:54,691 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:42:01,510 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:01,511 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve a list of customers along with the names of their respective sales representatives.
+Tables: customers, employees
+Columns: c."customerName", e."lastName", e."firstName"
+Filters: None
+Joins: c."salesRepEmployeeNumber" = e."employeeNumber"
+2026-05-19 13:42:01,512 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:01,512 - sql_generator - INFO - Generating SQL for question: 'Get customers with sales rep names'
+2026-05-19 13:42:01,804 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:01,806 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    c."customerName",
+    e."firstName" || ' ' || e."lastName" AS "salesRepName"
+FROM 
+    customers c
+JOIN 
+    employees e ON c."salesRepEmployeeNumber" = e."employeeNumber";
+2026-05-19 13:42:01,806 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    c."customerName",
+    e."firstName" || ' ' || e."lastName" AS "salesRepName"
+FROM 
+    customers c
+JOIN 
+    employees e ON c."salesRepEmployeeNumber" = e."employeeNumber";
+2026-05-19 13:42:01,806 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:01,806 - sql_validator - INFO - Validating SQL:
+SELECT 
+    c."customerName",
+    e."firstName" || ' ' || e."lastName" AS "salesRepName"
+FROM 
+    customers c
+JOIN 
+    employees e ON c."salesRepEmployeeNumber" = e."employeeNumber";
+2026-05-19 13:42:01,806 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:01,807 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:01,807 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get customers with sales rep names'
+2026-05-19 13:42:01,807 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    c."customerName",
+    e."firstName" || ' ' || e."lastName" AS "salesRepName"
+FROM 
+    customers c
+JOIN 
+    employees e ON c."salesRepEmployeeNumber" = e."employeeNumber";
+2026-05-19 13:42:01,807 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:01,822 - database - INFO - Database connection established successfully
+2026-05-19 13:42:01,826 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 100 | Time: 0.02s
+2026-05-19 13:42:01,826 - sql_executor - INFO - Columns: ['customerName', 'salesRepName']
+2026-05-19 13:42:01,826 - sql_executor - INFO - First row preview: ('Atelier graphique', 'Gerard Hernandez')
+2026-05-19 13:42:01,826 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:01,826 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:01,826 - __main__ - INFO - PIPELINE SUCCESS | rows=100 | retries=0 | latency=0.02s
+2026-05-19 13:42:01,826 - __main__ - INFO - ============================================================
+2026-05-19 13:42:01,826 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:01,826 - __main__ - INFO - ============================================================
+2026-05-19 13:42:01,827 - __main__ - INFO - ============================================================
+2026-05-19 13:42:01,827 - __main__ - INFO - PIPELINE START | Question: 'Get orders with customer city'
+2026-05-19 13:42:01,827 - __main__ - INFO - ============================================================
+2026-05-19 13:42:01,827 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:01,827 - sql_generator - INFO - Decomposing question: 'Get orders with customer city'
+2026-05-19 13:42:01,962 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:01,963 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2026-05-19 13:42:03,327 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:03,329 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve orders along with the city of the customer who made the order
+Tables: orders, customers
+Columns: orders."orderNumber", customers.city
+Filters: None
+Joins: orders."customerNumber" = customers."customerNumber"
+2026-05-19 13:42:03,329 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:03,329 - sql_generator - INFO - Generating SQL for question: 'Get orders with customer city'
+2026-05-19 13:42:03,583 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:03,584 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    o."orderNumber", 
+    c.city
+FROM 
+    orders o
+JOIN 
+    customers c ON o."customerNumber" = c."customerNumber";
+2026-05-19 13:42:03,585 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    o."orderNumber", 
+    c.city
+FROM 
+    orders o
+JOIN 
+    customers c ON o."customerNumber" = c."customerNumber";
+2026-05-19 13:42:03,585 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:03,585 - sql_validator - INFO - Validating SQL:
+SELECT 
+    o."orderNumber", 
+    c.city
+FROM 
+    orders o
+JOIN 
+    customers c ON o."customerNumber" = c."customerNumber";
+2026-05-19 13:42:03,585 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:03,585 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:03,585 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get orders with customer city'
+2026-05-19 13:42:03,585 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    o."orderNumber", 
+    c.city
+FROM 
+    orders o
+JOIN 
+    customers c ON o."customerNumber" = c."customerNumber";
+2026-05-19 13:42:03,585 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:03,599 - database - INFO - Database connection established successfully
+2026-05-19 13:42:03,602 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 326 | Time: 0.02s
+2026-05-19 13:42:03,603 - sql_executor - INFO - Columns: ['orderNumber', 'city']
+2026-05-19 13:42:03,603 - sql_executor - INFO - First row preview: (10100, 'Nashua')
+2026-05-19 13:42:03,603 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:03,603 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:03,603 - __main__ - INFO - PIPELINE SUCCESS | rows=326 | retries=0 | latency=0.02s
+2026-05-19 13:42:03,603 - __main__ - INFO - ============================================================
+2026-05-19 13:42:03,603 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:03,603 - __main__ - INFO - ============================================================
+2026-05-19 13:42:03,604 - __main__ - INFO - ============================================================
+2026-05-19 13:42:03,604 - __main__ - INFO - PIPELINE START | Question: 'Get employees and their manager'
+2026-05-19 13:42:03,604 - __main__ - INFO - ============================================================
+2026-05-19 13:42:03,604 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:03,604 - sql_generator - INFO - Decomposing question: 'Get employees and their manager'
+2026-05-19 13:42:03,735 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:03,736 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:42:08,589 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:08,590 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve a list of employees along with their respective managers.
+Tables: employees
+Columns: "employeeNumber", "lastName", "firstName", "reportsTo" 
+Filters: None
+Joins: employees."reportsTo" → employees."employeeNumber" (self-join to get manager details)
+2026-05-19 13:42:08,590 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:08,590 - sql_generator - INFO - Generating SQL for question: 'Get employees and their manager'
+2026-05-19 13:42:08,917 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:08,918 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    e1."employeeNumber", 
+    e1."lastName", 
+    e1."firstName", 
+    e2."lastName" AS "managerLastName", 
+    e2."firstName" AS "managerFirstName"
+FROM 
+    employees e1
+JOIN 
+    employees e2 ON e1."reportsTo" = e2."employeeNumber";
+2026-05-19 13:42:08,919 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    e1."employeeNumber", 
+    e1."lastName", 
+    e1."firstName", 
+    e2."lastName" AS "managerLastName", 
+    e2."firstName" AS "managerFirstName"
+FROM 
+    employees e1
+JOIN 
+    employees e2 ON e1."reportsTo" = e2."employeeNumber";
+2026-05-19 13:42:08,919 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:08,919 - sql_validator - INFO - Validating SQL:
+SELECT 
+    e1."employeeNumber", 
+    e1."lastName", 
+    e1."firstName", 
+    e2."lastName" AS "managerLastName", 
+    e2."firstName" AS "managerFirstName"
+FROM 
+    employees e1
+JOIN 
+    employees e2 ON e1."reportsTo" = e2."employeeNumber";
+2026-05-19 13:42:08,919 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:08,919 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:08,919 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get employees and their manager'
+2026-05-19 13:42:08,919 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    e1."employeeNumber", 
+    e1."lastName", 
+    e1."firstName", 
+    e2."lastName" AS "managerLastName", 
+    e2."firstName" AS "managerFirstName"
+FROM 
+    employees e1
+JOIN 
+    employees e2 ON e1."reportsTo" = e2."employeeNumber";
+2026-05-19 13:42:08,919 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:08,936 - database - INFO - Database connection established successfully
+2026-05-19 13:42:08,939 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 22 | Time: 0.02s
+2026-05-19 13:42:08,939 - sql_executor - INFO - Columns: ['employeeNumber', 'lastName', 'firstName', 'managerLastName', 'managerFirstName']
+2026-05-19 13:42:08,939 - sql_executor - INFO - First row preview: (1056, 'Patterson', 'Mary', 'Murphy', 'Diane')
+2026-05-19 13:42:08,939 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:08,939 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:08,939 - __main__ - INFO - PIPELINE SUCCESS | rows=22 | retries=0 | latency=0.02s
+2026-05-19 13:42:08,939 - __main__ - INFO - ============================================================
+2026-05-19 13:42:08,939 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:08,939 - __main__ - INFO - ============================================================
+2026-05-19 13:42:08,940 - __main__ - INFO - ============================================================
+2026-05-19 13:42:08,940 - __main__ - INFO - PIPELINE START | Question: 'Get orderdetails with product vendor'
+2026-05-19 13:42:08,940 - __main__ - INFO - ============================================================
+2026-05-19 13:42:08,940 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:08,940 - sql_generator - INFO - Decomposing question: 'Get orderdetails with product vendor'
+2026-05-19 13:42:09,076 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:09,077 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:42:13,900 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:13,901 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve order details along with the product vendor information
+Tables: orderdetails, products
+Columns: orderdetails."orderNumber", orderdetails."productCode", orderdetails."quantityOrdered", orderdetails."priceEach", products."productVendor"
+Filters: None
+Joins: orderdetails."productCode" → products."productCode"
+2026-05-19 13:42:13,902 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:13,902 - sql_generator - INFO - Generating SQL for question: 'Get orderdetails with product vendor'
+2026-05-19 13:42:14,266 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:14,268 - sql_generator - INFO - SQL cleaned | Result: SELECT od."orderNumber", od."productCode", od."quantityOrdered", od."priceEach", p."productVendor"
+FROM orderdetails od
+JOIN products p ON od."productCode" = p."productCode";
+2026-05-19 13:42:14,268 - sql_generator - INFO - SQL generated successfully:
+SELECT od."orderNumber", od."productCode", od."quantityOrdered", od."priceEach", p."productVendor"
+FROM orderdetails od
+JOIN products p ON od."productCode" = p."productCode";
+2026-05-19 13:42:14,268 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:14,268 - sql_validator - INFO - Validating SQL:
+SELECT od."orderNumber", od."productCode", od."quantityOrdered", od."priceEach", p."productVendor"
+FROM orderdetails od
+JOIN products p ON od."productCode" = p."productCode";
+2026-05-19 13:42:14,268 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:14,268 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:14,268 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get orderdetails with product vendor'
+2026-05-19 13:42:14,268 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT od."orderNumber", od."productCode", od."quantityOrdered", od."priceEach", p."productVendor"
+FROM orderdetails od
+JOIN products p ON od."productCode" = p."productCode";
+2026-05-19 13:42:14,268 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:14,280 - database - INFO - Database connection established successfully
+2026-05-19 13:42:14,287 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 2996 | Time: 0.02s
+2026-05-19 13:42:14,288 - sql_executor - INFO - Columns: ['orderNumber', 'productCode', 'quantityOrdered', 'priceEach', 'productVendor']
+2026-05-19 13:42:14,288 - sql_executor - INFO - First row preview: (10100, 'S18_1749', 30, Decimal('136.00'), 'Welly Diecast Productions')
+2026-05-19 13:42:14,288 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:14,288 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:14,288 - __main__ - INFO - PIPELINE SUCCESS | rows=2996 | retries=0 | latency=0.02s
+2026-05-19 13:42:14,288 - __main__ - INFO - ============================================================
+2026-05-19 13:42:14,288 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:14,288 - __main__ - INFO - ============================================================
+2026-05-19 13:42:14,288 - __main__ - INFO - ============================================================
+2026-05-19 13:42:14,288 - __main__ - INFO - PIPELINE START | Question: 'Get payments with customer country'
+2026-05-19 13:42:14,288 - __main__ - INFO - ============================================================
+2026-05-19 13:42:14,288 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:14,288 - sql_generator - INFO - Decomposing question: 'Get payments with customer country'
+2026-05-19 13:42:14,393 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:14,394 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:42:17,974 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:17,975 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve payment information along with the customer's country.
+Tables: payments, customers
+Columns: payments."customerNumber", payments."checkNumber", payments."paymentDate", payments.amount, customers.country
+Filters: None
+Joins: payments."customerNumber" = customers."customerNumber"
+2026-05-19 13:42:17,976 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:17,976 - sql_generator - INFO - Generating SQL for question: 'Get payments with customer country'
+2026-05-19 13:42:18,227 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:18,228 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    p."customerNumber", 
+    p."checkNumber", 
+    p."paymentDate", 
+    p.amount, 
+    c.country
+FROM 
+    payments p
+JOIN 
+    customers c ON p."customerNumber" = c."customerNumber";
+2026-05-19 13:42:18,229 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    p."customerNumber", 
+    p."checkNumber", 
+    p."paymentDate", 
+    p.amount, 
+    c.country
+FROM 
+    payments p
+JOIN 
+    customers c ON p."customerNumber" = c."customerNumber";
+2026-05-19 13:42:18,229 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:18,229 - sql_validator - INFO - Validating SQL:
+SELECT 
+    p."customerNumber", 
+    p."checkNumber", 
+    p."paymentDate", 
+    p.amount, 
+    c.country
+FROM 
+    payments p
+JOIN 
+    customers c ON p."customerNumber" = c."customerNumber";
+2026-05-19 13:42:18,229 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:18,229 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:18,229 - sql_executor - INFO - Starting execution | max_retries=1 | question='Get payments with customer country'
+2026-05-19 13:42:18,229 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    p."customerNumber", 
+    p."checkNumber", 
+    p."paymentDate", 
+    p.amount, 
+    c.country
+FROM 
+    payments p
+JOIN 
+    customers c ON p."customerNumber" = c."customerNumber";
+2026-05-19 13:42:18,229 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:18,238 - database - INFO - Database connection established successfully
+2026-05-19 13:42:18,241 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 273 | Time: 0.01s
+2026-05-19 13:42:18,241 - sql_executor - INFO - Columns: ['customerNumber', 'checkNumber', 'paymentDate', 'amount', 'country']
+2026-05-19 13:42:18,241 - sql_executor - INFO - First row preview: (103, 'HQ336336', datetime.date(2004, 10, 19), Decimal('6066.78'), 'France')
+2026-05-19 13:42:18,241 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:18,241 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:18,241 - __main__ - INFO - PIPELINE SUCCESS | rows=273 | retries=0 | latency=0.01s
+2026-05-19 13:42:18,241 - __main__ - INFO - ============================================================
+2026-05-19 13:42:18,241 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:18,241 - __main__ - INFO - ============================================================
+2026-05-19 13:42:18,241 - __main__ - INFO - ============================================================
+2026-05-19 13:42:18,241 - __main__ - INFO - PIPELINE START | Question: 'Count customers per country'
+2026-05-19 13:42:18,241 - __main__ - INFO - ============================================================
+2026-05-19 13:42:18,242 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:18,242 - sql_generator - INFO - Decomposing question: 'Count customers per country'
+2026-05-19 13:42:18,369 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:18,370 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:42:22,886 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:22,887 - sql_generator - INFO - Decomposition successful:
+Intent: To count the number of customers in each country
+Tables: customers
+Columns: c."country", COUNT(c."customerNumber")
+Filters: None
+Joins: None
+2026-05-19 13:42:22,888 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:22,888 - sql_generator - INFO - Generating SQL for question: 'Count customers per country'
+2026-05-19 13:42:23,121 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:23,123 - sql_generator - INFO - SQL cleaned | Result: SELECT c."country", COUNT(c."customerNumber") FROM "customers" c GROUP BY c."country";
+2026-05-19 13:42:23,123 - sql_generator - INFO - SQL generated successfully:
+SELECT c."country", COUNT(c."customerNumber") FROM "customers" c GROUP BY c."country";
+2026-05-19 13:42:23,123 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:23,123 - sql_validator - INFO - Validating SQL:
+SELECT c."country", COUNT(c."customerNumber") FROM "customers" c GROUP BY c."country";
+2026-05-19 13:42:23,123 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:23,123 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:23,123 - sql_executor - INFO - Starting execution | max_retries=1 | question='Count customers per country'
+2026-05-19 13:42:23,123 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT c."country", COUNT(c."customerNumber") FROM "customers" c GROUP BY c."country";
+2026-05-19 13:42:23,123 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:23,137 - database - INFO - Database connection established successfully
+2026-05-19 13:42:23,166 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 28 | Time: 0.04s
+2026-05-19 13:42:23,166 - sql_executor - INFO - Columns: ['country', 'count']
+2026-05-19 13:42:23,166 - sql_executor - INFO - First row preview: ('Switzerland', 3)
+2026-05-19 13:42:23,166 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:23,166 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:23,166 - __main__ - INFO - PIPELINE SUCCESS | rows=28 | retries=0 | latency=0.04s
+2026-05-19 13:42:23,166 - __main__ - INFO - ============================================================
+2026-05-19 13:42:23,166 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:23,166 - __main__ - INFO - ============================================================
+2026-05-19 13:42:23,166 - __main__ - INFO - ============================================================
+2026-05-19 13:42:23,166 - __main__ - INFO - PIPELINE START | Question: 'Total payments per customer'
+2026-05-19 13:42:23,166 - __main__ - INFO - ============================================================
+2026-05-19 13:42:23,167 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:23,167 - sql_generator - INFO - Decomposing question: 'Total payments per customer'
+2026-05-19 13:42:23,281 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:23,282 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:42:27,833 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:27,835 - sql_generator - INFO - Decomposition successful:
+Intent: Calculate the total payments made by each customer
+Tables: customers, payments
+Columns: c."customerName", SUM(p.amount) as "totalPayments"
+Filters: None
+Joins: customers."customerNumber" = payments."customerNumber"
+2026-05-19 13:42:27,835 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:27,835 - sql_generator - INFO - Generating SQL for question: 'Total payments per customer'
+2026-05-19 13:42:28,099 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:28,100 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    c."customerName", 
+    SUM(p.amount) as "totalPayments"
+FROM 
+    customers c
+JOIN 
+    payments p ON c."customerNumber" = p."customerNumber"
+GROUP BY 
+    c."customerName";
+2026-05-19 13:42:28,101 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    c."customerName", 
+    SUM(p.amount) as "totalPayments"
+FROM 
+    customers c
+JOIN 
+    payments p ON c."customerNumber" = p."customerNumber"
+GROUP BY 
+    c."customerName";
+2026-05-19 13:42:28,101 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:28,101 - sql_validator - INFO - Validating SQL:
+SELECT 
+    c."customerName", 
+    SUM(p.amount) as "totalPayments"
+FROM 
+    customers c
+JOIN 
+    payments p ON c."customerNumber" = p."customerNumber"
+GROUP BY 
+    c."customerName";
+2026-05-19 13:42:28,101 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:28,101 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:28,101 - sql_executor - INFO - Starting execution | max_retries=1 | question='Total payments per customer'
+2026-05-19 13:42:28,101 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    c."customerName", 
+    SUM(p.amount) as "totalPayments"
+FROM 
+    customers c
+JOIN 
+    payments p ON c."customerNumber" = p."customerNumber"
+GROUP BY 
+    c."customerName";
+2026-05-19 13:42:28,101 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:28,114 - database - INFO - Database connection established successfully
+2026-05-19 13:42:28,144 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 98 | Time: 0.04s
+2026-05-19 13:42:28,144 - sql_executor - INFO - Columns: ['customerName', 'totalPayments']
+2026-05-19 13:42:28,144 - sql_executor - INFO - First row preview: ('Muscle Machine Inc', Decimal('177913.95'))
+2026-05-19 13:42:28,144 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:28,144 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:28,144 - __main__ - INFO - PIPELINE SUCCESS | rows=98 | retries=0 | latency=0.04s
+2026-05-19 13:42:28,144 - __main__ - INFO - ============================================================
+2026-05-19 13:42:28,144 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:28,145 - __main__ - INFO - ============================================================
+2026-05-19 13:42:28,145 - __main__ - INFO - ============================================================
+2026-05-19 13:42:28,145 - __main__ - INFO - PIPELINE START | Question: 'Number of orders per status'
+2026-05-19 13:42:28,145 - __main__ - INFO - ============================================================
+2026-05-19 13:42:28,145 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:28,145 - sql_generator - INFO - Decomposing question: 'Number of orders per status'
+2026-05-19 13:42:28,332 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:28,333 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:42:33,020 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:33,022 - sql_generator - INFO - Decomposition successful:
+Intent: To find the number of orders for each status in the orders table.
+Tables: orders
+Columns: status, "orderNumber" 
+Filters: None
+Joins: None
+2026-05-19 13:42:33,022 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:33,022 - sql_generator - INFO - Generating SQL for question: 'Number of orders per status'
+2026-05-19 13:42:33,233 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:33,236 - sql_generator - INFO - SQL cleaned | Result: SELECT "orderNumber", COUNT(*) 
+FROM "orders" AS o 
+GROUP BY "orderNumber";
+2026-05-19 13:42:33,236 - sql_generator - INFO - SQL generated successfully:
+SELECT "orderNumber", COUNT(*) 
+FROM "orders" AS o 
+GROUP BY "orderNumber";
+2026-05-19 13:42:33,236 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:33,236 - sql_validator - INFO - Validating SQL:
+SELECT "orderNumber", COUNT(*) 
+FROM "orders" AS o 
+GROUP BY "orderNumber";
+2026-05-19 13:42:33,236 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:33,236 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:33,237 - sql_executor - INFO - Starting execution | max_retries=1 | question='Number of orders per status'
+2026-05-19 13:42:33,237 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "orderNumber", COUNT(*) 
+FROM "orders" AS o 
+GROUP BY "orderNumber";
+2026-05-19 13:42:33,237 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:33,253 - database - INFO - Database connection established successfully
+2026-05-19 13:42:33,255 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 326 | Time: 0.02s
+2026-05-19 13:42:33,256 - sql_executor - INFO - Columns: ['orderNumber', 'count']
+2026-05-19 13:42:33,256 - sql_executor - INFO - First row preview: (10343, 1)
+2026-05-19 13:42:33,256 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:33,256 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:33,256 - __main__ - INFO - PIPELINE SUCCESS | rows=326 | retries=0 | latency=0.02s
+2026-05-19 13:42:33,256 - __main__ - INFO - ============================================================
+2026-05-19 13:42:33,256 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:33,256 - __main__ - INFO - ============================================================
+2026-05-19 13:42:33,257 - __main__ - INFO - ============================================================
+2026-05-19 13:42:33,257 - __main__ - INFO - PIPELINE START | Question: 'Products per product line'
+2026-05-19 13:42:33,257 - __main__ - INFO - ============================================================
+2026-05-19 13:42:33,257 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:33,257 - sql_generator - INFO - Decomposing question: 'Products per product line'
+2026-05-19 13:42:33,370 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:33,371 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:42:37,102 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:37,103 - sql_generator - INFO - Decomposition successful:
+Intent: To retrieve the number of products per product line
+Tables: products, productlines
+Columns: productlines."productLine", COUNT(products."productCode")
+Filters: None
+Joins: products."productLine" = productlines."productLine"
+2026-05-19 13:42:37,103 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:37,103 - sql_generator - INFO - Generating SQL for question: 'Products per product line'
+2026-05-19 13:42:37,382 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:37,384 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    pl."productLine", 
+    COUNT(p."productCode") AS "products_per_product_line"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:42:37,384 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    pl."productLine", 
+    COUNT(p."productCode") AS "products_per_product_line"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:42:37,384 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:37,384 - sql_validator - INFO - Validating SQL:
+SELECT 
+    pl."productLine", 
+    COUNT(p."productCode") AS "products_per_product_line"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:42:37,384 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:37,385 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:37,385 - sql_executor - INFO - Starting execution | max_retries=1 | question='Products per product line'
+2026-05-19 13:42:37,385 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    pl."productLine", 
+    COUNT(p."productCode") AS "products_per_product_line"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:42:37,385 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:37,396 - database - INFO - Database connection established successfully
+2026-05-19 13:42:37,399 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 7 | Time: 0.01s
+2026-05-19 13:42:37,399 - sql_executor - INFO - Columns: ['productLine', 'products_per_product_line']
+2026-05-19 13:42:37,399 - sql_executor - INFO - First row preview: ('Classic Cars', 38)
+2026-05-19 13:42:37,399 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:37,399 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:37,399 - __main__ - INFO - PIPELINE SUCCESS | rows=7 | retries=0 | latency=0.01s
+2026-05-19 13:42:37,400 - __main__ - INFO - ============================================================
+2026-05-19 13:42:37,400 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:37,400 - __main__ - INFO - ============================================================
+2026-05-19 13:42:37,400 - __main__ - INFO - ============================================================
+2026-05-19 13:42:37,400 - __main__ - INFO - PIPELINE START | Question: 'Employees per office'
+2026-05-19 13:42:37,400 - __main__ - INFO - ============================================================
+2026-05-19 13:42:37,400 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:37,400 - sql_generator - INFO - Decomposing question: 'Employees per office'
+2026-05-19 13:42:37,506 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:37,507 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:42:42,328 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:42,329 - sql_generator - INFO - Decomposition successful:
+Intent: To retrieve the number of employees per office
+Tables: employees, offices
+Columns: o."officeCode", o.city, o.country, COUNT(e."employeeNumber") 
+Filters: None
+Joins: employees."officeCode" = offices."officeCode"
+2026-05-19 13:42:42,329 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:42,329 - sql_generator - INFO - Generating SQL for question: 'Employees per office'
+2026-05-19 13:42:42,670 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:42,672 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    o."officeCode", 
+    o.city, 
+    o.country, 
+    COUNT(e."employeeNumber") AS "employees_per_office"
+FROM 
+    offices o
+JOIN 
+    employees e ON o."officeCode" = e."officeCode"
+GROUP BY 
+    o."officeCode", 
+    o.city, 
+    o.country;
+2026-05-19 13:42:42,672 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    o."officeCode", 
+    o.city, 
+    o.country, 
+    COUNT(e."employeeNumber") AS "employees_per_office"
+FROM 
+    offices o
+JOIN 
+    employees e ON o."officeCode" = e."officeCode"
+GROUP BY 
+    o."officeCode", 
+    o.city, 
+    o.country;
+2026-05-19 13:42:42,672 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:42,672 - sql_validator - INFO - Validating SQL:
+SELECT 
+    o."officeCode", 
+    o.city, 
+    o.country, 
+    COUNT(e."employeeNumber") AS "employees_per_office"
+FROM 
+    offices o
+JOIN 
+    employees e ON o."officeCode" = e."officeCode"
+GROUP BY 
+    o."officeCode", 
+    o.city, 
+    o.country;
+2026-05-19 13:42:42,672 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:42,672 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:42,672 - sql_executor - INFO - Starting execution | max_retries=1 | question='Employees per office'
+2026-05-19 13:42:42,672 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    o."officeCode", 
+    o.city, 
+    o.country, 
+    COUNT(e."employeeNumber") AS "employees_per_office"
+FROM 
+    offices o
+JOIN 
+    employees e ON o."officeCode" = e."officeCode"
+GROUP BY 
+    o."officeCode", 
+    o.city, 
+    o.country;
+2026-05-19 13:42:42,672 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:42,687 - database - INFO - Database connection established successfully
+2026-05-19 13:42:42,691 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 7 | Time: 0.02s
+2026-05-19 13:42:42,691 - sql_executor - INFO - Columns: ['officeCode', 'city', 'country', 'employees_per_office']
+2026-05-19 13:42:42,691 - sql_executor - INFO - First row preview: ('6', 'Sydney', 'Australia', 4)
+2026-05-19 13:42:42,691 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:42,692 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:42,692 - __main__ - INFO - PIPELINE SUCCESS | rows=7 | retries=0 | latency=0.02s
+2026-05-19 13:42:42,692 - __main__ - INFO - ============================================================
+2026-05-19 13:42:42,692 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:42,692 - __main__ - INFO - ============================================================
+2026-05-19 13:42:42,692 - __main__ - INFO - ============================================================
+2026-05-19 13:42:42,692 - __main__ - INFO - PIPELINE START | Question: 'Total stock per product vendor'
+2026-05-19 13:42:42,692 - __main__ - INFO - ============================================================
+2026-05-19 13:42:42,692 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:42,692 - sql_generator - INFO - Decomposing question: 'Total stock per product vendor'
+2026-05-19 13:42:42,798 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:42,798 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:42:46,503 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:46,505 - sql_generator - INFO - Decomposition successful:
+Intent: To calculate the total stock per product vendor
+Tables: products
+Columns: "productVendor", "quantityInStock"
+Filters: None
+Joins: None
+2026-05-19 13:42:46,505 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:46,505 - sql_generator - INFO - Generating SQL for question: 'Total stock per product vendor'
+2026-05-19 13:42:46,708 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:46,709 - sql_generator - INFO - SQL cleaned | Result: SELECT "productVendor", SUM("quantityInStock") AS "totalStock"
+FROM "products";
+2026-05-19 13:42:46,709 - sql_generator - INFO - SQL generated successfully:
+SELECT "productVendor", SUM("quantityInStock") AS "totalStock"
+FROM "products";
+2026-05-19 13:42:46,710 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:46,710 - sql_validator - INFO - Validating SQL:
+SELECT "productVendor", SUM("quantityInStock") AS "totalStock"
+FROM "products";
+2026-05-19 13:42:46,710 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:46,710 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:46,710 - sql_executor - INFO - Starting execution | max_retries=1 | question='Total stock per product vendor'
+2026-05-19 13:42:46,710 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "productVendor", SUM("quantityInStock") AS "totalStock"
+FROM "products";
+2026-05-19 13:42:46,710 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:46,723 - database - INFO - Database connection established successfully
+2026-05-19 13:42:46,726 - sql_executor - ERROR - Attempt 1 FAILED | Error: column "products.productVendor" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT "productVendor", SUM("quantityInStock") AS "totalStoc...
+               ^
+
+2026-05-19 13:42:46,726 - sql_executor - WARNING - Retrying... (1/1)
+2026-05-19 13:42:46,726 - sql_generator - WARNING - Attempting to fix SQL for question: 'Total stock per product vendor'
+2026-05-19 13:42:46,726 - sql_generator - WARNING - Failed SQL:
+SELECT "productVendor", SUM("quantityInStock") AS "totalStock"
+FROM "products";
+2026-05-19 13:42:46,727 - sql_generator - WARNING - Error received: column "products.productVendor" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT "productVendor", SUM("quantityInStock") AS "totalStoc...
+               ^
+
+2026-05-19 13:42:46,968 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:46,969 - sql_generator - INFO - SQL cleaned | Result: SELECT "productVendor", SUM("quantityInStock") AS "totalStock"
+FROM "products"
+GROUP BY "productVendor";
+2026-05-19 13:42:46,970 - sql_generator - INFO - Fixed SQL:
+SELECT "productVendor", SUM("quantityInStock") AS "totalStock"
+FROM "products"
+GROUP BY "productVendor";
+2026-05-19 13:42:46,970 - sql_executor - INFO - Attempt 2 | SQL:
+SELECT "productVendor", SUM("quantityInStock") AS "totalStock"
+FROM "products"
+GROUP BY "productVendor";
+2026-05-19 13:42:46,970 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:46,983 - database - INFO - Database connection established successfully
+2026-05-19 13:42:46,986 - sql_executor - INFO - Attempt 2 SUCCESS | Rows returned: 13 | Time: 0.02s
+2026-05-19 13:42:46,986 - sql_executor - INFO - Columns: ['productVendor', 'totalStock']
+2026-05-19 13:42:46,986 - sql_executor - INFO - First row preview: ('Welly Diecast Productions', 45095)
+2026-05-19 13:42:46,987 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:46,987 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:46,987 - __main__ - INFO - PIPELINE SUCCESS | rows=13 | retries=1 | latency=0.02s
+2026-05-19 13:42:46,987 - __main__ - INFO - ============================================================
+2026-05-19 13:42:46,987 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:46,987 - __main__ - INFO - ============================================================
+2026-05-19 13:42:46,988 - __main__ - INFO - ============================================================
+2026-05-19 13:42:46,988 - __main__ - INFO - PIPELINE START | Question: 'Average buy price per product line'
+2026-05-19 13:42:46,988 - __main__ - INFO - ============================================================
+2026-05-19 13:42:46,988 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:46,988 - sql_generator - INFO - Decomposing question: 'Average buy price per product line'
+2026-05-19 13:42:47,091 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:47,093 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:42:51,437 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:51,439 - sql_generator - INFO - Decomposition successful:
+Intent: Calculate the average buy price of products per product line
+Tables: products, productlines
+Columns: products."productLine", products."buyPrice"
+Filters: None
+Joins: products."productLine" = productlines."productLine"
+2026-05-19 13:42:51,439 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:51,439 - sql_generator - INFO - Generating SQL for question: 'Average buy price per product line'
+2026-05-19 13:42:51,681 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:51,682 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    pl."productLine", 
+    AVG(p."buyPrice") AS "average_buy_price"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:42:51,682 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    pl."productLine", 
+    AVG(p."buyPrice") AS "average_buy_price"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:42:51,683 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:51,683 - sql_validator - INFO - Validating SQL:
+SELECT 
+    pl."productLine", 
+    AVG(p."buyPrice") AS "average_buy_price"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:42:51,683 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:51,683 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:51,683 - sql_executor - INFO - Starting execution | max_retries=1 | question='Average buy price per product line'
+2026-05-19 13:42:51,683 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    pl."productLine", 
+    AVG(p."buyPrice") AS "average_buy_price"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:42:51,683 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:51,697 - database - INFO - Database connection established successfully
+2026-05-19 13:42:51,702 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 7 | Time: 0.02s
+2026-05-19 13:42:51,702 - sql_executor - INFO - Columns: ['productLine', 'average_buy_price']
+2026-05-19 13:42:51,702 - sql_executor - INFO - First row preview: ('Classic Cars', Decimal('64.4463157894736842'))
+2026-05-19 13:42:51,703 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:51,703 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:51,703 - __main__ - INFO - PIPELINE SUCCESS | rows=7 | retries=0 | latency=0.02s
+2026-05-19 13:42:51,703 - __main__ - INFO - ============================================================
+2026-05-19 13:42:51,703 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:51,703 - __main__ - INFO - ============================================================
+2026-05-19 13:42:51,704 - __main__ - INFO - ============================================================
+2026-05-19 13:42:51,704 - __main__ - INFO - PIPELINE START | Question: 'Orders per customer'
+2026-05-19 13:42:51,704 - __main__ - INFO - ============================================================
+2026-05-19 13:42:51,704 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:51,704 - sql_generator - INFO - Decomposing question: 'Orders per customer'
+2026-05-19 13:42:51,817 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:51,818 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:42:56,569 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:56,570 - sql_generator - INFO - Decomposition successful:
+Intent: To retrieve the number of orders for each customer
+Tables: customers, orders
+Columns: c."customerName", COUNT(o."orderNumber") 
+Filters: None
+Joins: c."customerNumber" = o."customerNumber"
+2026-05-19 13:42:56,571 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:42:56,571 - sql_generator - INFO - Generating SQL for question: 'Orders per customer'
+2026-05-19 13:42:56,902 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:42:56,903 - sql_generator - INFO - SQL cleaned | Result: SELECT c."customerName", COUNT(o."orderNumber") 
+FROM customers c 
+JOIN orders o ON c."customerNumber" = o."customerNumber" 
+GROUP BY c."customerName";
+2026-05-19 13:42:56,904 - sql_generator - INFO - SQL generated successfully:
+SELECT c."customerName", COUNT(o."orderNumber") 
+FROM customers c 
+JOIN orders o ON c."customerNumber" = o."customerNumber" 
+GROUP BY c."customerName";
+2026-05-19 13:42:56,904 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:42:56,904 - sql_validator - INFO - Validating SQL:
+SELECT c."customerName", COUNT(o."orderNumber") 
+FROM customers c 
+JOIN orders o ON c."customerNumber" = o."customerNumber" 
+GROUP BY c."customerName";
+2026-05-19 13:42:56,904 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:42:56,904 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:42:56,904 - sql_executor - INFO - Starting execution | max_retries=1 | question='Orders per customer'
+2026-05-19 13:42:56,904 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT c."customerName", COUNT(o."orderNumber") 
+FROM customers c 
+JOIN orders o ON c."customerNumber" = o."customerNumber" 
+GROUP BY c."customerName";
+2026-05-19 13:42:56,904 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:42:56,917 - database - INFO - Database connection established successfully
+2026-05-19 13:42:56,922 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 98 | Time: 0.02s
+2026-05-19 13:42:56,922 - sql_executor - INFO - Columns: ['customerName', 'count']
+2026-05-19 13:42:56,922 - sql_executor - INFO - First row preview: ('Muscle Machine Inc', 4)
+2026-05-19 13:42:56,922 - sql_executor - INFO - Database connection closed
+2026-05-19 13:42:56,922 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:42:56,922 - __main__ - INFO - PIPELINE SUCCESS | rows=98 | retries=0 | latency=0.02s
+2026-05-19 13:42:56,922 - __main__ - INFO - ============================================================
+2026-05-19 13:42:56,922 - __main__ - INFO - PIPELINE END
+2026-05-19 13:42:56,922 - __main__ - INFO - ============================================================
+2026-05-19 13:42:56,923 - __main__ - INFO - ============================================================
+2026-05-19 13:42:56,923 - __main__ - INFO - PIPELINE START | Question: 'Max MSRP per product line'
+2026-05-19 13:42:56,923 - __main__ - INFO - ============================================================
+2026-05-19 13:42:56,923 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:42:56,923 - sql_generator - INFO - Decomposing question: 'Max MSRP per product line'
+2026-05-19 13:42:57,045 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:42:57,046 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:43:01,437 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:01,439 - sql_generator - INFO - Decomposition successful:
+Intent: Find the maximum MSRP for each product line
+Tables: products, productlines
+Columns: products."productLine", products."MSRP"
+Filters: None
+Joins: products."productLine" = productlines."productLine"
+2026-05-19 13:43:01,439 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:01,439 - sql_generator - INFO - Generating SQL for question: 'Max MSRP per product line'
+2026-05-19 13:43:01,813 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:01,814 - sql_generator - INFO - SQL cleaned | Result: SELECT 
+    pl."productLine", 
+    MAX(p."MSRP") AS "Max MSRP"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:43:01,815 - sql_generator - INFO - SQL generated successfully:
+SELECT 
+    pl."productLine", 
+    MAX(p."MSRP") AS "Max MSRP"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:43:01,815 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:01,815 - sql_validator - INFO - Validating SQL:
+SELECT 
+    pl."productLine", 
+    MAX(p."MSRP") AS "Max MSRP"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:43:01,815 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:01,815 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:01,815 - sql_executor - INFO - Starting execution | max_retries=1 | question='Max MSRP per product line'
+2026-05-19 13:43:01,815 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT 
+    pl."productLine", 
+    MAX(p."MSRP") AS "Max MSRP"
+FROM 
+    products p
+JOIN 
+    productlines pl ON p."productLine" = pl."productLine"
+GROUP BY 
+    pl."productLine";
+2026-05-19 13:43:01,815 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:01,829 - database - INFO - Database connection established successfully
+2026-05-19 13:43:01,835 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 7 | Time: 0.02s
+2026-05-19 13:43:01,835 - sql_executor - INFO - Columns: ['productLine', 'Max MSRP']
+2026-05-19 13:43:01,835 - sql_executor - INFO - First row preview: ('Classic Cars', Decimal('214.30'))
+2026-05-19 13:43:01,835 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:01,835 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:01,835 - __main__ - INFO - PIPELINE SUCCESS | rows=7 | retries=0 | latency=0.02s
+2026-05-19 13:43:01,835 - __main__ - INFO - ============================================================
+2026-05-19 13:43:01,835 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:01,836 - __main__ - INFO - ============================================================
+2026-05-19 13:43:01,836 - __main__ - INFO - ============================================================
+2026-05-19 13:43:01,837 - __main__ - INFO - PIPELINE START | Question: 'Min buy price per vendor'
+2026-05-19 13:43:01,837 - __main__ - INFO - ============================================================
+2026-05-19 13:43:01,837 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:43:01,837 - sql_generator - INFO - Decomposing question: 'Min buy price per vendor'
+2026-05-19 13:43:02,017 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:43:02,018 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:43:06,295 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:06,296 - sql_generator - INFO - Decomposition successful:
+Intent: Find the minimum buy price for each product vendor
+Tables: products
+Columns: "productVendor", "buyPrice"
+Filters: None
+Joins: None
+2026-05-19 13:43:06,297 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:06,297 - sql_generator - INFO - Generating SQL for question: 'Min buy price per vendor'
+2026-05-19 13:43:06,866 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:06,867 - sql_generator - INFO - SQL cleaned | Result: SELECT "productVendor", MIN("buyPrice") FROM "products"
+2026-05-19 13:43:06,867 - sql_generator - INFO - SQL generated successfully:
+SELECT "productVendor", MIN("buyPrice") FROM "products"
+2026-05-19 13:43:06,867 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:06,867 - sql_validator - INFO - Validating SQL:
+SELECT "productVendor", MIN("buyPrice") FROM "products"
+2026-05-19 13:43:06,868 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:06,868 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:06,868 - sql_executor - INFO - Starting execution | max_retries=1 | question='Min buy price per vendor'
+2026-05-19 13:43:06,868 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "productVendor", MIN("buyPrice") FROM "products"
+2026-05-19 13:43:06,868 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:06,881 - database - INFO - Database connection established successfully
+2026-05-19 13:43:06,882 - sql_executor - ERROR - Attempt 1 FAILED | Error: column "products.productVendor" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT "productVendor", MIN("buyPrice") FROM "products"
+               ^
+
+2026-05-19 13:43:06,882 - sql_executor - WARNING - Retrying... (1/1)
+2026-05-19 13:43:06,882 - sql_generator - WARNING - Attempting to fix SQL for question: 'Min buy price per vendor'
+2026-05-19 13:43:06,882 - sql_generator - WARNING - Failed SQL:
+SELECT "productVendor", MIN("buyPrice") FROM "products"
+2026-05-19 13:43:06,883 - sql_generator - WARNING - Error received: column "products.productVendor" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT "productVendor", MIN("buyPrice") FROM "products"
+               ^
+
+2026-05-19 13:43:07,308 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:07,352 - sql_generator - INFO - SQL cleaned | Result: SELECT "productVendor", MIN("buyPrice") 
+    FROM "products" 
+    GROUP BY "productVendor"
+2026-05-19 13:43:07,352 - sql_generator - INFO - Fixed SQL:
+SELECT "productVendor", MIN("buyPrice") 
+    FROM "products" 
+    GROUP BY "productVendor"
+2026-05-19 13:43:07,352 - sql_executor - INFO - Attempt 2 | SQL:
+SELECT "productVendor", MIN("buyPrice") 
+    FROM "products" 
+    GROUP BY "productVendor"
+2026-05-19 13:43:07,352 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:07,363 - database - INFO - Database connection established successfully
+2026-05-19 13:43:07,367 - sql_executor - INFO - Attempt 2 SUCCESS | Rows returned: 13 | Time: 0.01s
+2026-05-19 13:43:07,367 - sql_executor - INFO - Columns: ['productVendor', 'min']
+2026-05-19 13:43:07,367 - sql_executor - INFO - First row preview: ('Welly Diecast Productions', Decimal('24.23'))
+2026-05-19 13:43:07,367 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:07,367 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:07,367 - __main__ - INFO - PIPELINE SUCCESS | rows=13 | retries=1 | latency=0.01s
+2026-05-19 13:43:07,367 - __main__ - INFO - ============================================================
+2026-05-19 13:43:07,367 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:07,367 - __main__ - INFO - ============================================================
+2026-05-19 13:43:07,368 - __main__ - INFO - ============================================================
+2026-05-19 13:43:07,368 - __main__ - INFO - PIPELINE START | Question: 'Total number of customers'
+2026-05-19 13:43:07,368 - __main__ - INFO - ============================================================
+2026-05-19 13:43:07,368 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:43:07,368 - sql_generator - INFO - Decomposing question: 'Total number of customers'
+2026-05-19 13:43:07,494 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:43:07,494 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:43:17,156 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:17,157 - sql_generator - INFO - Decomposition successful:
+Intent: To find the total number of customers in the database.
+Tables: customers
+Columns: "customerNumber"
+Filters: None
+Joins: None
+2026-05-19 13:43:17,157 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:17,157 - sql_generator - INFO - Generating SQL for question: 'Total number of customers'
+2026-05-19 13:43:17,341 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:17,343 - sql_generator - INFO - SQL cleaned | Result: SELECT COUNT(*) FROM "customers";
+2026-05-19 13:43:17,343 - sql_generator - INFO - SQL generated successfully:
+SELECT COUNT(*) FROM "customers";
+2026-05-19 13:43:17,343 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:17,343 - sql_validator - INFO - Validating SQL:
+SELECT COUNT(*) FROM "customers";
+2026-05-19 13:43:17,343 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:17,343 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:17,343 - sql_executor - INFO - Starting execution | max_retries=1 | question='Total number of customers'
+2026-05-19 13:43:17,343 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT COUNT(*) FROM "customers";
+2026-05-19 13:43:17,343 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:17,361 - database - INFO - Database connection established successfully
+2026-05-19 13:43:17,363 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 1 | Time: 0.02s
+2026-05-19 13:43:17,363 - sql_executor - INFO - Columns: ['count']
+2026-05-19 13:43:17,363 - sql_executor - INFO - First row preview: (122,)
+2026-05-19 13:43:17,363 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:17,363 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:17,363 - __main__ - INFO - PIPELINE SUCCESS | rows=1 | retries=0 | latency=0.02s
+2026-05-19 13:43:17,363 - __main__ - INFO - ============================================================
+2026-05-19 13:43:17,363 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:17,363 - __main__ - INFO - ============================================================
+2026-05-19 13:43:17,364 - __main__ - INFO - ============================================================
+2026-05-19 13:43:17,364 - __main__ - INFO - PIPELINE START | Question: 'Total number of products'
+2026-05-19 13:43:17,364 - __main__ - INFO - ============================================================
+2026-05-19 13:43:17,364 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:43:17,364 - sql_generator - INFO - Decomposing question: 'Total number of products'
+2026-05-19 13:43:18,445 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:18,446 - sql_generator - INFO - Decomposition successful:
+Intent: To find the total number of products in the database.
+Tables: products
+Columns: "productCode"
+Filters: None
+Joins: None
+2026-05-19 13:43:18,447 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:18,447 - sql_generator - INFO - Generating SQL for question: 'Total number of products'
+2026-05-19 13:43:18,713 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:18,715 - sql_generator - INFO - SQL cleaned | Result: SELECT COUNT(*) FROM "products";
+2026-05-19 13:43:18,715 - sql_generator - INFO - SQL generated successfully:
+SELECT COUNT(*) FROM "products";
+2026-05-19 13:43:18,715 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:18,715 - sql_validator - INFO - Validating SQL:
+SELECT COUNT(*) FROM "products";
+2026-05-19 13:43:18,715 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:18,715 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:18,715 - sql_executor - INFO - Starting execution | max_retries=1 | question='Total number of products'
+2026-05-19 13:43:18,715 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT COUNT(*) FROM "products";
+2026-05-19 13:43:18,716 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:18,728 - database - INFO - Database connection established successfully
+2026-05-19 13:43:18,730 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 1 | Time: 0.01s
+2026-05-19 13:43:18,730 - sql_executor - INFO - Columns: ['count']
+2026-05-19 13:43:18,730 - sql_executor - INFO - First row preview: (110,)
+2026-05-19 13:43:18,730 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:18,730 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:18,730 - __main__ - INFO - PIPELINE SUCCESS | rows=1 | retries=0 | latency=0.01s
+2026-05-19 13:43:18,730 - __main__ - INFO - ============================================================
+2026-05-19 13:43:18,730 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:18,731 - __main__ - INFO - ============================================================
+2026-05-19 13:43:18,731 - __main__ - INFO - ============================================================
+2026-05-19 13:43:18,731 - __main__ - INFO - PIPELINE START | Question: 'Total revenue from payments'
+2026-05-19 13:43:18,731 - __main__ - INFO - ============================================================
+2026-05-19 13:43:18,731 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:43:18,731 - sql_generator - INFO - Decomposing question: 'Total revenue from payments'
+2026-05-19 13:43:18,832 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:43:18,833 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2026-05-19 13:43:21,373 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:21,374 - sql_generator - INFO - Decomposition successful:
+Intent: Calculate the total revenue from payments made by customers
+Tables: payments
+Columns: amount
+Filters: None
+Joins: None
+2026-05-19 13:43:21,375 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:21,375 - sql_generator - INFO - Generating SQL for question: 'Total revenue from payments'
+2026-05-19 13:43:21,928 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:21,929 - sql_generator - INFO - SQL cleaned | Result: SELECT SUM("amount") AS "total_revenue" FROM "payments";
+2026-05-19 13:43:21,929 - sql_generator - INFO - SQL generated successfully:
+SELECT SUM("amount") AS "total_revenue" FROM "payments";
+2026-05-19 13:43:21,930 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:21,930 - sql_validator - INFO - Validating SQL:
+SELECT SUM("amount") AS "total_revenue" FROM "payments";
+2026-05-19 13:43:21,930 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:21,930 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:21,930 - sql_executor - INFO - Starting execution | max_retries=1 | question='Total revenue from payments'
+2026-05-19 13:43:21,930 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT SUM("amount") AS "total_revenue" FROM "payments";
+2026-05-19 13:43:21,930 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:21,949 - database - INFO - Database connection established successfully
+2026-05-19 13:43:21,950 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 1 | Time: 0.02s
+2026-05-19 13:43:21,951 - sql_executor - INFO - Columns: ['total_revenue']
+2026-05-19 13:43:21,951 - sql_executor - INFO - First row preview: (Decimal('8853839.23'),)
+2026-05-19 13:43:21,951 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:21,951 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:21,951 - __main__ - INFO - PIPELINE SUCCESS | rows=1 | retries=0 | latency=0.02s
+2026-05-19 13:43:21,951 - __main__ - INFO - ============================================================
+2026-05-19 13:43:21,951 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:21,952 - __main__ - INFO - ============================================================
+2026-05-19 13:43:21,952 - __main__ - INFO - ============================================================
+2026-05-19 13:43:21,952 - __main__ - INFO - PIPELINE START | Question: 'Average product price'
+2026-05-19 13:43:21,952 - __main__ - INFO - ============================================================
+2026-05-19 13:43:21,952 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:43:21,952 - sql_generator - INFO - Decomposing question: 'Average product price'
+2026-05-19 13:43:22,047 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:43:22,048 - openai._base_client - INFO - Retrying request to /chat/completions in 2.000000 seconds
+2026-05-19 13:43:25,017 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:25,019 - sql_generator - INFO - Decomposition successful:
+Intent: Calculate the average price of all products
+Tables: products
+Columns: "MSRP" 
+Filters: None
+Joins: None
+2026-05-19 13:43:25,019 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:25,019 - sql_generator - INFO - Generating SQL for question: 'Average product price'
+2026-05-19 13:43:25,216 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:25,218 - sql_generator - INFO - SQL cleaned | Result: SELECT AVG("MSRP") AS "Average Product Price" FROM "products";
+2026-05-19 13:43:25,218 - sql_generator - INFO - SQL generated successfully:
+SELECT AVG("MSRP") AS "Average Product Price" FROM "products";
+2026-05-19 13:43:25,218 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:25,218 - sql_validator - INFO - Validating SQL:
+SELECT AVG("MSRP") AS "Average Product Price" FROM "products";
+2026-05-19 13:43:25,218 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:25,218 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:25,219 - sql_executor - INFO - Starting execution | max_retries=1 | question='Average product price'
+2026-05-19 13:43:25,219 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT AVG("MSRP") AS "Average Product Price" FROM "products";
+2026-05-19 13:43:25,219 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:25,237 - database - INFO - Database connection established successfully
+2026-05-19 13:43:25,239 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 1 | Time: 0.02s
+2026-05-19 13:43:25,239 - sql_executor - INFO - Columns: ['Average Product Price']
+2026-05-19 13:43:25,239 - sql_executor - INFO - First row preview: (Decimal('100.4387272727272727'),)
+2026-05-19 13:43:25,239 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:25,239 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:25,239 - __main__ - INFO - PIPELINE SUCCESS | rows=1 | retries=0 | latency=0.02s
+2026-05-19 13:43:25,240 - __main__ - INFO - ============================================================
+2026-05-19 13:43:25,240 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:25,240 - __main__ - INFO - ============================================================
+2026-05-19 13:43:25,240 - __main__ - INFO - ============================================================
+2026-05-19 13:43:25,240 - __main__ - INFO - PIPELINE START | Question: 'Max payment amount'
+2026-05-19 13:43:25,240 - __main__ - INFO - ============================================================
+2026-05-19 13:43:25,240 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:43:25,240 - sql_generator - INFO - Decomposing question: 'Max payment amount'
+2026-05-19 13:43:25,340 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:43:25,341 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:43:30,027 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:30,028 - sql_generator - INFO - Decomposition successful:
+Intent: Find the maximum payment amount
+Tables: payments
+Columns: amount
+Filters: None
+Joins: None
+2026-05-19 13:43:30,028 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:30,029 - sql_generator - INFO - Generating SQL for question: 'Max payment amount'
+2026-05-19 13:43:30,301 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:30,303 - sql_generator - INFO - SQL cleaned | Result: SELECT MAX("amount") FROM "payments";
+2026-05-19 13:43:30,303 - sql_generator - INFO - SQL generated successfully:
+SELECT MAX("amount") FROM "payments";
+2026-05-19 13:43:30,303 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:30,303 - sql_validator - INFO - Validating SQL:
+SELECT MAX("amount") FROM "payments";
+2026-05-19 13:43:30,303 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:30,303 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:30,303 - sql_executor - INFO - Starting execution | max_retries=1 | question='Max payment amount'
+2026-05-19 13:43:30,303 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT MAX("amount") FROM "payments";
+2026-05-19 13:43:30,303 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:30,316 - database - INFO - Database connection established successfully
+2026-05-19 13:43:30,318 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 1 | Time: 0.02s
+2026-05-19 13:43:30,319 - sql_executor - INFO - Columns: ['max']
+2026-05-19 13:43:30,319 - sql_executor - INFO - First row preview: (Decimal('120166.58'),)
+2026-05-19 13:43:30,319 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:30,319 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:30,319 - __main__ - INFO - PIPELINE SUCCESS | rows=1 | retries=0 | latency=0.02s
+2026-05-19 13:43:30,319 - __main__ - INFO - ============================================================
+2026-05-19 13:43:30,319 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:30,319 - __main__ - INFO - ============================================================
+2026-05-19 13:43:30,320 - __main__ - INFO - ============================================================
+2026-05-19 13:43:30,320 - __main__ - INFO - PIPELINE START | Question: 'Min payment amount'
+2026-05-19 13:43:30,320 - __main__ - INFO - ============================================================
+2026-05-19 13:43:30,320 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:43:30,320 - sql_generator - INFO - Decomposing question: 'Min payment amount'
+2026-05-19 13:43:30,429 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:43:30,430 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:43:33,899 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:33,900 - sql_generator - INFO - Decomposition successful:
+Intent: Find the minimum payment amount
+Tables: payments
+Columns: amount
+Filters: None
+Joins: None
+2026-05-19 13:43:33,900 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:33,900 - sql_generator - INFO - Generating SQL for question: 'Min payment amount'
+2026-05-19 13:43:34,089 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:34,091 - sql_generator - INFO - SQL cleaned | Result: SELECT MIN("amount") FROM "payments";
+2026-05-19 13:43:34,091 - sql_generator - INFO - SQL generated successfully:
+SELECT MIN("amount") FROM "payments";
+2026-05-19 13:43:34,091 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:34,091 - sql_validator - INFO - Validating SQL:
+SELECT MIN("amount") FROM "payments";
+2026-05-19 13:43:34,091 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:34,091 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:34,091 - sql_executor - INFO - Starting execution | max_retries=1 | question='Min payment amount'
+2026-05-19 13:43:34,091 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT MIN("amount") FROM "payments";
+2026-05-19 13:43:34,091 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:34,104 - database - INFO - Database connection established successfully
+2026-05-19 13:43:34,106 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 1 | Time: 0.01s
+2026-05-19 13:43:34,106 - sql_executor - INFO - Columns: ['min']
+2026-05-19 13:43:34,106 - sql_executor - INFO - First row preview: (Decimal('615.45'),)
+2026-05-19 13:43:34,106 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:34,107 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:34,107 - __main__ - INFO - PIPELINE SUCCESS | rows=1 | retries=0 | latency=0.01s
+2026-05-19 13:43:34,107 - __main__ - INFO - ============================================================
+2026-05-19 13:43:34,107 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:34,107 - __main__ - INFO - ============================================================
+2026-05-19 13:43:34,107 - __main__ - INFO - ============================================================
+2026-05-19 13:43:34,107 - __main__ - INFO - PIPELINE START | Question: 'Count total orders'
+2026-05-19 13:43:34,107 - __main__ - INFO - ============================================================
+2026-05-19 13:43:34,107 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:43:34,107 - sql_generator - INFO - Decomposing question: 'Count total orders'
+2026-05-19 13:43:34,220 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:43:34,220 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:43:39,175 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:39,176 - sql_generator - INFO - Decomposition successful:
+Intent: To count the total number of orders in the database.
+Tables: orders
+Columns: "orderNumber"
+Filters: None
+Joins: None
+2026-05-19 13:43:39,176 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:39,176 - sql_generator - INFO - Generating SQL for question: 'Count total orders'
+2026-05-19 13:43:39,397 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:39,399 - sql_generator - INFO - SQL cleaned | Result: SELECT COUNT(*) AS "totalOrders" FROM "orders";
+2026-05-19 13:43:39,399 - sql_generator - INFO - SQL generated successfully:
+SELECT COUNT(*) AS "totalOrders" FROM "orders";
+2026-05-19 13:43:39,399 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:39,399 - sql_validator - INFO - Validating SQL:
+SELECT COUNT(*) AS "totalOrders" FROM "orders";
+2026-05-19 13:43:39,399 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:39,399 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:39,399 - sql_executor - INFO - Starting execution | max_retries=1 | question='Count total orders'
+2026-05-19 13:43:39,400 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT COUNT(*) AS "totalOrders" FROM "orders";
+2026-05-19 13:43:39,400 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:39,418 - database - INFO - Database connection established successfully
+2026-05-19 13:43:39,419 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 1 | Time: 0.02s
+2026-05-19 13:43:39,420 - sql_executor - INFO - Columns: ['totalOrders']
+2026-05-19 13:43:39,420 - sql_executor - INFO - First row preview: (326,)
+2026-05-19 13:43:39,420 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:39,420 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:39,420 - __main__ - INFO - PIPELINE SUCCESS | rows=1 | retries=0 | latency=0.02s
+2026-05-19 13:43:39,420 - __main__ - INFO - ============================================================
+2026-05-19 13:43:39,420 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:39,420 - __main__ - INFO - ============================================================
+2026-05-19 13:43:39,421 - __main__ - INFO - ============================================================
+2026-05-19 13:43:39,421 - __main__ - INFO - PIPELINE START | Question: 'Total quantity in stock'
+2026-05-19 13:43:39,421 - __main__ - INFO - ============================================================
+2026-05-19 13:43:39,421 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:43:39,421 - sql_generator - INFO - Decomposing question: 'Total quantity in stock'
+2026-05-19 13:43:39,523 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:43:39,523 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:43:44,396 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:44,397 - sql_generator - INFO - Decomposition successful:
+Intent: Calculate the total quantity of products in stock
+Tables: products
+Columns: "quantityInStock"
+Filters: None
+Joins: None
+2026-05-19 13:43:44,397 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:44,398 - sql_generator - INFO - Generating SQL for question: 'Total quantity in stock'
+2026-05-19 13:43:44,712 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:44,713 - sql_generator - INFO - SQL cleaned | Result: SELECT SUM("quantityInStock") AS "totalQuantityInStock" FROM "products";
+2026-05-19 13:43:44,713 - sql_generator - INFO - SQL generated successfully:
+SELECT SUM("quantityInStock") AS "totalQuantityInStock" FROM "products";
+2026-05-19 13:43:44,713 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:44,713 - sql_validator - INFO - Validating SQL:
+SELECT SUM("quantityInStock") AS "totalQuantityInStock" FROM "products";
+2026-05-19 13:43:44,713 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:44,713 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:44,713 - sql_executor - INFO - Starting execution | max_retries=1 | question='Total quantity in stock'
+2026-05-19 13:43:44,714 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT SUM("quantityInStock") AS "totalQuantityInStock" FROM "products";
+2026-05-19 13:43:44,714 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:44,726 - database - INFO - Database connection established successfully
+2026-05-19 13:43:44,728 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 1 | Time: 0.01s
+2026-05-19 13:43:44,728 - sql_executor - INFO - Columns: ['totalQuantityInStock']
+2026-05-19 13:43:44,728 - sql_executor - INFO - First row preview: (555131,)
+2026-05-19 13:43:44,728 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:44,728 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:44,728 - __main__ - INFO - PIPELINE SUCCESS | rows=1 | retries=0 | latency=0.01s
+2026-05-19 13:43:44,728 - __main__ - INFO - ============================================================
+2026-05-19 13:43:44,728 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:44,728 - __main__ - INFO - ============================================================
+2026-05-19 13:43:44,729 - __main__ - INFO - ============================================================
+2026-05-19 13:43:44,729 - __main__ - INFO - PIPELINE START | Question: 'Average MSRP'
+2026-05-19 13:43:44,729 - __main__ - INFO - ============================================================
+2026-05-19 13:43:44,729 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:43:44,729 - sql_generator - INFO - Decomposing question: 'Average MSRP'
+2026-05-19 13:43:44,836 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:43:44,836 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000000 seconds
+2026-05-19 13:43:48,533 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:48,534 - sql_generator - INFO - Decomposition successful:
+Intent: Calculate the average MSRP of products
+Tables: products
+Columns: "MSRP"
+Filters: None
+Joins: None
+2026-05-19 13:43:48,535 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:48,535 - sql_generator - INFO - Generating SQL for question: 'Average MSRP'
+2026-05-19 13:43:48,882 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:48,883 - sql_generator - INFO - SQL cleaned | Result: SELECT AVG("MSRP") AS "Average MSRP" FROM "products";
+2026-05-19 13:43:48,884 - sql_generator - INFO - SQL generated successfully:
+SELECT AVG("MSRP") AS "Average MSRP" FROM "products";
+2026-05-19 13:43:48,884 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:48,884 - sql_validator - INFO - Validating SQL:
+SELECT AVG("MSRP") AS "Average MSRP" FROM "products";
+2026-05-19 13:43:48,884 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:48,884 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:48,884 - sql_executor - INFO - Starting execution | max_retries=1 | question='Average MSRP'
+2026-05-19 13:43:48,884 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT AVG("MSRP") AS "Average MSRP" FROM "products";
+2026-05-19 13:43:48,884 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:48,898 - database - INFO - Database connection established successfully
+2026-05-19 13:43:48,900 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 1 | Time: 0.02s
+2026-05-19 13:43:48,900 - sql_executor - INFO - Columns: ['Average MSRP']
+2026-05-19 13:43:48,900 - sql_executor - INFO - First row preview: (Decimal('100.4387272727272727'),)
+2026-05-19 13:43:48,901 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:48,901 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:48,901 - __main__ - INFO - PIPELINE SUCCESS | rows=1 | retries=0 | latency=0.02s
+2026-05-19 13:43:48,901 - __main__ - INFO - ============================================================
+2026-05-19 13:43:48,901 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:48,901 - __main__ - INFO - ============================================================
+2026-05-19 13:43:48,901 - __main__ - INFO - ============================================================
+2026-05-19 13:43:48,902 - __main__ - INFO - PIPELINE START | Question: 'Number of employees'
+2026-05-19 13:43:48,902 - __main__ - INFO - ============================================================
+2026-05-19 13:43:48,902 - __main__ - INFO - STEP 1 — Decomposing question
+2026-05-19 13:43:48,902 - sql_generator - INFO - Decomposing question: 'Number of employees'
+2026-05-19 13:43:48,996 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-05-19 13:43:48,997 - openai._base_client - INFO - Retrying request to /chat/completions in 4.000000 seconds
+2026-05-19 13:43:53,333 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:53,334 - sql_generator - INFO - Decomposition successful:
+Intent: To find the total number of employees in the company.
+Tables: employees
+Columns: "employeeNumber"
+Filters: None
+Joins: None
+2026-05-19 13:43:53,334 - __main__ - INFO - STEP 2 — Generating SQL
+2026-05-19 13:43:53,334 - sql_generator - INFO - Generating SQL for question: 'Number of employees'
+2026-05-19 13:43:53,567 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 13:43:53,568 - sql_generator - INFO - SQL cleaned | Result: SELECT COUNT("employeeNumber") AS "Number of employees" FROM "employees";
+2026-05-19 13:43:53,569 - sql_generator - INFO - SQL generated successfully:
+SELECT COUNT("employeeNumber") AS "Number of employees" FROM "employees";
+2026-05-19 13:43:53,569 - __main__ - INFO - STEP 3 — Validating SQL
+2026-05-19 13:43:53,569 - sql_validator - INFO - Validating SQL:
+SELECT COUNT("employeeNumber") AS "Number of employees" FROM "employees";
+2026-05-19 13:43:53,569 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 13:43:53,569 - __main__ - INFO - STEP 4 — Executing SQL
+2026-05-19 13:43:53,569 - sql_executor - INFO - Starting execution | max_retries=1 | question='Number of employees'
+2026-05-19 13:43:53,569 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT COUNT("employeeNumber") AS "Number of employees" FROM "employees";
+2026-05-19 13:43:53,569 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 13:43:53,581 - database - INFO - Database connection established successfully
+2026-05-19 13:43:53,582 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 1 | Time: 0.01s
+2026-05-19 13:43:53,582 - sql_executor - INFO - Columns: ['Number of employees']
+2026-05-19 13:43:53,582 - sql_executor - INFO - First row preview: (23,)
+2026-05-19 13:43:53,583 - sql_executor - INFO - Database connection closed
+2026-05-19 13:43:53,583 - __main__ - INFO - STEP 5 — Building output
+2026-05-19 13:43:53,583 - __main__ - INFO - PIPELINE SUCCESS | rows=1 | retries=0 | latency=0.01s
+2026-05-19 13:43:53,583 - __main__ - INFO - ============================================================
+2026-05-19 13:43:53,583 - __main__ - INFO - PIPELINE END
+2026-05-19 13:43:53,583 - __main__ - INFO - ============================================================
+2026-05-19 16:23:07,160 - agent - INFO - ============================================================
+2026-05-19 16:23:07,160 - agent - INFO - AGENT REQUEST | Question: 'get all order statuses'
+2026-05-19 16:23:07,160 - agent - INFO - ============================================================
+2026-05-19 16:23:07,160 - agent - INFO - STEP 1 — Understanding query (decomposition)
+2026-05-19 16:23:07,161 - sql_generator - INFO - Decomposing question: 'get all order statuses'
+2026-05-19 16:23:08,215 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:23:08,230 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve all unique order statuses from the database.
+Tables: orders
+Columns: status
+Filters: None
+Joins: None
+2026-05-19 16:23:08,230 - agent - INFO - Decomposition completed in 1.069s:
+Intent: Retrieve all unique order statuses from the database.
+Tables: orders
+Columns: status
+Filters: None
+Joins: None
+2026-05-19 16:23:08,230 - agent - INFO - STEP 2 — Generating SQL
+2026-05-19 16:23:08,230 - sql_generator - INFO - Generating SQL for question: 'get all order statuses'
+2026-05-19 16:23:08,395 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:23:08,397 - sql_generator - INFO - SQL cleaned | Result: SELECT DISTINCT "status" FROM "orders";
+2026-05-19 16:23:08,397 - sql_generator - INFO - SQL generated successfully:
+SELECT DISTINCT "status" FROM "orders";
+2026-05-19 16:23:08,397 - agent - INFO - SQL generated in 0.167s:
+SELECT DISTINCT "status" FROM "orders";
+2026-05-19 16:23:08,397 - agent - INFO - STEP 3 — Validating SQL
+2026-05-19 16:23:08,397 - sql_validator - INFO - Validating SQL:
+SELECT DISTINCT "status" FROM "orders";
+2026-05-19 16:23:08,398 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 16:23:08,398 - agent - INFO - SQL validation passed
+2026-05-19 16:23:08,398 - agent - INFO - STEP 4 — Executing SQL (max 3 retries)
+2026-05-19 16:23:08,398 - sql_executor - INFO - Starting execution | max_retries=3 | question='get all order statuses'
+2026-05-19 16:23:08,398 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT DISTINCT "status" FROM "orders";
+2026-05-19 16:23:08,398 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 16:23:08,433 - database - INFO - Database connection established successfully
+2026-05-19 16:23:08,453 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 6 | Time: 0.06s
+2026-05-19 16:23:08,453 - sql_executor - INFO - Columns: ['status']
+2026-05-19 16:23:08,454 - sql_executor - INFO - First row preview: ('Shipped',)
+2026-05-19 16:23:08,454 - sql_executor - INFO - Database connection closed
+2026-05-19 16:23:08,454 - agent - INFO - Execution completed in 0.056s
+2026-05-19 16:23:08,454 - agent - INFO - STEP 5 — Generating natural language summary
+2026-05-19 16:23:08,454 - sql_generator - INFO - Generating natural language summary for question: 'get all order statuses'
+2026-05-19 16:23:08,930 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:23:08,931 - sql_generator - INFO - Summary generated: The available order statuses are: Shipped, In Process, Disputed, Cancelled, Resolved, and On Hold. These statuses suggest that the order process includes various stages, from initial processing to final resolution or cancellation, with some orders potentially being put on hold or disputed.
+2026-05-19 16:23:08,932 - agent - INFO - AGENT SUCCESS | total_time=1.772s | retries=0
+2026-05-19 16:23:08,932 - agent - INFO - ============================================================
+2026-05-19 16:23:56,721 - agent - INFO - ============================================================
+2026-05-19 16:23:56,721 - agent - INFO - AGENT REQUEST | Question: 'get the foods'
+2026-05-19 16:23:56,721 - agent - INFO - ============================================================
+2026-05-19 16:23:56,721 - agent - INFO - STEP 1 — Understanding query (decomposition)
+2026-05-19 16:23:56,721 - sql_generator - INFO - Decomposing question: 'get the foods'
+2026-05-19 16:23:57,602 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:23:57,604 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve products related to food
+Tables: products, productlines
+Columns: "productName", "productLine"
+Filters: "productLine" = 'Food'
+Joins: products."productLine" = productlines."productLine"
+2026-05-19 16:23:57,604 - agent - INFO - Decomposition completed in 0.883s:
+Intent: Retrieve products related to food
+Tables: products, productlines
+Columns: "productName", "productLine"
+Filters: "productLine" = 'Food'
+Joins: products."productLine" = productlines."productLine"
+2026-05-19 16:23:57,604 - agent - INFO - STEP 2 — Generating SQL
+2026-05-19 16:23:57,604 - sql_generator - INFO - Generating SQL for question: 'get the foods'
+2026-05-19 16:23:57,781 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:23:57,783 - sql_generator - INFO - SQL cleaned | Result: SELECT p."productName"
+FROM products p
+JOIN productlines pl ON p."productLine" = pl."productLine"
+WHERE pl."productLine" = 'Food';
+2026-05-19 16:23:57,783 - sql_generator - INFO - SQL generated successfully:
+SELECT p."productName"
+FROM products p
+JOIN productlines pl ON p."productLine" = pl."productLine"
+WHERE pl."productLine" = 'Food';
+2026-05-19 16:23:57,783 - agent - INFO - SQL generated in 0.179s:
+SELECT p."productName"
+FROM products p
+JOIN productlines pl ON p."productLine" = pl."productLine"
+WHERE pl."productLine" = 'Food';
+2026-05-19 16:23:57,783 - agent - INFO - STEP 3 — Validating SQL
+2026-05-19 16:23:57,783 - sql_validator - INFO - Validating SQL:
+SELECT p."productName"
+FROM products p
+JOIN productlines pl ON p."productLine" = pl."productLine"
+WHERE pl."productLine" = 'Food';
+2026-05-19 16:23:57,783 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 16:23:57,783 - agent - INFO - SQL validation passed
+2026-05-19 16:23:57,783 - agent - INFO - STEP 4 — Executing SQL (max 3 retries)
+2026-05-19 16:23:57,784 - sql_executor - INFO - Starting execution | max_retries=3 | question='get the foods'
+2026-05-19 16:23:57,784 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT p."productName"
+FROM products p
+JOIN productlines pl ON p."productLine" = pl."productLine"
+WHERE pl."productLine" = 'Food';
+2026-05-19 16:23:57,784 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 16:23:57,797 - database - INFO - Database connection established successfully
+2026-05-19 16:23:57,807 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 0 | Time: 0.02s
+2026-05-19 16:23:57,807 - sql_executor - INFO - Columns: ['productName']
+2026-05-19 16:23:57,807 - sql_executor - INFO - First row preview: No rows
+2026-05-19 16:23:57,807 - sql_executor - INFO - Database connection closed
+2026-05-19 16:23:57,807 - agent - INFO - Execution completed in 0.024s
+2026-05-19 16:23:57,807 - agent - INFO - STEP 5 — Generating natural language summary
+2026-05-19 16:23:57,807 - sql_generator - INFO - Generating natural language summary for question: 'get the foods'
+2026-05-19 16:23:58,323 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:23:58,324 - sql_generator - INFO - Summary generated: No foods were found in our current product offerings. It's possible that the food category is empty or the filter criteria may not be aligned with our product catalog. You may want to verify the product categories or check if there are any other categories that might be relevant to your query.
+2026-05-19 16:23:58,324 - agent - INFO - AGENT SUCCESS | total_time=1.604s | retries=0
+2026-05-19 16:23:58,324 - agent - INFO - ============================================================
+2026-05-19 16:24:40,895 - agent - INFO - ============================================================
+2026-05-19 16:24:40,895 - agent - INFO - AGENT REQUEST | Question: 'get the countries of the offices'
+2026-05-19 16:24:40,895 - agent - INFO - ============================================================
+2026-05-19 16:24:40,896 - agent - INFO - STEP 1 — Understanding query (decomposition)
+2026-05-19 16:24:40,896 - sql_generator - INFO - Decomposing question: 'get the countries of the offices'
+2026-05-19 16:24:41,569 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:24:41,570 - sql_generator - INFO - Decomposition successful:
+Intent: Retrieve the countries where the offices are located
+Tables: offices
+Columns: country
+Filters: None
+Joins: None
+2026-05-19 16:24:41,570 - agent - INFO - Decomposition completed in 0.674s:
+Intent: Retrieve the countries where the offices are located
+Tables: offices
+Columns: country
+Filters: None
+Joins: None
+2026-05-19 16:24:41,570 - agent - INFO - STEP 2 — Generating SQL
+2026-05-19 16:24:41,570 - sql_generator - INFO - Generating SQL for question: 'get the countries of the offices'
+2026-05-19 16:24:41,737 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:24:41,738 - sql_generator - INFO - SQL cleaned | Result: SELECT "country" FROM "offices"
+2026-05-19 16:24:41,739 - sql_generator - INFO - SQL generated successfully:
+SELECT "country" FROM "offices"
+2026-05-19 16:24:41,739 - agent - INFO - SQL generated in 0.168s:
+SELECT "country" FROM "offices"
+2026-05-19 16:24:41,739 - agent - INFO - STEP 3 — Validating SQL
+2026-05-19 16:24:41,739 - sql_validator - INFO - Validating SQL:
+SELECT "country" FROM "offices"
+2026-05-19 16:24:41,739 - sql_validator - INFO - Validation PASSED — query is safe
+2026-05-19 16:24:41,739 - agent - INFO - SQL validation passed
+2026-05-19 16:24:41,739 - agent - INFO - STEP 4 — Executing SQL (max 3 retries)
+2026-05-19 16:24:41,739 - sql_executor - INFO - Starting execution | max_retries=3 | question='get the countries of the offices'
+2026-05-19 16:24:41,739 - sql_executor - INFO - Attempt 1 | SQL:
+SELECT "country" FROM "offices"
+2026-05-19 16:24:41,740 - database - INFO - Connecting to PostgreSQL | host=db db=classicmodels
+2026-05-19 16:24:41,755 - database - INFO - Database connection established successfully
+2026-05-19 16:24:41,758 - sql_executor - INFO - Attempt 1 SUCCESS | Rows returned: 7 | Time: 0.02s
+2026-05-19 16:24:41,758 - sql_executor - INFO - Columns: ['country']
+2026-05-19 16:24:41,758 - sql_executor - INFO - First row preview: ('USA',)
+2026-05-19 16:24:41,759 - sql_executor - INFO - Database connection closed
+2026-05-19 16:24:41,759 - agent - INFO - Execution completed in 0.019s
+2026-05-19 16:24:41,759 - agent - INFO - STEP 5 — Generating natural language summary
+2026-05-19 16:24:41,759 - sql_generator - INFO - Generating natural language summary for question: 'get the countries of the offices'
+2026-05-19 16:24:42,424 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-19 16:24:42,426 - sql_generator - INFO - Summary generated: The countries where offices are located are the USA, France, Japan, Australia, and the UK. It's worth noting that the majority of offices, three out of seven, are in the USA.
+2026-05-19 16:24:42,426 - agent - INFO - AGENT SUCCESS | total_time=1.531s | retries=0
+2026-05-19 16:24:42,426 - agent - INFO - ============================================================
