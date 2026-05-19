@@ -26,66 +26,73 @@ This repository contains all coursework, assignments, and solutions completed as
 
     FuseMachines-AI-MicroDegree-2026/
     │
-    ├── Week1/                                        # Data Wrangling & SQL
-    │   ├── Wk_1_Data_Wrangling_HeartAttack.ipynb    # Main Jupyter Notebook
-    │   ├── Wk_1_Data_Wrangling_HeartAttack.pdf      # Assignment PDF
-    │   ├── clinical_data.csv                         # Dataset
-    │   ├── lifestyle_factors.csv                     # Dataset
-    │   ├── patient_demographics.csv                  # Dataset
-    │   ├── mysqlsampledatabase.sql                   # SQL sample database
-    │   ├── SQL Assignment.docx                       # SQL assignment doc
-    │   ├── Week 1 SQL Assignment.pdf                 # SQL assignment PDF
-    │   └── source/                                   # Source/reference materials
+    ├── Week1/                                          # Data Wrangling & SQL
+    │   ├── Wk_1_Data_Wrangling_HeartAttack.ipynb      # Main Jupyter Notebook
+    │   ├── Wk_1_Data_Wrangling_HeartAttack.pdf        # Assignment PDF
+    │   ├── clinical_data.csv                           # Dataset
+    │   ├── lifestyle_factors.csv                       # Dataset
+    │   ├── patient_demographics.csv                    # Dataset
+    │   ├── mysqlsampledatabase.sql                     # SQL sample database
+    │   ├── SQL Assignment.docx                         # SQL assignment doc
+    │   ├── Week 1 SQL Assignment.pdf                   # SQL assignment PDF
+    │   └── source/                                     # Source/reference materials
     │
-    ├── Week2/                                        # FastAPI + PostgreSQL + Docker
-    │   ├── Task1_Week2.pdf                           # Task descriptions
+    ├── Week2/                                          # FastAPI + PostgreSQL + Docker
+    │   ├── Task1_Week2.pdf                             # Task descriptions
     │   ├── Task2_Week2.pdf
     │   ├── Task3_Week2.pdf
     │   └── AssignmentWeek2/
     │       ├── app/
-    │       │   ├── main.py                           # FastAPI entry point
-    │       │   ├── models.py                         # SQLAlchemy models
-    │       │   ├── schemas.py                        # Pydantic schemas
-    │       │   ├── crud.py                           # CRUD operations
-    │       │   ├── database.py                       # DB connection setup
-    │       │   ├── router.py                         # API routes
-    │       │   ├── counts_router.py                  # Count-based routes
-    │       │   ├── logger.py                         # Logging setup
-    │       │   ├── app.log                           # Log file
-    │       │   └── requirements.txt                  # Python dependencies
+    │       │   ├── main.py                             # FastAPI entry point
+    │       │   ├── models.py                           # SQLAlchemy models
+    │       │   ├── schemas.py                          # Pydantic schemas
+    │       │   ├── crud.py                             # CRUD operations
+    │       │   ├── database.py                         # DB connection setup
+    │       │   ├── router.py                           # API routes
+    │       │   ├── counts_router.py                    # Count-based routes
+    │       │   ├── logger.py                           # Logging setup
+    │       │   ├── app.log                             # Log file
+    │       │   └── requirements.txt                    # Python dependencies
     │       ├── .devcontainer/
-    │       │   └── devcontainer.json                 # VS Code dev container config
-    │       ├── docker-compose.yml                    # Docker Compose config
-    │       ├── Dockerfile                            # Docker image definition
-    │       ├── seed.sql                              # Database seed data
-    │       ├── .env                                  # Environment variables (not committed)
+    │       │   └── devcontainer.json                   # VS Code dev container config
+    │       ├── docker-compose.yml                      # Docker Compose config
+    │       ├── Dockerfile                              # Docker image definition
+    │       ├── seed.sql                                # Database seed data
+    │       ├── .env                                    # Environment variables (not committed)
     │       └── .gitignore
     │
-    ├── Week3/                                        # AI-Powered SQL Generator with FastAPI
-    │   ├── Week3_Task1_Assignment.pdf                # Task descriptions
+    ├── Week3/                                          # AI-Powered SQL Generator
+    │   ├── Week3_Task1_Assignment.pdf                  # Task descriptions
     │   ├── Week3_Task2_Assignment.pdf
     │   ├── Week3_Task3_Assignment.pdf
     │   ├── Week3_Task4_Assignment.pdf
-    │   ├── sql_questions_only.csv                    # Natural language SQL questions dataset
-    │   ├── seed.sql                                  # Database seed data
+    │   ├── seed.sql                                    # Database seed data
+    │   ├── Task Docs Solutions/                        # Submitted solution documents
+    │   │   ├── Task 1 Part 1.pdf
+    │   │   └── Task 2.pdf
     │   └── AssignmentWeek3/
     │       ├── app/
-    │       │   ├── main.py                           # FastAPI entry point
-    │       │   ├── database.py                       # DB connection setup
-    │       │   ├── schema.py                         # Pydantic schemas
-    │       │   ├── sql_generator.py                  # AI-powered SQL generation
-    │       │   ├── sql_executor.py                   # SQL execution logic
-    │       │   ├── sql_validator.py                  # SQL validation logic
-    │       │   ├── logger.py                         # Logging setup
-    │       │   ├── app.log                           # Log file
-    │       │   ├── requirements.txt                  # Python dependencies
-    │       │   └── .env                              # App-level env variables (not committed)
+    │       │   ├── agent.py                            # ⭐ Run this for the FastAPI server
+    │       │   ├── main.py                             # ⭐ Run this to process all 50 SQL questions
+    │       │   ├── sql_generator.py                    # AI-powered SQL generation
+    │       │   ├── sql_executor.py                     # SQL execution logic
+    │       │   ├── sql_validator.py                    # SQL validation logic
+    │       │   ├── database.py                         # DB connection setup
+    │       │   ├── schema.py                           # Pydantic schemas
+    │       │   ├── logger.py                           # Logging setup
+    │       │   ├── requirements.txt                    # Python dependencies
+    │       │   ├── .env                                # App-level env variables (not committed)
+    │       │   └── sql/
+    │       │       └── sql_questions_only.csv          # 50 natural language SQL questions
+    │       ├── logs/
+    │       │   └── pipeline_results.json               # Output log of all 50 question given for assignment
+    │       │   └── app.log                             # Log file
     │       ├── .devcontainer/
-    │       │   └── devcontainer.json                 # VS Code dev container config
-    │       ├── docker-compose.yml                    # Docker Compose config
-    │       ├── Dockerfile                            # Docker image definition
-    │       ├── seed.sql                              # Database seed data
-    │       ├── .env                                  # Environment variables (not committed)
+    │       │   └── devcontainer.json                   # VS Code dev container config
+    │       ├── docker-compose.yml                      # Docker Compose config
+    │       ├── Dockerfile                              # Docker image definition
+    │       ├── seed.sql                                # Database seed data
+    │       ├── .env                                    # Environment variables (not committed)
     │       └── .gitignore
     │
     └── .gitignore
@@ -163,26 +170,33 @@ Swagger Docs → `http://localhost:8000/docs`
 
 ### 🟣 Week 3 — AI-Powered SQL Generator with FastAPI & PostgreSQL
 
-> *Building an intelligent API that takes natural language input, generates SQL using an AI model, validates it, and executes it against a PostgreSQL database.*
+> *Building an intelligent pipeline that takes natural language input, generates SQL using an AI model, validates it, and executes it against a PostgreSQL database.*
 
 **Topics Covered:**
 - AI-powered **natural language to SQL** generation using an LLM API
 - SQL validation and safe execution pipelines
-- Integrating an **LLM API key** into a FastAPI backend
+- Building an **AI agent** (`agent.py`) to serve the FastAPI endpoints
+- Batch processing of 50 natural language questions sequentially via `main.py`
 - Advanced FastAPI project structure with modular components
 - PostgreSQL + Docker Compose setup
-- Logging and error handling in production-style apps
+- Logging pipeline results to `logs/pipeline_results.json`
 
 **Key Files:**
-- `app/main.py` — FastAPI entry point
-- `app/sql_generator.py` — sends prompts to AI model, returns SQL queries
-- `app/sql_validator.py` — validates generated SQL before execution
-- `app/sql_executor.py` — safely executes validated SQL against PostgreSQL
-- `app/database.py` — PostgreSQL connection
-- `app/schema.py` — request/response schemas
-- `docker-compose.yml` — spins up FastAPI + PostgreSQL together
-- `seed.sql` — pre-populates the database for query testing
-- `sql_questions_only.csv` — natural language questions used for testing
+
+| File | Purpose |
+|---|---|
+| `app/agent.py` | ⭐ **Start the FastAPI server** — run this to launch the API |
+| `app/main.py` | ⭐ **Batch runner** — reads all 50 questions from the CSV and runs them sequentially |
+| `app/sql_generator.py` | Sends natural language prompts to the LLM, returns SQL queries |
+| `app/sql_validator.py` | Validates the generated SQL before execution |
+| `app/sql_executor.py` | Safely executes validated SQL against PostgreSQL |
+| `app/database.py` | PostgreSQL connection setup |
+| `app/schema.py` | Pydantic request/response schemas |
+| `app/sql/sql_questions_only.csv` | The 50 natural language questions (one per line) |
+| `logs/pipeline_results.json` | Output log — results of all 50 questions after running `main.py` |
+| `docker-compose.yml` | Spins up FastAPI + PostgreSQL together |
+| `seed.sql` | Pre-populates the database for query testing |
+| `Task Docs Solutions/` | Submitted PDF solution documents for the assignment |
 
 **⚙️ Environment Setup**
 
@@ -199,8 +213,24 @@ Create a `.env` file inside `Week3/AssignmentWeek3/` with the following:
 
 **Running Week 3:**
 
+**Step 1** — Start the full stack (FastAPI + PostgreSQL) with Docker:
+
     cd Week3/AssignmentWeek3
     docker-compose up --build
+
+**Step 2** — To run all 50 SQL questions sequentially from the CSV:
+
+    cd Week3/AssignmentWeek3/app
+    python main.py
+
+This reads every question from `sql/sql_questions_only.csv` line by line, sends each one through the full pipeline (generate → validate → execute), and saves all results to `logs/pipeline_results.json`.
+
+
+**Step 3** — To run fastapi endpoint for text2SQL agent:
+
+    python agent.py
+
+This reads every question from `http://localhost:8000/agent/sql`, sends it through the full pipeline (generate → validate → execute), and shows the result and summary. It also saves all logs to `logs/app.log`.
 
 API → `http://localhost:8000`
 Swagger Docs → `http://localhost:8000/docs`
