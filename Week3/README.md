@@ -41,34 +41,41 @@ The project also supports **batch processing** of 50 predefined natural language
 # 📁 Project Structure
 
 ```bash
-AssignmentWeek3/
-│
-├── app/
-│   ├── agent.py                     # ⭐ Run this to start the FastAPI server
-│   ├── main.py                      # ⭐ Run this to process all 50 SQL questions
-│   ├── sql_generator.py             # AI-powered SQL generation
-│   ├── sql_executor.py              # SQL query execution
-│   ├── sql_validator.py             # SQL validation and safety checks
-│   ├── database.py                  # PostgreSQL database connection
-│   ├── schema.py                    # Pydantic schemas
-│   ├── logger.py                    # Logging configuration
-│   ├── requirements.txt             # Python dependencies
-│   ├── .env                         # Environment variables (not committed)
-│   └── sql/
-│       └── sql_questions_only.csv   # 50 natural language SQL questions
-│
-├── logs/
-│   ├── pipeline_results.json        # Output results of all 50 questions
-│   └── app.log                      # Application logs
-│
-├── .devcontainer/
-│   └── devcontainer.json            # VS Code Dev Container configuration
-│
-├── docker-compose.yml               # Docker Compose configuration
-├── Dockerfile                       # Docker image definition
-├── seed.sql                         # Database seed data
-├── .env                             # Environment variables (not committed)
-└── .gitignore
+Week3/                                          # AI-Powered SQL Generator
+├── Week3_Task1_Assignment.pdf                  # Task descriptions
+├── Week3_Task2_Assignment.pdf
+├── Week3_Task3_Assignment.pdf
+├── Week3_Task4_Assignment.pdf
+├── seed.sql                                    # Database seed data
+├── Task Docs Solutions/                        # Submitted solution documents
+│   ├── Task 1 Part 1.pdf
+│   ├── Task 1 Part 2.pdf
+│   ├── Task 2.pdf
+│   ├── Task 3.pdf
+├── AssignmentWeek3/
+│   ├── app/
+│   │   ├── agent.py                     # ⭐ Run this to start the FastAPI server
+│   │   ├── main.py                      # ⭐ Run this to process all 50 SQL questions
+│   │   ├── sql_generator.py             # AI-powered SQL generation
+│   │   ├── sql_executor.py              # SQL query execution
+│   │   ├── sql_validator.py             # SQL validation and safety checks
+│   │   ├── database.py                  # PostgreSQL database connection
+│   │   ├── schema.py                    # Pydantic schemas
+│   │   ├── logger.py                    # Logging configuration
+│   │   ├── requirements.txt             # Python dependencies
+│   │   ├── .env                         # Environment variables (not committed)
+│   │   ├── sql/
+│   │   │   ├──sql_questions_only.csv   # 50 natural language SQL questions
+│   ├── logs/
+│   │   ├── pipeline_results.json        # Output results of all 50 questions
+│   │   └── app.log                      # Application logs
+│   ├── .devcontainer/
+│   │   └── devcontainer.json            # VS Code Dev Container configuration
+│   ├── docker-compose.yml               # Docker Compose configuration
+│   ├── Dockerfile                       # Docker image definition
+│   ├── seed.sql                         # Database seed data
+│   ├── .env                             # Environment variables (not committed)
+│   └── .gitignore
 ```
 
 ---
