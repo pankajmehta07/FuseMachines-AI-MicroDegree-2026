@@ -69,7 +69,9 @@ This repository contains all coursework, assignments, and solutions completed as
     │   ├── seed.sql                                    # Database seed data
     │   ├── Task Docs Solutions/                        # Submitted solution documents
     │   │   ├── Task 1 Part 1.pdf
+    │   │   ├── Task 1 Part 2.pdf
     │   │   └── Task 2.pdf
+    │   │   ├── Task 3.pdf
     │   └── AssignmentWeek3/
     │       ├── app/
     │       │   ├── agent.py                            # ⭐ Run this for the FastAPI server
