@@ -6,3 +6,4 @@ venv/
 
 # Files
 *.env
+*.pkl
