@@ -17,6 +17,7 @@ services:
     environment:
       - LOCAL_LLM_URL=http://ollama:11434
       - LOCAL_LLM_MODEL=${LOCAL_LLM_MODEL}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o-mini}
     ports:
       - "${BACKEND_PORT}:8000"
     depends_on:
