@@ -88,9 +88,9 @@ This project implements an AI assistant with:
 | Backend framework | FastAPI | Async-native, automatic docs, clean typing via Pydantic |
 | Cloud LLM providers | OpenAI (gpt-4o-mini) + Google Gemini (gemini-3.6-flash) | OpenAI is on the assignment's approved list but has no free tier (requires prepaid credits); Gemini added as a genuinely free-tier-compatible alternative, also on the approved list |
 | Local LLM serving | Ollama serving Qwen2.5-coder:3b (GGUF format) | See Section 11 (ONNX justification) for why Ollama/GGUF was chosen over vLLM/ONNX on CPU-only hardware |
-| Vector database | ChromaDB (embedded/persistent mode) | Runs in-process inside the backend container — no separate server container needed, minimal RAM footprint for an 8GB machine |
+| Vector database | ChromaDB (embedded/persistent mode) | Runs in-process inside the backend container — no separate server container needed, minimal RAM footprint |
 | Embeddings | sentence-transformers (`all-MiniLM-L6-v2`), local | ~80MB model, runs on CPU, no API key/quota needed, avoids adding a 4th external dependency |
-| Frontend | Streamlit | Pure Python, no separate JS/Node build step, lighter weight than React for an 8GB RAM constrained machine |
+| Frontend | Streamlit | Pure Python, no separate JS/Node build step, lighter weight than React for a constrained machine |
 | Rate limiting | slowapi | Lightweight, built specifically for FastAPI/Starlette |
 | Containerization | Docker Compose, 3 services (ollama, backend, frontend) | Fully isolated environments; no venv needed since each container manages its own Python environment |
 
@@ -318,7 +318,7 @@ ONNX conversion was evaluated and determined **not applicable** to this project,
 
 2. **Local provider (Qwen2.5-coder:3b via Ollama):** Ollama serves models in **GGUF** format, a quantization and serving format purpose-built for efficient CPU inference (via `llama.cpp` under the hood). GGUF already accomplishes the same underlying goals ONNX conversion would target — reduced precision/quantization and hardware-optimized execution. Additionally, Ollama does not natively support ONNX models; adopting ONNX would require abandoning Ollama entirely in favor of a separate ONNX Runtime serving pipeline, solely to satisfy this one requirement, at the cost of the working Ollama-based setup already in place.
 
-This project also originally considered **vLLM** (explicitly named in the assignment) for local model serving, but vLLM's CPU backend requires a from-source build (`Dockerfile.cpu`) and benefits significantly from AVX512 CPU support — a fragile, high-setup-cost path on this project's CPU-only, 8GB RAM development machine. Ollama was substituted as a more CPU-appropriate, equally valid open-source local serving solution, and this same CPU-first reasoning extends directly to why ONNX was not pursued as an additional optimization layer on top of it.
+This project also originally considered **vLLM** (explicitly named in the assignment) for local model serving, but vLLM's CPU backend requires a from-source build (`Dockerfile.cpu`) and benefits significantly from AVX512 CPU support — a fragile, high-setup-cost path on this project's CPU-only development machine. Ollama was substituted as a more CPU-appropriate, equally valid open-source local serving solution, and this same CPU-first reasoning extends directly to why ONNX was not pursued as an additional optimization layer on top of it.
 
 ## 12. Known Limitations
 
