@@ -4,3 +4,8 @@ openai==1.109.0
 google-genai==2.20.0
 httpx==0.28.1
 python-dotenv==1.0.1
+sentence-transformers==6.0.0
+chromadb==1.5.9
+pypdf==6.16.2
+python-multipart==0.0.32
+slowapi==0.1.10

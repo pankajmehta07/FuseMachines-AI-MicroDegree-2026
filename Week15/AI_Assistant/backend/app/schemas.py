@@ -7,7 +7,7 @@ class ChatRequest(BaseModel):
     provider: Literal["openai", "local", "gemini"] = "local"
     temperature: float = Field(0.7, ge=0.0, le=2.0)
     top_p: float = Field(1.0, ge=0.0, le=1.0)
-    max_tokens: int = Field(512, gt=0, le=4096)
+    max_tokens: int = Field(1024, gt=0, le=4096)
     use_tools: bool = Field(False, description="Allow the model to call tools")
 
 
@@ -58,3 +58,33 @@ class TaskExtractionResponse(BaseModel):
     provider: str
     model: str
     extracted: ExtractedTask
+
+
+# ---- RAG schemas ----
+class IngestTextRequest(BaseModel):
+    text: str = Field(..., description="Raw text to ingest into the knowledge base")
+    source: str = Field(..., description="A label identifying this document, e.g. filename")
+
+
+class IngestResponse(BaseModel):
+    source: str
+    chunks_created: int
+
+
+class RagQueryRequest(BaseModel):
+    question: str
+    provider: Literal["openai", "local", "gemini"] = "local"
+    top_k: int = Field(3, ge=1, le=10)
+
+
+class RetrievedChunk(BaseModel):
+    text: str
+    source: str
+    distance: float
+
+
+class RagQueryResponse(BaseModel):
+    provider: str
+    model: str
+    answer: str
+    retrieved_chunks: list[RetrievedChunk]

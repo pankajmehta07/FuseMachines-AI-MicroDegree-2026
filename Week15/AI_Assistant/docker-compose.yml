@@ -24,7 +24,21 @@ services:
       - ollama
     volumes:
       - ./backend/app:/app/app
+      - chroma-data:/app/chroma_data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: ai-assistant-frontend
+    ports:
+      - "${FRONTEND_PORT:-8501}:8501"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
     restart: unless-stopped
 
 volumes:
   ollama-data:
+  chroma-data:

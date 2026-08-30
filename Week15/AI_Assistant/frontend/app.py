@@ -16,6 +16,7 @@ with st.sidebar:
     provider = st.selectbox("Provider", ["local", "gemini", "openai"], index=0)
     use_tools = st.checkbox("Enable tool calling", value=False)
     temperature = st.slider("Temperature", 0.0, 2.0, 0.7, 0.1)
+    max_tokens = st.slider("Max response length (tokens)", 128, 4096, 1024, 128)
 
     st.divider()
     st.header("RAG - Ingest a document")
@@ -84,6 +85,7 @@ if user_input:
                             "message": user_input,
                             "provider": provider,
                             "temperature": temperature,
+                            "max_tokens": max_tokens,
                             "use_tools": use_tools,
                         },
                         timeout=120,
